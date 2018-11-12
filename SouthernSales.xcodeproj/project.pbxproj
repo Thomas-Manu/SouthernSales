@@ -16,10 +16,10 @@
 		EA0D645D21992AD50015BEAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA0D645B21992AD50015BEAA /* LaunchScreen.storyboard */; };
 		EA0D646821992AD50015BEAA /* SouthernSalesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0D646721992AD50015BEAA /* SouthernSalesTests.swift */; };
 		EA0D647321992AD50015BEAA /* SouthernSalesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0D647221992AD50015BEAA /* SouthernSalesUITests.swift */; };
-		EA7A68572199EAE60026C7DE /* ListingsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7A68562199EAE60026C7DE /* ListingsCollectionViewController.swift */; };
 		EA7A68592199EAF70026C7DE /* SavedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7A68582199EAF70026C7DE /* SavedCollectionViewController.swift */; };
 		EA7A685B2199EB050026C7DE /* MessagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7A685A2199EB050026C7DE /* MessagesTableViewController.swift */; };
 		EA7A685D2199EB130026C7DE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7A685C2199EB130026C7DE /* ProfileViewController.swift */; };
+		EA7A6860219A0AFF0026C7DE /* ListingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7A685F219A0AFF0026C7DE /* ListingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,10 +61,10 @@
 		EA0D646E21992AD50015BEAA /* SouthernSalesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SouthernSalesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA0D647221992AD50015BEAA /* SouthernSalesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SouthernSalesUITests.swift; sourceTree = "<group>"; };
 		EA0D647421992AD60015BEAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EA7A68562199EAE60026C7DE /* ListingsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingsCollectionViewController.swift; sourceTree = "<group>"; };
 		EA7A68582199EAF70026C7DE /* SavedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCollectionViewController.swift; sourceTree = "<group>"; };
 		EA7A685A2199EB050026C7DE /* MessagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableViewController.swift; sourceTree = "<group>"; };
 		EA7A685C2199EB130026C7DE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		EA7A685F219A0AFF0026C7DE /* ListingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListingsViewController.swift; path = /Users/thomasm/Documents/Xcode/SouthernSales/SouthernSales/Controllers/ListingsViewController.swift; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,7 +180,7 @@
 		EA0D648221992B810015BEAA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				EA7A68562199EAE60026C7DE /* ListingsCollectionViewController.swift */,
+				EA7A685F219A0AFF0026C7DE /* ListingsViewController.swift */,
 				EA7A68582199EAF70026C7DE /* SavedCollectionViewController.swift */,
 				EA7A685A2199EB050026C7DE /* MessagesTableViewController.swift */,
 				EA7A685C2199EB130026C7DE /* ProfileViewController.swift */,
@@ -464,7 +464,7 @@
 				EA7A685B2199EB050026C7DE /* MessagesTableViewController.swift in Sources */,
 				EA7A685D2199EB130026C7DE /* ProfileViewController.swift in Sources */,
 				EA7A68592199EAF70026C7DE /* SavedCollectionViewController.swift in Sources */,
-				EA7A68572199EAE60026C7DE /* ListingsCollectionViewController.swift in Sources */,
+				EA7A6860219A0AFF0026C7DE /* ListingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
