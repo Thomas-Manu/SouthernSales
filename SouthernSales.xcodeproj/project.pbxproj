@@ -99,13 +99,9 @@
 		EA0D644F21992AD40015BEAA /* SouthernSales */ = {
 			isa = PBXGroup;
 			children = (
-				EA0D645021992AD40015BEAA /* AppDelegate.swift */,
-				EA0D645221992AD40015BEAA /* FirstViewController.swift */,
-				EA0D645421992AD40015BEAA /* SecondViewController.swift */,
-				EA0D645621992AD40015BEAA /* Main.storyboard */,
-				EA0D645921992AD50015BEAA /* Assets.xcassets */,
-				EA0D645B21992AD50015BEAA /* LaunchScreen.storyboard */,
-				EA0D645E21992AD50015BEAA /* Info.plist */,
+				EA0D648121992B7A0015BEAA /* Supporting Files */,
+				EA0D648221992B810015BEAA /* Controllers */,
+				EA0D648021992B660015BEAA /* Storyboards */,
 			);
 			path = SouthernSales;
 			sourceTree = "<group>";
@@ -126,6 +122,34 @@
 				EA0D647421992AD60015BEAA /* Info.plist */,
 			);
 			path = SouthernSalesUITests;
+			sourceTree = "<group>";
+		};
+		EA0D648021992B660015BEAA /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				EA0D645621992AD40015BEAA /* Main.storyboard */,
+				EA0D645B21992AD50015BEAA /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		EA0D648121992B7A0015BEAA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EA0D645021992AD40015BEAA /* AppDelegate.swift */,
+				EA0D645921992AD50015BEAA /* Assets.xcassets */,
+				EA0D645E21992AD50015BEAA /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EA0D648221992B810015BEAA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EA0D645221992AD40015BEAA /* FirstViewController.swift */,
+				EA0D645421992AD40015BEAA /* SecondViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -439,6 +463,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7HLV4SJH4C;
 				INFOPLIST_FILE = SouthernSales/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -446,7 +471,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ThomasManu.SeniorProject.SouthernSales;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -457,6 +482,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7HLV4SJH4C;
 				INFOPLIST_FILE = SouthernSales/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -464,7 +490,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ThomasManu.SeniorProject.SouthernSales;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
