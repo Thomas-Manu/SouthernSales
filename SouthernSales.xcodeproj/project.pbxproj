@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04D0042714C8BBBD2CA46190 /* Pods_SouthernSalesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67126D7FD1F5DF16566C4A89 /* Pods_SouthernSalesUITests.framework */; };
+		6CCFC2F13AC8E91D35C5DD96 /* Pods_SouthernSales.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2087E1FE9AFC73E59F02E05 /* Pods_SouthernSales.framework */; };
+		92AB2B2872027AB43E482EBA /* Pods_SouthernSalesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 741C058D94BD2C6C98FA355B /* Pods_SouthernSalesTests.framework */; };
 		EA0D645121992AD40015BEAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0D645021992AD40015BEAA /* AppDelegate.swift */; };
 		EA0D645321992AD40015BEAA /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0D645221992AD40015BEAA /* FirstViewController.swift */; };
 		EA0D645521992AD40015BEAA /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0D645421992AD40015BEAA /* SecondViewController.swift */; };
@@ -35,6 +38,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		13875EFEADE166B4458046B5 /* Pods-SouthernSalesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SouthernSalesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SouthernSalesTests/Pods-SouthernSalesTests.debug.xcconfig"; sourceTree = "<group>"; };
+		39DA0B72819F8B4A82B86E19 /* Pods-SouthernSalesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SouthernSalesUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SouthernSalesUITests/Pods-SouthernSalesUITests.release.xcconfig"; sourceTree = "<group>"; };
+		64513A97D69DA7BEA902A31A /* Pods-SouthernSalesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SouthernSalesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SouthernSalesTests/Pods-SouthernSalesTests.release.xcconfig"; sourceTree = "<group>"; };
+		67126D7FD1F5DF16566C4A89 /* Pods_SouthernSalesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SouthernSalesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		741C058D94BD2C6C98FA355B /* Pods_SouthernSalesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SouthernSalesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BF3930BD46CA539C3384A0B /* Pods-SouthernSalesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SouthernSalesUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SouthernSalesUITests/Pods-SouthernSalesUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B2087E1FE9AFC73E59F02E05 /* Pods_SouthernSales.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SouthernSales.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B37117B643D9301D3B183F6A /* Pods-SouthernSales.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SouthernSales.release.xcconfig"; path = "Pods/Target Support Files/Pods-SouthernSales/Pods-SouthernSales.release.xcconfig"; sourceTree = "<group>"; };
+		BA2849F645749266004574F5 /* Pods-SouthernSales.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SouthernSales.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SouthernSales/Pods-SouthernSales.debug.xcconfig"; sourceTree = "<group>"; };
 		EA0D644D21992AD40015BEAA /* SouthernSales.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SouthernSales.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA0D645021992AD40015BEAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA0D645221992AD40015BEAA /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CCFC2F13AC8E91D35C5DD96 /* Pods_SouthernSales.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92AB2B2872027AB43E482EBA /* Pods_SouthernSalesTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +84,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04D0042714C8BBBD2CA46190 /* Pods_SouthernSalesUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A3BFF6DBB9EEBD5242B80C3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BA2849F645749266004574F5 /* Pods-SouthernSales.debug.xcconfig */,
+				B37117B643D9301D3B183F6A /* Pods-SouthernSales.release.xcconfig */,
+				13875EFEADE166B4458046B5 /* Pods-SouthernSalesTests.debug.xcconfig */,
+				64513A97D69DA7BEA902A31A /* Pods-SouthernSalesTests.release.xcconfig */,
+				9BF3930BD46CA539C3384A0B /* Pods-SouthernSalesUITests.debug.xcconfig */,
+				39DA0B72819F8B4A82B86E19 /* Pods-SouthernSalesUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		EA0D644421992AD40015BEAA = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +111,8 @@
 				EA0D646621992AD50015BEAA /* SouthernSalesTests */,
 				EA0D647121992AD50015BEAA /* SouthernSalesUITests */,
 				EA0D644E21992AD40015BEAA /* Products */,
+				5A3BFF6DBB9EEBD5242B80C3 /* Pods */,
+				FDECBB81C81CC65B86E58590 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -152,6 +182,16 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		FDECBB81C81CC65B86E58590 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B2087E1FE9AFC73E59F02E05 /* Pods_SouthernSales.framework */,
+				741C058D94BD2C6C98FA355B /* Pods_SouthernSalesTests.framework */,
+				67126D7FD1F5DF16566C4A89 /* Pods_SouthernSalesUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -159,9 +199,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EA0D647721992AD60015BEAA /* Build configuration list for PBXNativeTarget "SouthernSales" */;
 			buildPhases = (
+				43285507DDED9853C132089E /* [CP] Check Pods Manifest.lock */,
 				EA0D644921992AD40015BEAA /* Sources */,
 				EA0D644A21992AD40015BEAA /* Frameworks */,
 				EA0D644B21992AD40015BEAA /* Resources */,
+				E47248C83D7261BBA51B4046 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -176,6 +218,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EA0D647A21992AD60015BEAA /* Build configuration list for PBXNativeTarget "SouthernSalesTests" */;
 			buildPhases = (
+				3DCEB1321F632781CE904849 /* [CP] Check Pods Manifest.lock */,
 				EA0D645F21992AD50015BEAA /* Sources */,
 				EA0D646021992AD50015BEAA /* Frameworks */,
 				EA0D646121992AD50015BEAA /* Resources */,
@@ -194,9 +237,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EA0D647D21992AD60015BEAA /* Build configuration list for PBXNativeTarget "SouthernSalesUITests" */;
 			buildPhases = (
+				06582EEE1E93A211C48E17FA /* [CP] Check Pods Manifest.lock */,
 				EA0D646A21992AD50015BEAA /* Sources */,
 				EA0D646B21992AD50015BEAA /* Frameworks */,
 				EA0D646C21992AD50015BEAA /* Resources */,
+				D30FC1098C203AF32BBE4BA9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -277,6 +322,129 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		06582EEE1E93A211C48E17FA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SouthernSalesUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3DCEB1321F632781CE904849 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SouthernSalesTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		43285507DDED9853C132089E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SouthernSales-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D30FC1098C203AF32BBE4BA9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SouthernSalesUITests/Pods-SouthernSalesUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftMonkey/SwiftMonkey.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMonkey.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SouthernSalesUITests/Pods-SouthernSalesUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E47248C83D7261BBA51B4046 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SouthernSales/Pods-SouthernSales-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
+				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
+				"${BUILT_PRODUCTS_DIR}/MessageKit/MessageKit.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/Onboard/Onboard.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Onboard.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SouthernSales/Pods-SouthernSales-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EA0D644921992AD40015BEAA /* Sources */ = {
@@ -458,11 +626,12 @@
 		};
 		EA0D647821992AD60015BEAA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA2849F645749266004574F5 /* Pods-SouthernSales.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7HLV4SJH4C;
-				INFOPLIST_FILE = SouthernSales/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SouthernSales/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -470,18 +639,20 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ThomasManu.SeniorProject.SouthernSales;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_ENABLE_BATCH_MODE = No;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		EA0D647921992AD60015BEAA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B37117B643D9301D3B183F6A /* Pods-SouthernSales.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7HLV4SJH4C;
-				INFOPLIST_FILE = SouthernSales/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SouthernSales/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -489,13 +660,15 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ThomasManu.SeniorProject.SouthernSales;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_ENABLE_BATCH_MODE = No;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		EA0D647B21992AD60015BEAA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13875EFEADE166B4458046B5 /* Pods-SouthernSalesTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -509,7 +682,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ThomasManu.SeniorProject.SouthernSalesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SouthernSales.app/SouthernSales";
 			};
@@ -517,6 +690,7 @@
 		};
 		EA0D647C21992AD60015BEAA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64513A97D69DA7BEA902A31A /* Pods-SouthernSalesTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -530,7 +704,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ThomasManu.SeniorProject.SouthernSalesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SouthernSales.app/SouthernSales";
 			};
@@ -538,6 +712,7 @@
 		};
 		EA0D647E21992AD60015BEAA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BF3930BD46CA539C3384A0B /* Pods-SouthernSalesUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -550,7 +725,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ThomasManu.SeniorProject.SouthernSalesUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = SouthernSales;
 			};
@@ -558,6 +733,7 @@
 		};
 		EA0D647F21992AD60015BEAA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39DA0B72819F8B4A82B86E19 /* Pods-SouthernSalesUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -570,7 +746,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ThomasManu.SeniorProject.SouthernSalesUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = SouthernSales;
 			};
