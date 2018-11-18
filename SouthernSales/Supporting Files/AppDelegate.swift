@@ -7,16 +7,47 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseUI
+import Onboard
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, FUIAuthDelegate {
 
     var window: UIWindow?
 
 
-    private func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FirebaseApp.configure()
+        let authUI = FUIAuth.defaultAuthUI()
+        authUI!.delegate = self
+        let providers: [FUIAuthProvider] = [FUIGoogleAuth()]
+        authUI!.providers = providers
+        let authViewController = authUI!.authViewController()
+        self.window?.rootViewController = onboardInitialView(authUIVC: authViewController)
         return true
+    }
+    
+    func onboardInitialView(authUIVC: UIViewController) -> OnboardingViewController {
+        let firstPage = OnboardingContentViewController(title: "Page Title", body: "Page body goes here.", image: UIImage(named: "icon"), buttonText: "Text For Button") { () -> Void in
+            self.window?.rootViewController?.present(authUIVC, animated: true, completion: nil)
+        }
+        return OnboardingViewController(backgroundImage: UIImage(named: "Home"), contents: [firstPage])
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as! String?
+        if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false {
+            return true
+        }
+        return false;
+    }
+    
+    func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
+        NSLog("\(String(describing: authDataResult!))")
+        self.window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+        self.window?.makeKeyAndVisible()
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

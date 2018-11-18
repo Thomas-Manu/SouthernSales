@@ -16,6 +16,7 @@
 		EA0D645D21992AD50015BEAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA0D645B21992AD50015BEAA /* LaunchScreen.storyboard */; };
 		EA0D646821992AD50015BEAA /* SouthernSalesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0D646721992AD50015BEAA /* SouthernSalesTests.swift */; };
 		EA0D647321992AD50015BEAA /* SouthernSalesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0D647221992AD50015BEAA /* SouthernSalesUITests.swift */; };
+		EA19193E21A1AF2B0053C68E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA19193D21A1AF2B0053C68E /* GoogleService-Info.plist */; };
 		EA7A68592199EAF70026C7DE /* SavedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7A68582199EAF70026C7DE /* SavedCollectionViewController.swift */; };
 		EA7A685B2199EB050026C7DE /* MessagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7A685A2199EB050026C7DE /* MessagesTableViewController.swift */; };
 		EA7A685D2199EB130026C7DE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7A685C2199EB130026C7DE /* ProfileViewController.swift */; };
@@ -61,6 +62,7 @@
 		EA0D646E21992AD50015BEAA /* SouthernSalesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SouthernSalesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA0D647221992AD50015BEAA /* SouthernSalesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SouthernSalesUITests.swift; sourceTree = "<group>"; };
 		EA0D647421992AD60015BEAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EA19193D21A1AF2B0053C68E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EA7A68582199EAF70026C7DE /* SavedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCollectionViewController.swift; sourceTree = "<group>"; };
 		EA7A685A2199EB050026C7DE /* MessagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableViewController.swift; sourceTree = "<group>"; };
 		EA7A685C2199EB130026C7DE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 			children = (
 				EA0D645021992AD40015BEAA /* AppDelegate.swift */,
 				EA0D645921992AD50015BEAA /* Assets.xcassets */,
+				EA19193D21A1AF2B0053C68E /* GoogleService-Info.plist */,
 				EA0D645E21992AD50015BEAA /* Info.plist */,
 			);
 			path = "Supporting Files";
@@ -210,6 +213,8 @@
 				EA0D644A21992AD40015BEAA /* Frameworks */,
 				EA0D644B21992AD40015BEAA /* Resources */,
 				E47248C83D7261BBA51B4046 /* [CP] Embed Pods Frameworks */,
+				EA19193F21A1B3140053C68E /* Crashalytics Run Script */,
+				F64086A8CA3851700020ED58 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -311,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA0D645D21992AD50015BEAA /* LaunchScreen.storyboard in Resources */,
+				EA19193E21A1AF2B0053C68E /* GoogleService-Info.plist in Resources */,
 				EA0D645A21992AD50015BEAA /* Assets.xcassets in Resources */,
 				EA0D645821992AD40015BEAA /* Main.storyboard in Resources */,
 			);
@@ -412,45 +418,64 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SouthernSales/Pods-SouthernSales-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
-				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
-				"${BUILT_PRODUCTS_DIR}/MessageKit/MessageKit.framework",
-				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/Onboard/Onboard.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Onboard.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SouthernSales/Pods-SouthernSales-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EA19193F21A1B3140053C68E /* Crashalytics Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = "Crashalytics Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/Fabric/run\"\n";
+		};
+		F64086A8CA3851700020ED58 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SouthernSales/Pods-SouthernSales-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseGoogleAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SouthernSales/Pods-SouthernSales-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

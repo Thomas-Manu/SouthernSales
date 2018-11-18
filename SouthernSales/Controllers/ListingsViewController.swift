@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import FirebaseUI
 
 class ListingsViewController: UIViewController {
+    
+    var authViewController: FUIAuthBaseViewController?
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     

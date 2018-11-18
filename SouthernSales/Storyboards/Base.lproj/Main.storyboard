@@ -202,7 +202,7 @@
         <!--Home-->
         <scene sceneID="NAh-9X-Cwo">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jDH-Fd-rZH" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="listingsNavigation" automaticallyAdjustsScrollViewInsets="NO" id="jDH-Fd-rZH" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="Home" id="HQx-f9-WYk"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eU7-j6-wtP">
