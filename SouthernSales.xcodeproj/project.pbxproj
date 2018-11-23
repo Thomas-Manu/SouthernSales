@@ -17,6 +17,11 @@
 		EA0D646821992AD50015BEAA /* SouthernSalesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0D646721992AD50015BEAA /* SouthernSalesTests.swift */; };
 		EA0D647321992AD50015BEAA /* SouthernSalesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0D647221992AD50015BEAA /* SouthernSalesUITests.swift */; };
 		EA19193E21A1AF2B0053C68E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA19193D21A1AF2B0053C68E /* GoogleService-Info.plist */; };
+		EA19194421A1E3140053C68E /* ListingsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA19194221A1E3130053C68E /* ListingsCollectionViewCell.swift */; };
+		EA19194521A1E3140053C68E /* ListingsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA19194321A1E3130053C68E /* ListingsCollectionViewCell.xib */; };
+		EA19194B21A1FD8A0053C68E /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA19194A21A1FD8A0053C68E /* PostViewController.swift */; };
+		EA19194D21A200B40053C68E /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA19194C21A200B40053C68E /* Utility.swift */; };
+		EA19195221A268360053C68E /* MainModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA19195121A268360053C68E /* MainModels.swift */; };
 		EA7A68592199EAF70026C7DE /* SavedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7A68582199EAF70026C7DE /* SavedCollectionViewController.swift */; };
 		EA7A685B2199EB050026C7DE /* MessagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7A685A2199EB050026C7DE /* MessagesTableViewController.swift */; };
 		EA7A685D2199EB130026C7DE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7A685C2199EB130026C7DE /* ProfileViewController.swift */; };
@@ -63,6 +68,11 @@
 		EA0D647221992AD50015BEAA /* SouthernSalesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SouthernSalesUITests.swift; sourceTree = "<group>"; };
 		EA0D647421992AD60015BEAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA19193D21A1AF2B0053C68E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EA19194221A1E3130053C68E /* ListingsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingsCollectionViewCell.swift; sourceTree = "<group>"; };
+		EA19194321A1E3130053C68E /* ListingsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListingsCollectionViewCell.xib; sourceTree = "<group>"; };
+		EA19194A21A1FD8A0053C68E /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		EA19194C21A200B40053C68E /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		EA19195121A268360053C68E /* MainModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModels.swift; sourceTree = "<group>"; };
 		EA7A68582199EAF70026C7DE /* SavedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCollectionViewController.swift; sourceTree = "<group>"; };
 		EA7A685A2199EB050026C7DE /* MessagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableViewController.swift; sourceTree = "<group>"; };
 		EA7A685C2199EB130026C7DE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +145,8 @@
 		EA0D644F21992AD40015BEAA /* SouthernSales */ = {
 			isa = PBXGroup;
 			children = (
+				EA19194021A1E2D40053C68E /* Models */,
+				EA19194121A1E2E10053C68E /* Views */,
 				EA0D648221992B810015BEAA /* Controllers */,
 				EA0D648021992B660015BEAA /* Storyboards */,
 				EA0D648121992B7A0015BEAA /* Supporting Files */,
@@ -176,6 +188,7 @@
 				EA0D645921992AD50015BEAA /* Assets.xcassets */,
 				EA19193D21A1AF2B0053C68E /* GoogleService-Info.plist */,
 				EA0D645E21992AD50015BEAA /* Info.plist */,
+				EA19194C21A200B40053C68E /* Utility.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -185,10 +198,28 @@
 			children = (
 				EA7A685F219A0AFF0026C7DE /* ListingsViewController.swift */,
 				EA7A68582199EAF70026C7DE /* SavedCollectionViewController.swift */,
+				EA19194A21A1FD8A0053C68E /* PostViewController.swift */,
 				EA7A685A2199EB050026C7DE /* MessagesTableViewController.swift */,
 				EA7A685C2199EB130026C7DE /* ProfileViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		EA19194021A1E2D40053C68E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EA19195121A268360053C68E /* MainModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		EA19194121A1E2E10053C68E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EA19194221A1E3130053C68E /* ListingsCollectionViewCell.swift */,
+				EA19194321A1E3130053C68E /* ListingsCollectionViewCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		FDECBB81C81CC65B86E58590 /* Frameworks */ = {
@@ -316,6 +347,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA0D645D21992AD50015BEAA /* LaunchScreen.storyboard in Resources */,
+				EA19194521A1E3140053C68E /* ListingsCollectionViewCell.xib in Resources */,
 				EA19193E21A1AF2B0053C68E /* GoogleService-Info.plist in Resources */,
 				EA0D645A21992AD50015BEAA /* Assets.xcassets in Resources */,
 				EA0D645821992AD40015BEAA /* Main.storyboard in Resources */,
@@ -418,21 +450,31 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SouthernSales/Pods-SouthernSales-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Onboard/Onboard.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Onboard.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -485,10 +527,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA19194B21A1FD8A0053C68E /* PostViewController.swift in Sources */,
+				EA19194421A1E3140053C68E /* ListingsCollectionViewCell.swift in Sources */,
 				EA0D645121992AD40015BEAA /* AppDelegate.swift in Sources */,
 				EA7A685B2199EB050026C7DE /* MessagesTableViewController.swift in Sources */,
 				EA7A685D2199EB130026C7DE /* ProfileViewController.swift in Sources */,
+				EA19194D21A200B40053C68E /* Utility.swift in Sources */,
 				EA7A68592199EAF70026C7DE /* SavedCollectionViewController.swift in Sources */,
+				EA19195221A268360053C68E /* MainModels.swift in Sources */,
 				EA7A6860219A0AFF0026C7DE /* ListingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
