@@ -10,7 +10,7 @@ use_frameworks!
 #    pod 'ImageSlideshow'
 #    pod 'IQKeyboardManagerSwift'
 #    pod 'MessageKit'
-#    pod 'NVActivityIndicatorView'
+    pod 'NVActivityIndicatorView'
     pod 'Onboard'
 #    pod 'SDWebImage'
 #    pod 'SnapKit', '~> 4.0.0'
@@ -25,7 +25,7 @@ use_frameworks!
     pod 'Crashlytics'
     pod 'FirebaseUI/Auth'
     pod 'FirebaseUI/Google'
-    
+    pod 'Firebase/Performance'    
 
   target 'SouthernSalesTests' do
     inherit! :search_paths

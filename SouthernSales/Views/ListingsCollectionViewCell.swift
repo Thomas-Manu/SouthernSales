@@ -16,10 +16,21 @@ class ListingsCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundColor = UIColor.blue
+        
+        contentView.layer.cornerRadius = 3
+        contentView.layer.borderWidth = 0.5
+        contentView.layer.borderColor = UIColor.clear.cgColor
+        contentView.layer.masksToBounds = true
+        
+        layer.shadowColor = UIColor.lightGray.cgColor
+        layer.shadowOffset = CGSize(width: 1, height: 1)
+        layer.shadowRadius = 3
+        layer.shadowOpacity = 0.5
+        layer.masksToBounds = false
+        layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: contentView.layer.cornerRadius).cgPath
     }
     
-    func configure(title: String, price: NSNumber) {
+    func configure(title: String, price: Double) {
 //        previewImageView?.image = previewImage
         titleLabel?.text = title
         priceLabel?.text = "$\(price)"

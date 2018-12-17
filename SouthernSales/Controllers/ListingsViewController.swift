@@ -8,8 +8,9 @@
 import UIKit
 import GoogleSignIn
 import FirebaseAuth
+import NVActivityIndicatorView
 
-class ListingsViewController: UIViewController, GIDSignInUIDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate, UISearchControllerDelegate {
+class ListingsViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate, UISearchControllerDelegate, NVActivityIndicatorViewable {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -19,6 +20,8 @@ class ListingsViewController: UIViewController, GIDSignInUIDelegate, UICollectio
     override func viewDidLoad() {
         super.viewDidLoad()
         GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance()?.delegate = self;
+        GIDSignIn.sharedInstance()?.hostedDomain = "southern.edu"
         GIDSignIn.sharedInstance().signIn()
         
         collectionView.delegate = self
@@ -26,13 +29,7 @@ class ListingsViewController: UIViewController, GIDSignInUIDelegate, UICollectio
         collectionView.register(UINib(nibName: "ListingsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        listingsData = Utility.databaseReadListings()
-        
-    }
-    
-    // MARK: Collection View
+    // MARK: - Collection View
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -44,40 +41,50 @@ class ListingsViewController: UIViewController, GIDSignInUIDelegate, UICollectio
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ListingsCollectionViewCell
-        
-        cell.configure(title: "Test", price: 12.12)
+        let listing = listingsData[indexPath.row]
+        cell.configure(title: listing.title, price: listing.price)
         
         return cell
     }
     
-    /*
-     // Uncomment this method to specify if the specified item should be highlighted during tracking
-     func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-     return true
-     }
-     */
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
     
-    /*
-     // Uncomment this method to specify if the specified item should be selected
-     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-     return true
-     }
-     */
+    // MARK: - Flow Layout
     
-    /*
-     // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-     func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-     return false
-     }
-     
-     func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-     return false
-     }
-     
-     func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-     
-     }
-     */
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = (collectionView.bounds.width / 2) - 30
+        return CGSize(width: width, height: width)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
+    
+    // MARK: - Firebase
+    
+    func updateListings() {
+        startAnimating(type: NVActivityIndicatorType.ballScaleRippleMultiple)
+        Utility.databaseReadListings { (listing) in
+            self.listingsData = listing
+            self.collectionView.reloadData()
+            self.stopAnimating()
+        }
+    }
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if error != nil {
+            stopAnimating()
+        }
+    }
 
 
     /*

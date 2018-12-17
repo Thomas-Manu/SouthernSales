@@ -52,7 +52,7 @@ class Utility {
         }
     }
 
-    static func databaseReadListings() -> [Listing] {
+    static func databaseReadListings(onSuccess success: @escaping ([Listing]) -> Void) {
         let db = initializeFirestoreDatabase()
         var listings = [Listing]()
         db.collection("listings").getDocuments { (snapshot, error) in
@@ -65,10 +65,9 @@ class Utility {
                                                  price: document.data()["price"] as! Double,
                                                  description: document.data()["description"] as! String,
                                                  user: document.data()["user"] as? String))
-                    print("\(document.documentID) => \(document.data())")
                 }
+                success(listings)
             }
         }
-        return listings
     }
 }

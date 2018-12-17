@@ -22,10 +22,12 @@
 		EA19194B21A1FD8A0053C68E /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA19194A21A1FD8A0053C68E /* PostViewController.swift */; };
 		EA19194D21A200B40053C68E /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA19194C21A200B40053C68E /* Utility.swift */; };
 		EA19195221A268360053C68E /* MainModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA19195121A268360053C68E /* MainModels.swift */; };
+		EA306B3121C7235E00E3A1E4 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA306B3021C7235E00E3A1E4 /* SplashViewController.swift */; };
 		EA7A68592199EAF70026C7DE /* SavedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7A68582199EAF70026C7DE /* SavedCollectionViewController.swift */; };
 		EA7A685B2199EB050026C7DE /* MessagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7A685A2199EB050026C7DE /* MessagesTableViewController.swift */; };
 		EA7A685D2199EB130026C7DE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7A685C2199EB130026C7DE /* ProfileViewController.swift */; };
 		EA7A6860219A0AFF0026C7DE /* ListingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7A685F219A0AFF0026C7DE /* ListingsViewController.swift */; };
+		EADA9C5E21A8890600826C28 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADA9C5D21A8890600826C28 /* SettingsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,10 +75,12 @@
 		EA19194A21A1FD8A0053C68E /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		EA19194C21A200B40053C68E /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		EA19195121A268360053C68E /* MainModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModels.swift; sourceTree = "<group>"; };
+		EA306B3021C7235E00E3A1E4 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		EA7A68582199EAF70026C7DE /* SavedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCollectionViewController.swift; sourceTree = "<group>"; };
 		EA7A685A2199EB050026C7DE /* MessagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableViewController.swift; sourceTree = "<group>"; };
 		EA7A685C2199EB130026C7DE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		EA7A685F219A0AFF0026C7DE /* ListingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListingsViewController.swift; path = /Users/thomasm/Documents/Xcode/SouthernSales/SouthernSales/Controllers/ListingsViewController.swift; sourceTree = "<absolute>"; };
+		EADA9C5D21A8890600826C28 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +205,8 @@
 				EA19194A21A1FD8A0053C68E /* PostViewController.swift */,
 				EA7A685A2199EB050026C7DE /* MessagesTableViewController.swift */,
 				EA7A685C2199EB130026C7DE /* ProfileViewController.swift */,
+				EADA9C5D21A8890600826C28 /* SettingsTableViewController.swift */,
+				EA306B3021C7235E00E3A1E4 /* SplashViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -454,6 +460,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/Onboard/Onboard.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
@@ -469,6 +476,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Onboard.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
@@ -533,9 +541,11 @@
 				EA7A685B2199EB050026C7DE /* MessagesTableViewController.swift in Sources */,
 				EA7A685D2199EB130026C7DE /* ProfileViewController.swift in Sources */,
 				EA19194D21A200B40053C68E /* Utility.swift in Sources */,
+				EADA9C5E21A8890600826C28 /* SettingsTableViewController.swift in Sources */,
 				EA7A68592199EAF70026C7DE /* SavedCollectionViewController.swift in Sources */,
 				EA19195221A268360053C68E /* MainModels.swift in Sources */,
 				EA7A6860219A0AFF0026C7DE /* ListingsViewController.swift in Sources */,
+				EA306B3121C7235E00E3A1E4 /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
