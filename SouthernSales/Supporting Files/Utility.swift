@@ -33,7 +33,7 @@ class Utility {
         return User.init(id: currentUser.uid, name: currentUser.displayName!, email: currentUser.email!)
     }
 
-    static func databaseAddNewListing(with listing: Listing) {
+    static func databaseAddNewListing(with listing: Listing, failure: @escaping (Error) -> Void) {
         let db = initializeFirestoreDatabase()
         let user = getCurrentUser()
         var ref: DocumentReference? = nil
@@ -44,20 +44,22 @@ class Utility {
             "timestamp": Timestamp.init(),
             "user": "/users/\(user!.id)" 
             ]) { error in
-            if let error = error {
-                print("Error adding document: \(error)")
+            if let err = error {
+                failure(err)
+                print("Error adding document: \(err)")
             } else {
                 print("Document added with ID: \(ref!.documentID)")
             }
         }
     }
 
-    static func databaseReadListings(onSuccess success: @escaping ([Listing]) -> Void) {
+    static func databaseReadListings(_ success: @escaping ([Listing]) -> Void, _ failure: @escaping (Error) -> Void) {
         let db = initializeFirestoreDatabase()
         var listings = [Listing]()
         db.collection("listings").getDocuments { (snapshot, error) in
-            if let error = error {
-                print("Error getting documents: \(error)")
+            if let err = error {
+                failure(err)
+                print("Error getting documents: \(err)")
             } else {
                 for document in snapshot!.documents {
                     listings.append(Listing.init(id: document.documentID,
