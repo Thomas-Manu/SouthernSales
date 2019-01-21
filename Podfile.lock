@@ -125,9 +125,9 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
-  - NVActivityIndicatorView (4.2.1):
-    - NVActivityIndicatorView/Presenter (= 4.2.1)
-  - NVActivityIndicatorView/Presenter (4.2.1)
+  - NVActivityIndicatorView (4.4.1):
+    - NVActivityIndicatorView/Presenter (= 4.4.1)
+  - NVActivityIndicatorView/Presenter (4.4.1)
   - Onboard (2.3.3)
   - Protobuf (3.6.0)
   - SwiftMonkey (2.1.0)
@@ -142,7 +142,7 @@ DEPENDENCIES:
   - Firebase/Performance
   - FirebaseUI/Auth
   - FirebaseUI/Google
-  - NVActivityIndicatorView
+  - NVActivityIndicatorView (~> 4.4.0)
   - Onboard
   - SwiftMonkey
 
@@ -198,15 +198,15 @@ SPEC CHECKSUMS:
   gRPC-Core: 9696b220565b283e021cf2722d473a4a74b7622a
   gRPC-ProtoRPC: a1bd56fb1991a8dae4581250d7259eddabb66779
   gRPC-RxLibrary: 1ed5314e8b38cd6e55c9bfa048387136ae925ce9
-  GTMOAuth2: c77fe325e4acd453837e72d91e3b5f13116857b2
+  GTMOAuth2: e8b6512c896235149df975c41d9a36c868ab7fba
   GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
-  NVActivityIndicatorView: 8068ba3ad39cb44cbaab25d89ff2546b3f092681
+  NVActivityIndicatorView: f0a6b0ed2973d9544da268f4eb76696f0a9577b0
   Onboard: 4d6e943e20bdd6bc229df967a347dd7514bc2a6f
   Protobuf: 0fc0ad8bec688b2a3017a139953e01374fedbd5f
   SwiftMonkey: 1c239fa53de5b6430accfe07e575af4f0f0bc481
 
-PODFILE CHECKSUM: 95694066068d6e04e836211a7e5071b147b65c9a
+PODFILE CHECKSUM: f49c441012bbb488128799b1d371b92a85f38e68
 
 COCOAPODS: 1.5.3

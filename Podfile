@@ -10,7 +10,7 @@ use_frameworks!
 #    pod 'ImageSlideshow'
 #    pod 'IQKeyboardManagerSwift'
 #    pod 'MessageKit'
-    pod 'NVActivityIndicatorView'
+    pod 'NVActivityIndicatorView', '~> 4.4.0'
     pod 'Onboard'
 #    pod 'SDWebImage'
 #    pod 'SnapKit', '~> 4.0.0'
