@@ -3,11 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>SchemeUserState</key>
+	<dict/>
+	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>SouthernSales.xcscheme_^#shared#^_</key>
+		<key>EA0D644C21992AD40015BEAA</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>26</integer>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EA0D646221992AD50015BEAA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EA0D646D21992AD50015BEAA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
