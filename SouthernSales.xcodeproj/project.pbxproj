@@ -79,7 +79,7 @@
 		EA7A68582199EAF70026C7DE /* SavedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCollectionViewController.swift; sourceTree = "<group>"; };
 		EA7A685A2199EB050026C7DE /* MessagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableViewController.swift; sourceTree = "<group>"; };
 		EA7A685C2199EB130026C7DE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		EA7A685F219A0AFF0026C7DE /* ListingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListingsViewController.swift; path = /Users/thomasm/Documents/Xcode/SouthernSales/SouthernSales/Controllers/ListingsViewController.swift; sourceTree = "<absolute>"; };
+		EA7A685F219A0AFF0026C7DE /* ListingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingsViewController.swift; sourceTree = "<group>"; };
 		EADA9C5D21A8890600826C28 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
