@@ -1,0 +1,5 @@
+language: swift
+rvm:
+ - 4.2
+xcode_project: SouthernSales.xcworkspace
+xcode_destination: platform=iOS Simulator,OS=11.3,name=iPhone X
