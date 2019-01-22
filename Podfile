@@ -7,25 +7,27 @@ use_frameworks!
 #    pod 'Alamofire'
 #    pod 'CocoaLumberjack/Swift'
 #    pod 'Eureka'
-#    pod 'ImageSlideshow'
 #    pod 'IQKeyboardManagerSwift'
 #    pod 'MessageKit'
-    pod 'NVActivityIndicatorView', '~> 4.4.0'
-    pod 'Onboard'
-#    pod 'SDWebImage'
 #    pod 'SnapKit', '~> 4.0.0'
 #    pod 'SwiftyJSON'
 
+    pod 'ImageSlideshow'
+    pod 'NVActivityIndicatorView', '~> 4.4.0'
+    pod 'Onboard'
+
    # Firebase Pods
     pod 'Firebase/Core'
-    pod 'Firebase/Database'
     pod 'Firebase/Messaging'
     pod 'Firebase/Auth'
     pod 'Firebase/Firestore'
     pod 'Crashlytics'
     pod 'FirebaseUI/Auth'
     pod 'FirebaseUI/Google'
-    pod 'Firebase/Performance'    
+    pod 'Firebase/Performance'   
+    pod 'Firebase/Storage' 
+    pod 'Firebase/Database'
+    pod 'SDWebImage' 
 
   target 'SouthernSalesTests' do
     inherit! :search_paths

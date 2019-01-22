@@ -35,7 +35,16 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells/>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="97R-GF-euc">
+                                        <rect key="frame" x="0.0" y="0.0" width="166" height="138"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="166" height="138"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
                                 <connections>
                                     <outlet property="dataSource" destination="NPb-VF-uAz" id="2WX-fx-Ibm"/>
                                     <outlet property="delegate" destination="NPb-VF-uAz" id="4fw-Qk-tdj"/>
@@ -65,66 +74,20 @@
             </objects>
             <point key="canvasLocation" x="3176.8000000000002" y="-1003.4482758620691"/>
         </scene>
-        <!--View Listing View Controller-->
+        <!--View Controller-->
         <scene sceneID="24a-wS-6kf">
             <objects>
-                <viewController id="bvl-Zh-fj3" customClass="ViewListingViewController" customModule="SouthernSales" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bvl-Zh-fj3" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OKY-yd-CIW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nvW-ua-ryi" customClass="ImageSlideshow" customModule="ImageSlideshow">
-                                <rect key="frame" x="0.0" y="64" width="375" height="159"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YG7-bg-GXa">
-                                <rect key="frame" x="16" y="231" width="343" height="349"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="349" id="fWd-6m-GAT"/>
-                                </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KtM-WB-XNj">
-                                <rect key="frame" x="16" y="588" width="343" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="messageSeller:" destination="bvl-Zh-fj3" eventType="touchUpInside" id="E9y-u0-kSf"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="nvW-ua-ryi" firstAttribute="top" secondItem="hAv-mt-Wmd" secondAttribute="top" id="Qgh-a1-Hqc"/>
-                            <constraint firstAttribute="trailing" secondItem="nvW-ua-ryi" secondAttribute="trailing" id="WRg-Ap-OQX"/>
-                            <constraint firstItem="nvW-ua-ryi" firstAttribute="centerX" secondItem="YG7-bg-GXa" secondAttribute="centerX" id="aTY-Hv-moJ"/>
-                            <constraint firstItem="YG7-bg-GXa" firstAttribute="leading" secondItem="KtM-WB-XNj" secondAttribute="leading" id="fU9-az-G7h"/>
-                            <constraint firstItem="KtM-WB-XNj" firstAttribute="top" secondItem="YG7-bg-GXa" secondAttribute="bottom" constant="8" symbolic="YES" id="hCc-X3-UAi"/>
-                            <constraint firstItem="nvW-ua-ryi" firstAttribute="leading" secondItem="OKY-yd-CIW" secondAttribute="leading" id="ktL-pW-nIk"/>
-                            <constraint firstItem="YG7-bg-GXa" firstAttribute="trailing" secondItem="KtM-WB-XNj" secondAttribute="trailing" id="owS-R4-9Fk"/>
-                            <constraint firstItem="KtM-WB-XNj" firstAttribute="bottom" secondItem="hAv-mt-Wmd" secondAttribute="bottom" id="pR9-o6-QIi"/>
-                            <constraint firstItem="YG7-bg-GXa" firstAttribute="top" secondItem="nvW-ua-ryi" secondAttribute="bottom" constant="8" symbolic="YES" id="tiv-fm-yRT"/>
-                            <constraint firstItem="YG7-bg-GXa" firstAttribute="leading" secondItem="OKY-yd-CIW" secondAttribute="leadingMargin" id="z02-ZS-ygn"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="hAv-mt-Wmd"/>
                     </view>
-                    <navigationItem key="navigationItem" id="wNF-a0-Zb8">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="hgg-Jo-Q1u">
-                            <connections>
-                                <action selector="saveListing:" destination="bvl-Zh-fj3" id="BSM-Kj-Tih"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="descriptionTextView" destination="YG7-bg-GXa" id="MmA-ep-P1M"/>
-                        <outlet property="imageSlideshow" destination="nvW-ua-ryi" id="SZr-y5-exd"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vr3-BY-T3C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4224.8000000000002" y="-614.84257871064472"/>
+            <point key="canvasLocation" x="4225" y="-614"/>
         </scene>
         <!--Saved-->
         <scene sceneID="DVf-tb-dd8">
@@ -289,13 +252,46 @@
                         <segue destination="jDH-Fd-rZH" kind="relationship" relationship="viewControllers" id="d2J-ya-TAG"/>
                         <segue destination="mkX-hP-7Kl" kind="relationship" relationship="viewControllers" id="6UB-nZ-shW"/>
                         <segue destination="LHG-4n-p0q" kind="relationship" relationship="viewControllers" id="WyG-Zh-FiW"/>
-                        <segue destination="ydA-J9-5X7" kind="relationship" relationship="viewControllers" id="OwF-jX-dYW"/>
+                        <segue destination="Om9-Ii-r7S" kind="relationship" relationship="viewControllers" id="OwF-jX-dYW"/>
                         <segue destination="1n2-8z-Nlh" kind="relationship" relationship="viewControllers" id="7Me-yf-eEi"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-146" y="690"/>
+        </scene>
+        <!--Messages-->
+        <scene sceneID="OT1-Dr-c2d">
+            <objects>
+                <tableViewController id="sFm-vK-WbY" customClass="MessagesTableViewController" customModule="SouthernSales" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ngb-aW-pdh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="messagesCell" id="nhX-YA-bDd">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nhX-YA-bDd" id="efS-JH-FLh">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="sFm-vK-WbY" id="N1T-ek-wHk"/>
+                            <outlet property="delegate" destination="sFm-vK-WbY" id="GUn-xN-DCK"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Messages" id="8aL-cl-Ty7">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="PkR-pO-5PL">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dEJ-Gz-57a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3176.8000000000002" y="1499.1004497751126"/>
         </scene>
         <!--Post-->
         <scene sceneID="iVZ-lB-0TO">
@@ -458,6 +454,29 @@
             </objects>
             <point key="canvasLocation" x="2237.5999999999999" y="689.5052473763119"/>
         </scene>
+        <!--Messages-->
+        <scene sceneID="nhX-1g-zlF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Om9-Ii-r7S" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Messages" image="Messages" id="CAu-rb-ckF"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dFU-iv-HKb">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.61663808850000001" green="0.25192767669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="sFm-vK-WbY" kind="relationship" relationship="rootViewController" id="bYr-3G-a02"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cCo-Cx-0dX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2237.5999999999999" y="1499.1004497751126"/>
+        </scene>
         <!--Profile-->
         <scene sceneID="Lga-Gg-7qr">
             <objects>
@@ -503,19 +522,10 @@
             </objects>
             <point key="canvasLocation" x="4206" y="2276"/>
         </scene>
-        <!--Messages-->
-        <scene sceneID="cEG-7z-Y1R">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Messages" id="ydA-J9-5X7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="OHJ-0k-pAZ"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="orj-md-iN3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2237.5999999999999" y="1499.1004497751126"/>
-        </scene>
     </scenes>
     <resources>
         <image name="Home" width="23" height="23"/>
+        <image name="Messages" width="23" height="23"/>
         <image name="Post" width="23" height="23"/>
         <image name="Profile" width="23" height="23"/>
         <image name="Saved" width="23" height="23"/>

@@ -61,17 +61,18 @@ class ListingsViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDe
         }
     }
 
-    
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == Constants.HomeToListingSegue {
+            let vlvc = segue.destination as! ViewListingViewController
+            let listing = sender as! Listing
+            vlvc.title = listing.title
+        }
     }
-    */
-
 }
 
 // MARK: - Collection View
@@ -93,7 +94,7 @@ extension ListingsViewController: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        performSegue(withIdentifier: Constants.HomeToListingSegue, sender: listingsData[indexPath.row])
     }
 }
 

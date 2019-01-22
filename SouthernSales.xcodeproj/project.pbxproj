@@ -27,6 +27,9 @@
 		EA7A685B2199EB050026C7DE /* MessagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7A685A2199EB050026C7DE /* MessagesTableViewController.swift */; };
 		EA7A685D2199EB130026C7DE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7A685C2199EB130026C7DE /* ProfileViewController.swift */; };
 		EA7A6860219A0AFF0026C7DE /* ListingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7A685F219A0AFF0026C7DE /* ListingsViewController.swift */; };
+		EAC05CAF21F6C1DB00F91634 /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAC05CAE21F6C1DB00F91634 /* Messages.storyboard */; };
+		EAC05CB121F6C23000F91634 /* ViewListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC05CB021F6C23000F91634 /* ViewListingViewController.swift */; };
+		EAC05CB321F6C38B00F91634 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC05CB221F6C38B00F91634 /* Constants.swift */; };
 		EADA9C5E21A8890600826C28 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADA9C5D21A8890600826C28 /* SettingsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +83,9 @@
 		EA7A685A2199EB050026C7DE /* MessagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableViewController.swift; sourceTree = "<group>"; };
 		EA7A685C2199EB130026C7DE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		EA7A685F219A0AFF0026C7DE /* ListingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingsViewController.swift; sourceTree = "<group>"; };
+		EAC05CAE21F6C1DB00F91634 /* Messages.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Messages.storyboard; sourceTree = "<group>"; };
+		EAC05CB021F6C23000F91634 /* ViewListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewListingViewController.swift; path = SouthernSales/Controllers/ViewListingViewController.swift; sourceTree = SOURCE_ROOT; };
+		EAC05CB221F6C38B00F91634 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EADA9C5D21A8890600826C28 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -180,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				EA0D645621992AD40015BEAA /* Main.storyboard */,
+				EAC05CAE21F6C1DB00F91634 /* Messages.storyboard */,
 				EA0D645B21992AD50015BEAA /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
@@ -193,6 +200,7 @@
 				EA19193D21A1AF2B0053C68E /* GoogleService-Info.plist */,
 				EA0D645E21992AD50015BEAA /* Info.plist */,
 				EA19194C21A200B40053C68E /* Utility.swift */,
+				EAC05CB221F6C38B00F91634 /* Constants.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -201,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				EA7A685F219A0AFF0026C7DE /* ListingsViewController.swift */,
+				EAC05CB021F6C23000F91634 /* ViewListingViewController.swift */,
 				EA7A68582199EAF70026C7DE /* SavedCollectionViewController.swift */,
 				EA19194A21A1FD8A0053C68E /* PostViewController.swift */,
 				EA7A685A2199EB050026C7DE /* MessagesTableViewController.swift */,
@@ -352,6 +361,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAC05CAF21F6C1DB00F91634 /* Messages.storyboard in Resources */,
 				EA0D645D21992AD50015BEAA /* LaunchScreen.storyboard in Resources */,
 				EA19194521A1E3140053C68E /* ListingsCollectionViewCell.xib in Resources */,
 				EA19193E21A1AF2B0053C68E /* GoogleService-Info.plist in Resources */,
@@ -457,32 +467,32 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SouthernSales/Pods-SouthernSales-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/Onboard/Onboard.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Onboard.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -513,12 +523,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SouthernSales/Pods-SouthernSales-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates-Firestore.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates-Firestore.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseGoogleAuthUI.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
@@ -537,10 +549,12 @@
 			files = (
 				EA19194B21A1FD8A0053C68E /* PostViewController.swift in Sources */,
 				EA19194421A1E3140053C68E /* ListingsCollectionViewCell.swift in Sources */,
+				EAC05CB121F6C23000F91634 /* ViewListingViewController.swift in Sources */,
 				EA0D645121992AD40015BEAA /* AppDelegate.swift in Sources */,
 				EA7A685B2199EB050026C7DE /* MessagesTableViewController.swift in Sources */,
 				EA7A685D2199EB130026C7DE /* ProfileViewController.swift in Sources */,
 				EA19194D21A200B40053C68E /* Utility.swift in Sources */,
+				EAC05CB321F6C38B00F91634 /* Constants.swift in Sources */,
 				EADA9C5E21A8890600826C28 /* SettingsTableViewController.swift in Sources */,
 				EA7A68592199EAF70026C7DE /* SavedCollectionViewController.swift in Sources */,
 				EA19195221A268360053C68E /* MainModels.swift in Sources */,
