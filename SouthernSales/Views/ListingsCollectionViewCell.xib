@@ -20,10 +20,10 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rLO-dA-TxT">
-                        <rect key="frame" x="0.0" y="0.0" width="265" height="236"/>
+                        <rect key="frame" x="0.0" y="0.0" width="265" height="228"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02m-H9-t0U">
-                        <rect key="frame" x="0.0" y="280" width="265" height="20"/>
+                        <rect key="frame" x="0.0" y="272" width="265" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -42,7 +42,7 @@
                 <constraint firstItem="rLO-dA-TxT" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="DYL-K3-yrD"/>
                 <constraint firstItem="rLO-dA-TxT" firstAttribute="trailing" secondItem="02m-H9-t0U" secondAttribute="trailing" id="Dn2-q5-Jmv"/>
                 <constraint firstItem="rLO-dA-TxT" firstAttribute="leading" secondItem="AXZ-vG-WBj" secondAttribute="leading" id="Ucn-xw-RIK"/>
-                <constraint firstAttribute="bottom" secondItem="02m-H9-t0U" secondAttribute="bottom" id="ctO-RG-l5v"/>
+                <constraint firstAttribute="bottom" secondItem="02m-H9-t0U" secondAttribute="bottom" constant="8" id="ctO-RG-l5v"/>
                 <constraint firstItem="02m-H9-t0U" firstAttribute="top" secondItem="AXZ-vG-WBj" secondAttribute="bottom" id="gMI-CF-3Zq"/>
                 <constraint firstItem="AXZ-vG-WBj" firstAttribute="centerX" secondItem="02m-H9-t0U" secondAttribute="centerX" id="p4r-N6-9dB"/>
                 <constraint firstItem="AXZ-vG-WBj" firstAttribute="top" secondItem="rLO-dA-TxT" secondAttribute="bottom" constant="23" id="w9T-HQ-007"/>
