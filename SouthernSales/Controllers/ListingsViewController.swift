@@ -30,9 +30,10 @@ class ListingsViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDe
         collectionView.register(UINib(nibName: "ListingsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
         collectionView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(updateListings), for: .valueChanged)
-        refreshControl.tintColor = UIColor(red:0.66, green:0.38, blue:0.98, alpha:1.0)
+        refreshControl.tintColor = Colors.TintColor
         
         searchBar.delegate = self
+        collectionView.backgroundColor = Colors.BackgroundColor
     }
     
     // MARK: - Firebase
