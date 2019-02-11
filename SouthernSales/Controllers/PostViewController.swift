@@ -21,7 +21,7 @@ class PostViewController: UIViewController {
     
     @IBAction func saveNewPost(_ sender: Any) {
         if let title = titleText.text, let price = priceText.text, let description = descriptionText.text {
-            let newPost = Listing.init(title: title, price: Double(price)!, description: description)
+            let newPost = Listing.init(title: title, price: Double(price)!, description: description, imageRefs: [])
             Utility.databaseAddNewListing(with: newPost) { (error) in
                 
             }

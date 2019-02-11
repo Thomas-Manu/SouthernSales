@@ -13,7 +13,7 @@ use_frameworks!
 #    pod 'SwiftyJSON'
 
     pod 'ImageSlideshow'
-    pod 'NVActivityIndicatorView', '~> 4.4.0'
+    pod 'NVActivityIndicatorView', '~> 4.4.x'
     pod 'Onboard'
 
    # Firebase Pods
@@ -25,9 +25,10 @@ use_frameworks!
     pod 'FirebaseUI/Auth'
     pod 'FirebaseUI/Google'
     pod 'Firebase/Performance'   
-    pod 'Firebase/Storage' 
+    #pod 'Firebase/Storage'
+    pod 'FirebaseUI/Storage'
     pod 'Firebase/Database'
-    pod 'SDWebImage' 
+    #pod 'SDWebImage' 
 
   target 'SouthernSalesTests' do
     inherit! :search_paths

@@ -19,33 +19,38 @@
                 <rect key="frame" x="0.0" y="0.0" width="265" height="300"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rLO-dA-TxT">
-                        <rect key="frame" x="0.0" y="0.0" width="265" height="228"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rLO-dA-TxT">
+                        <rect key="frame" x="0.0" y="0.0" width="265" height="244"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02m-H9-t0U">
-                        <rect key="frame" x="0.0" y="272" width="265" height="20"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXZ-vG-WBj">
-                        <rect key="frame" x="0.0" y="259" width="266" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="uH3-p2-mkH">
+                        <rect key="frame" x="0.0" y="252" width="265" height="40"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AXZ-vG-WBj">
+                                <rect key="frame" x="0.0" y="0.0" width="265" height="22"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02m-H9-t0U">
+                                <rect key="frame" x="0.0" y="22" width="265" height="18"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="Oly-wR-gkg"/>
+                        </constraints>
+                    </stackView>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="AXZ-vG-WBj" firstAttribute="leading" secondItem="02m-H9-t0U" secondAttribute="leading" id="49P-b5-54E"/>
                 <constraint firstAttribute="trailing" secondItem="rLO-dA-TxT" secondAttribute="trailing" id="99E-uD-7nS"/>
                 <constraint firstItem="rLO-dA-TxT" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="DYL-K3-yrD"/>
-                <constraint firstItem="rLO-dA-TxT" firstAttribute="trailing" secondItem="02m-H9-t0U" secondAttribute="trailing" id="Dn2-q5-Jmv"/>
-                <constraint firstItem="rLO-dA-TxT" firstAttribute="leading" secondItem="AXZ-vG-WBj" secondAttribute="leading" id="Ucn-xw-RIK"/>
-                <constraint firstAttribute="bottom" secondItem="02m-H9-t0U" secondAttribute="bottom" constant="8" id="ctO-RG-l5v"/>
-                <constraint firstItem="02m-H9-t0U" firstAttribute="top" secondItem="AXZ-vG-WBj" secondAttribute="bottom" id="gMI-CF-3Zq"/>
-                <constraint firstItem="AXZ-vG-WBj" firstAttribute="centerX" secondItem="02m-H9-t0U" secondAttribute="centerX" id="p4r-N6-9dB"/>
-                <constraint firstItem="AXZ-vG-WBj" firstAttribute="top" secondItem="rLO-dA-TxT" secondAttribute="bottom" constant="23" id="w9T-HQ-007"/>
+                <constraint firstItem="uH3-p2-mkH" firstAttribute="top" secondItem="rLO-dA-TxT" secondAttribute="bottom" constant="8" id="FM2-cG-U2C"/>
+                <constraint firstAttribute="bottom" secondItem="uH3-p2-mkH" secondAttribute="bottom" constant="8" id="LxQ-NJ-nqH"/>
+                <constraint firstItem="uH3-p2-mkH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ptu-b7-E0Q"/>
+                <constraint firstAttribute="trailing" secondItem="uH3-p2-mkH" secondAttribute="trailing" id="wb0-HO-ZUy"/>
                 <constraint firstItem="rLO-dA-TxT" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="xWl-3K-u9d"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
@@ -55,7 +60,7 @@
                 <outlet property="priceLabel" destination="02m-H9-t0U" id="TnM-mD-WzQ"/>
                 <outlet property="titleLabel" destination="AXZ-vG-WBj" id="NzO-el-J7q"/>
             </connections>
-            <point key="canvasLocation" x="338.39999999999998" y="187.1064467766117"/>
+            <point key="canvasLocation" x="79" y="230"/>
         </collectionViewCell>
     </objects>
 </document>

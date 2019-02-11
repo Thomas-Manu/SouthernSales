@@ -13,16 +13,22 @@ class ViewListingViewController: UIViewController {
 
     @IBOutlet weak var imageSlideshow: ImageSlideshow!
     @IBOutlet weak var descriptionTextView: UITextView!
+    var listing: Listing!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.tintColor = UIColor.white
+        
+        
     }
     
     @IBAction func messageSeller(_ sender: Any) {
     }
 
     @IBAction func saveListing(_ sender: Any) {
+        Utility.databaseAddNewFavorite(with: listing) { (error) in
+            print("[VLVC] Failed to save listing with ID \(String(describing: self.listing.id))")
+        }
     }
     
     /*

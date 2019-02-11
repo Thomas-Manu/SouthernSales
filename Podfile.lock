@@ -109,6 +109,9 @@ PODS:
   - FirebaseUI/Google (5.2.2):
     - FirebaseUI/Auth
     - GoogleSignIn (~> 4.0)
+  - FirebaseUI/Storage (5.2.2):
+    - Firebase/Storage (~> 5.0)
+    - SDWebImage (~> 4.0)
   - GoogleAppMeasurement (5.4.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
     - GoogleUtilities/MethodSwizzler (~> 5.2)
@@ -194,13 +197,12 @@ DEPENDENCIES:
   - Firebase/Firestore
   - Firebase/Messaging
   - Firebase/Performance
-  - Firebase/Storage
   - FirebaseUI/Auth
   - FirebaseUI/Google
+  - FirebaseUI/Storage
   - ImageSlideshow
-  - NVActivityIndicatorView (~> 4.4.0)
+  - NVActivityIndicatorView (~> 4.4.x)
   - Onboard
-  - SDWebImage
   - SwiftMonkey
 
 SPEC REPOS:
@@ -274,6 +276,6 @@ SPEC CHECKSUMS:
   SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
   SwiftMonkey: aea6f2707a4b7ab5277b4d2fd2f0723a083997b1
 
-PODFILE CHECKSUM: 198245188cf210c337f06c1ca6f625bc2257efc0
+PODFILE CHECKSUM: b2b2986688be663616f6851b84fb06119906e3fa
 
 COCOAPODS: 1.5.3

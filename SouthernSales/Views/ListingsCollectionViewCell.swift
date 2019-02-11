@@ -20,14 +20,14 @@ class ListingsCollectionViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        contentView.layer.cornerRadius = 5
+        contentView.backgroundColor = .white
+        contentView.layer.cornerRadius = 20
         contentView.layer.borderWidth = 0.5
         contentView.layer.borderColor = UIColor.clear.cgColor
         contentView.layer.masksToBounds = true
-        
+
         layer.shadowColor = UIColor.lightGray.cgColor
-        layer.shadowOffset = CGSize(width: 5, height: 5)
+        layer.shadowOffset = CGSize(width: 0, height: 0)
         layer.shadowRadius = 3
         layer.shadowOpacity = 0.5
         layer.masksToBounds = false
@@ -38,7 +38,7 @@ class ListingsCollectionViewCell: UICollectionViewCell {
     func configure(title: String, price: Double) {
 //        previewImageView?.image = previewImage
         titleLabel?.text = title
-        priceLabel?.text = "$\(price)"
+        priceLabel?.text = String.init(format: "$%.2f", price)
     }
 
 }

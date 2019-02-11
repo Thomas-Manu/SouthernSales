@@ -9,6 +9,8 @@ import UIKit
 import GoogleSignIn
 import FirebaseAuth
 import NVActivityIndicatorView
+import FirebaseStorage
+import FirebaseUI
 
 class ListingsViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate, NVActivityIndicatorViewable {
     
@@ -70,8 +72,8 @@ class ListingsViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDe
         // Pass the selected object to the new view controller.
         if segue.identifier == Constants.HomeToListingSegue {
             let vlvc = segue.destination as! ViewListingViewController
-            let listing = sender as! Listing
             vlvc.title = listing.title
+            vlvc.listing = sender as! Listing
         }
     }
 }
@@ -91,6 +93,10 @@ extension ListingsViewController: UICollectionViewDataSource, UICollectionViewDe
         let listing = listingsData[indexPath.row]
         cell.configure(title: listing.title, price: listing.price)
         
+        let userImageRef = Storage.storage().reference(withPath: "images/\(listing.user!.documentID)")
+        let previewImageRef = userImageRef.child("/\(listing.imageRefs[0])")
+        cell.previewImageView.sd_setImage(with: previewImageRef, placeholderImage: UIImage.init(named: "placeholder"))
+        
         return cell
     }
     
@@ -103,17 +109,18 @@ extension ListingsViewController: UICollectionViewDataSource, UICollectionViewDe
 extension ListingsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (collectionView.bounds.width / 2) - 30
+        
         return CGSize(width: width, height: width)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+        return 5
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }
