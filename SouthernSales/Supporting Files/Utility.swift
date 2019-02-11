@@ -77,11 +77,10 @@ class Utility {
 //
 //    }
     
-    static func databaseReadFavorite(_ success: @escaping ([Listing]) -> Void, _ failure: @escaping (Error) -> Void) {
+    static func databaseReadFavorites(_ success: @escaping ([Listing]) -> Void, _ failure: @escaping (Error) -> Void) {
         let db = initializeFirestoreDatabase()
         let user = getCurrentUser()
         let userRef = db.collection("users").document(user!.id)
-//        var ref = [DocumentReference]()
         userRef.getDocument(completion: { (snapshot, error) in
             if let err = error {
                 failure(err)
@@ -109,15 +108,17 @@ class Utility {
         let db = initializeFirestoreDatabase()
         let user = getCurrentUser()
         let userRef = db.collection("users").document(user!.id)
-        userRef.setData(["favorites": listing.reference as Any], merge: true)
+        userRef.setData(["favorites": FieldValue.arrayUnion([listing.reference as Any])], merge: true)
     }
     
     static func databaseRemoveFavorite(with listing: Listing, failure: @escaping (Error) -> Void) {
         let db = initializeFirestoreDatabase()
         let user = getCurrentUser()
         let userRef = db.collection("users").document(user!.id)
-        userRef.updateData(["favorites" : FieldValue.arrayRemove([listing.reference!])])
+        userRef.updateData(["favorites" : FieldValue.arrayRemove([listing.reference as Any])])
     }
+    
+
     
 //    static func cloudStorageDownloadImages(_ success: @escaping ([))
 }
@@ -125,7 +126,6 @@ class Utility {
 extension Utility {
     static func parseListing(from document: QueryDocumentSnapshot) -> Listing {
         var listing = parseListing(from: document.data())
-        listing.id = document.documentID
         listing.reference = document.reference
         return listing
     }

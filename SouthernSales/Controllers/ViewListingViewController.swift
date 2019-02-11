@@ -19,7 +19,7 @@ class ViewListingViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.tintColor = UIColor.white
         
-        
+        descriptionTextView.text = listing.description.replacingOccurrences(of: "\\n", with: "\n")
     }
     
     @IBAction func messageSeller(_ sender: Any) {
@@ -27,7 +27,7 @@ class ViewListingViewController: UIViewController {
 
     @IBAction func saveListing(_ sender: Any) {
         Utility.databaseAddNewFavorite(with: listing) { (error) in
-            print("[VLVC] Failed to save listing with ID \(String(describing: self.listing.id))")
+            print("[VLVC] Failed to save listing with ID \(String(describing: self.listing.reference?.documentID))")
         }
     }
     

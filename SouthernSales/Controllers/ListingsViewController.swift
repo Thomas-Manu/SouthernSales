@@ -72,8 +72,9 @@ class ListingsViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDe
         // Pass the selected object to the new view controller.
         if segue.identifier == Constants.HomeToListingSegue {
             let vlvc = segue.destination as! ViewListingViewController
+            let listing = sender as! Listing
             vlvc.title = listing.title
-            vlvc.listing = sender as! Listing
+            vlvc.listing = listing
         }
     }
 }
