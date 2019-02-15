@@ -170,9 +170,10 @@ PODS:
     - nanopb (~> 0.3)
   - gRPC-Core/Interface (1.14.0)
   - GTMSessionFetcher/Core (1.2.1)
-  - ImageSlideshow (1.7.0):
-    - ImageSlideshow/Core (= 1.7.0)
   - ImageSlideshow/Core (1.7.0)
+  - ImageSlideshow/SDWebImage (1.7.0):
+    - ImageSlideshow/Core
+    - SDWebImage (< 5.0, >= 3.7)
   - leveldb-library (1.20)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
@@ -200,7 +201,7 @@ DEPENDENCIES:
   - FirebaseUI/Auth
   - FirebaseUI/Google
   - FirebaseUI/Storage
-  - ImageSlideshow
+  - ImageSlideshow/SDWebImage
   - NVActivityIndicatorView (~> 4.4.x)
   - Onboard
   - SwiftMonkey
@@ -276,6 +277,6 @@ SPEC CHECKSUMS:
   SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
   SwiftMonkey: aea6f2707a4b7ab5277b4d2fd2f0723a083997b1
 
-PODFILE CHECKSUM: b2b2986688be663616f6851b84fb06119906e3fa
+PODFILE CHECKSUM: 3f41bd5a09979c76743cf677972affc008642c3a
 
 COCOAPODS: 1.5.3

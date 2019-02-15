@@ -44,15 +44,21 @@ class ListingsViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDe
         if !refreshControl.isRefreshing {
             startAnimating(type: NVActivityIndicatorType.ballScaleRippleMultiple)
         }
-        Utility.databaseReadListings({ (listing) in
-            self.listingsData = listing
+        Utility.databaseReadListings({ (listings) in
+            Utility.databaseReadFavorites({ (favs) in
+                for var listing in self.listingsData {
+                    listing.saved = favs.contains(where: { $0.reference?.documentID == listing.reference?.documentID  })
+                }
+            }) { (error) in
+                print("[LVC] Failed to get favorites")
+            }
+            self.listingsData = listings
             self.collectionView.reloadData()
             self.refreshControl.endRefreshing()
             self.stopAnimating()
         }) { (error) in
             self.refreshControl.endRefreshing()
             self.stopAnimating()
-            
         }
     }
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {

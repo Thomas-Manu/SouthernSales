@@ -19,7 +19,11 @@ class ViewListingViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.tintColor = UIColor.white
         
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapOnSlideshow))
+        imageSlideshow.addGestureRecognizer(gestureRecognizer)
+        imageSlideshow.setImageInputs([ImageSource(image: UIImage.init(named: "placeholder")!)])
         descriptionTextView.text = listing.description.replacingOccurrences(of: "\\n", with: "\n")
+        getDownloadLinks()
     }
     
     @IBAction func messageSeller(_ sender: Any) {
@@ -29,6 +33,23 @@ class ViewListingViewController: UIViewController {
         Utility.databaseAddNewFavorite(with: listing) { (error) in
             print("[VLVC] Failed to save listing with ID \(String(describing: self.listing.reference?.documentID))")
         }
+    }
+    
+    func getDownloadLinks() {
+        Utility.cloudStorageGetImageURLs(from: listing, success: { (urls) in
+            print("All urls: \(urls)")
+            var imageSources = [SDWebImageSource]()
+            for url in urls {
+                imageSources.append(SDWebImageSource(url: url))
+            }
+            self.imageSlideshow.setImageInputs(imageSources)
+        }) { (error) in
+            
+        }
+    }
+    
+    @objc func didTapOnSlideshow() {
+        imageSlideshow.presentFullScreenController(from: self)
     }
     
     /*

@@ -81,6 +81,7 @@ class Utility {
         let db = initializeFirestoreDatabase()
         let user = getCurrentUser()
         let userRef = db.collection("users").document(user!.id)
+        
         userRef.getDocument(completion: { (snapshot, error) in
             if let err = error {
                 failure(err)
@@ -88,7 +89,9 @@ class Utility {
             } else {
                 if let documentRefs = snapshot?.data()!["favorites"] as? [DocumentReference] {
                     var listings = [Listing]()
+                    let asyncGroup = DispatchGroup()
                     for refs in documentRefs {
+                        asyncGroup.enter()
                         refs.getDocument(completion: { (snapshot, error) in
                             if let err = error {
                                 failure(err)
@@ -96,9 +99,12 @@ class Utility {
                             } else {
                                 listings.append(parseListing(from: (snapshot?.data())!))
                             }
+                            asyncGroup.leave()
                         })
                     }
-                    success(listings)
+                    asyncGroup.notify(queue: .main, execute: {
+                        success(listings)
+                    })
                 }
             }
         })
@@ -119,8 +125,28 @@ class Utility {
     }
     
 
-    
-//    static func cloudStorageDownloadImages(_ success: @escaping ([))
+    static func cloudStorageGetImageURLs(from listing: Listing, success: @escaping ([URL]) -> Void, failure: @escaping (Error) -> Void) {
+        var urls = [URL]()
+        let userImageRef = Storage.storage().reference(withPath: "images/\(listing.user!.documentID)")
+        let asyncGroup = DispatchGroup()
+        
+        for imageRefs in listing.imageRefs {
+            asyncGroup.enter()
+            let reference = userImageRef.child("/\(imageRefs)")
+            reference.downloadURL { (url, error) in
+                if let error = error {
+                    failure(error)
+                    print("Error getting URL: \(error)")
+                } else {
+                    urls.append(url!)
+                }
+                asyncGroup.leave()
+            }
+        }
+        asyncGroup.notify(queue: .main) {
+            success(urls)
+        }
+    }
 }
 
 extension Utility {

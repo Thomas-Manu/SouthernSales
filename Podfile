@@ -12,7 +12,7 @@ use_frameworks!
 #    pod 'SnapKit', '~> 4.0.0'
 #    pod 'SwiftyJSON'
 
-    pod 'ImageSlideshow'
+    pod 'ImageSlideshow/SDWebImage'
     pod 'NVActivityIndicatorView', '~> 4.4.x'
     pod 'Onboard'
 
@@ -28,15 +28,17 @@ use_frameworks!
     #pod 'Firebase/Storage'
     pod 'FirebaseUI/Storage'
     pod 'Firebase/Database'
-    #pod 'SDWebImage' 
 
   target 'SouthernSalesTests' do
-    inherit! :search_paths
-    # Pods for testing
+      use_frameworks!
+#      inherit! :search_paths
+      # Pods for testing
   end
 
   target 'SouthernSalesUITests' do
-    inherit! :search_paths
+      use_frameworks!
+#      inherit! :search_paths
+      inherit! :complete
     # Pods for testing
       pod 'SwiftMonkey'
   end
