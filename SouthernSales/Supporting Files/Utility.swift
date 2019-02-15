@@ -97,7 +97,9 @@ class Utility {
                                 failure(err)
                                 print("Error getting document: \(err)")
                             } else {
-                                listings.append(parseListing(from: (snapshot?.data())!))
+                                var listing = parseListing(from: (snapshot?.data())!)
+                                listing.reference = refs
+                                listings.append(listing)
                             }
                             asyncGroup.leave()
                         })
@@ -110,18 +112,32 @@ class Utility {
         })
     }
     
-    static func databaseAddNewFavorite(with listing: Listing, failure: @escaping (Error) -> Void) {
+    static func databaseAddNewFavorite(with listing: Listing, success: @escaping () -> Void, failure: @escaping (Error) -> Void) {
         let db = initializeFirestoreDatabase()
         let user = getCurrentUser()
         let userRef = db.collection("users").document(user!.id)
-        userRef.setData(["favorites": FieldValue.arrayUnion([listing.reference as Any])], merge: true)
+        userRef.setData(["favorites": FieldValue.arrayUnion([listing.reference as Any])], merge: true) { (error) in
+            if let error = error {
+                failure(error)
+            }
+            else {
+                success()
+            }
+        }
     }
     
-    static func databaseRemoveFavorite(with listing: Listing, failure: @escaping (Error) -> Void) {
+    static func databaseRemoveFavorite(with listing: Listing, success: @escaping () -> Void, failure: @escaping (Error) -> Void) {
         let db = initializeFirestoreDatabase()
         let user = getCurrentUser()
         let userRef = db.collection("users").document(user!.id)
-        userRef.updateData(["favorites" : FieldValue.arrayRemove([listing.reference as Any])])
+        userRef.updateData(["favorites" : FieldValue.arrayRemove([listing.reference as Any])]) { (error) in
+            if let error = error {
+                failure(error)
+            }
+            else {
+                success()
+            }
+        }
     }
     
 

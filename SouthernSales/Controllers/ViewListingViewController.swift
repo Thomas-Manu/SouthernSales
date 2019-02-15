@@ -13,12 +13,13 @@ class ViewListingViewController: UIViewController {
 
     @IBOutlet weak var imageSlideshow: ImageSlideshow!
     @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var savedButton: UIBarButtonItem!
     var listing: Listing!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.tintColor = UIColor.white
-        
+        savedButton.image = listing.saved ? UIImage.init(named: "Heart") : UIImage.init(named: "Saved")
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapOnSlideshow))
         imageSlideshow.addGestureRecognizer(gestureRecognizer)
         imageSlideshow.setImageInputs([ImageSource(image: UIImage.init(named: "placeholder")!)])
@@ -30,8 +31,20 @@ class ViewListingViewController: UIViewController {
     }
 
     @IBAction func saveListing(_ sender: Any) {
-        Utility.databaseAddNewFavorite(with: listing) { (error) in
-            print("[VLVC] Failed to save listing with ID \(String(describing: self.listing.reference?.documentID))")
+        if listing.saved {
+            Utility.databaseRemoveFavorite(with: listing, success: {
+                self.listing.saved.toggle()
+                self.savedButton.image = UIImage.init(named: "Saved")
+            }) { (error) in
+                print("[VLVC] Failed to remove saved listing with ID \(String(describing: self.listing.reference?.documentID))")
+            }
+        } else {
+            Utility.databaseAddNewFavorite(with: listing, success: {
+                self.listing.saved.toggle()
+                self.savedButton.image = UIImage.init(named: "Heart")
+            }) { (error) in
+                print("[VLVC] Failed to save listing with ID \(String(describing: self.listing.reference?.documentID))")
+            }
         }
     }
     

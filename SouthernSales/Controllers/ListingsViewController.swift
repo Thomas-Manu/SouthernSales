@@ -46,9 +46,13 @@ class ListingsViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDe
         }
         Utility.databaseReadListings({ (listings) in
             Utility.databaseReadFavorites({ (favs) in
+                var data = [Listing]()
                 for var listing in self.listingsData {
-                    listing.saved = favs.contains(where: { $0.reference?.documentID == listing.reference?.documentID  })
+                    var temp = listing
+                    temp.saved = favs.contains(where: { $0.reference?.documentID == listing.reference?.documentID  })
+                    data.append(temp)
                 }
+                self.listingsData = data
             }) { (error) in
                 print("[LVC] Failed to get favorites")
             }

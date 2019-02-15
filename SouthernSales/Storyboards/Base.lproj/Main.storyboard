@@ -120,6 +120,7 @@
                     <connections>
                         <outlet property="descriptionTextView" destination="YG7-bg-GXa" id="MmA-ep-P1M"/>
                         <outlet property="imageSlideshow" destination="nvW-ua-ryi" id="SZr-y5-exd"/>
+                        <outlet property="savedButton" destination="hgg-Jo-Q1u" id="3CJ-ZM-OEq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vr3-BY-T3C" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -514,7 +515,7 @@
         <image name="logo_noWords" width="293" height="293"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LLZ-9e-bLK"/>
+        <segue reference="W9B-gC-VVj"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.61568627450980395" green="0.25098039215686274" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
