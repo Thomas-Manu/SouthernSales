@@ -1,3 +1,3 @@
 # SouthernSales
 
-[![Build Status](https://travis-ci.org/ThomasmCS/SouthernSales.svg?branch=listingsUI)](https://travis-ci.org/ThomasmCS/SouthernSales)
+[![Build Status](https://travis-ci.org/Thomas-Manu/SouthernSales.svg?branch=listingsUI)](https://travis-ci.org/Thomas-Manu/SouthernSales)
