@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04D0042714C8BBBD2CA46190 /* Pods_SouthernSalesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67126D7FD1F5DF16566C4A89 /* Pods_SouthernSalesUITests.framework */; };
-		6CCFC2F13AC8E91D35C5DD96 /* Pods_SouthernSales.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2087E1FE9AFC73E59F02E05 /* Pods_SouthernSales.framework */; };
-		92AB2B2872027AB43E482EBA /* Pods_SouthernSalesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 741C058D94BD2C6C98FA355B /* Pods_SouthernSalesTests.framework */; };
+		0B0E525E6B734CCA7ED68EB1 /* Pods_SouthernSales.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCC458B193AFA633321D92CD /* Pods_SouthernSales.framework */; };
+		5B6F46D524180A1375061386 /* Pods_SouthernSales_SouthernSalesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF451D5DD13F23E00A16DD8 /* Pods_SouthernSales_SouthernSalesUITests.framework */; };
+		DB6A046A602F7BB90DA852BD /* Pods_SouthernSales_SouthernSalesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C44FE8FE81FF70D3A7EDF1 /* Pods_SouthernSales_SouthernSalesTests.framework */; };
 		EA0D645121992AD40015BEAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0D645021992AD40015BEAA /* AppDelegate.swift */; };
 		EA0D645821992AD40015BEAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA0D645621992AD40015BEAA /* Main.storyboard */; };
 		EA0D645A21992AD50015BEAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA0D645921992AD50015BEAA /* Assets.xcassets */; };
@@ -27,6 +27,9 @@
 		EA7A685B2199EB050026C7DE /* MessagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7A685A2199EB050026C7DE /* MessagesTableViewController.swift */; };
 		EA7A685D2199EB130026C7DE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7A685C2199EB130026C7DE /* ProfileViewController.swift */; };
 		EA7A6860219A0AFF0026C7DE /* ListingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7A685F219A0AFF0026C7DE /* ListingsViewController.swift */; };
+		EAC05CAF21F6C1DB00F91634 /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAC05CAE21F6C1DB00F91634 /* Messages.storyboard */; };
+		EAC05CB121F6C23000F91634 /* ViewListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC05CB021F6C23000F91634 /* ViewListingViewController.swift */; };
+		EAC05CB321F6C38B00F91634 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC05CB221F6C38B00F91634 /* Constants.swift */; };
 		EADA9C5E21A8890600826C28 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADA9C5D21A8890600826C28 /* SettingsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,15 +51,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		13875EFEADE166B4458046B5 /* Pods-SouthernSalesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SouthernSalesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SouthernSalesTests/Pods-SouthernSalesTests.debug.xcconfig"; sourceTree = "<group>"; };
-		39DA0B72819F8B4A82B86E19 /* Pods-SouthernSalesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SouthernSalesUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SouthernSalesUITests/Pods-SouthernSalesUITests.release.xcconfig"; sourceTree = "<group>"; };
-		64513A97D69DA7BEA902A31A /* Pods-SouthernSalesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SouthernSalesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SouthernSalesTests/Pods-SouthernSalesTests.release.xcconfig"; sourceTree = "<group>"; };
-		67126D7FD1F5DF16566C4A89 /* Pods_SouthernSalesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SouthernSalesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		741C058D94BD2C6C98FA355B /* Pods_SouthernSalesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SouthernSalesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9BF3930BD46CA539C3384A0B /* Pods-SouthernSalesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SouthernSalesUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SouthernSalesUITests/Pods-SouthernSalesUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		B2087E1FE9AFC73E59F02E05 /* Pods_SouthernSales.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SouthernSales.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B37117B643D9301D3B183F6A /* Pods-SouthernSales.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SouthernSales.release.xcconfig"; path = "Pods/Target Support Files/Pods-SouthernSales/Pods-SouthernSales.release.xcconfig"; sourceTree = "<group>"; };
-		BA2849F645749266004574F5 /* Pods-SouthernSales.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SouthernSales.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SouthernSales/Pods-SouthernSales.debug.xcconfig"; sourceTree = "<group>"; };
+		54C44FE8FE81FF70D3A7EDF1 /* Pods_SouthernSales_SouthernSalesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SouthernSales_SouthernSalesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		565546D3E9C492C20E85E76F /* Pods-SouthernSales-SouthernSalesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SouthernSales-SouthernSalesUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SouthernSales-SouthernSalesUITests/Pods-SouthernSales-SouthernSalesUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		7FF451D5DD13F23E00A16DD8 /* Pods_SouthernSales_SouthernSalesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SouthernSales_SouthernSalesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CC69A903975771A36C54611 /* Pods-SouthernSales.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SouthernSales.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SouthernSales/Pods-SouthernSales.debug.xcconfig"; sourceTree = "<group>"; };
+		95E1AE2BD35985523983D391 /* Pods-SouthernSales-SouthernSalesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SouthernSales-SouthernSalesUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SouthernSales-SouthernSalesUITests/Pods-SouthernSales-SouthernSalesUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B80FCE9EB87A06400F508BC9 /* Pods-SouthernSales-SouthernSalesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SouthernSales-SouthernSalesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SouthernSales-SouthernSalesTests/Pods-SouthernSales-SouthernSalesTests.release.xcconfig"; sourceTree = "<group>"; };
+		BCC458B193AFA633321D92CD /* Pods_SouthernSales.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SouthernSales.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA10995B62B2C7FF4B842057 /* Pods-SouthernSales-SouthernSalesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SouthernSales-SouthernSalesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SouthernSales-SouthernSalesTests/Pods-SouthernSales-SouthernSalesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EA0D644D21992AD40015BEAA /* SouthernSales.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SouthernSales.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA0D645021992AD40015BEAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA0D645721992AD40015BEAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -80,7 +82,11 @@
 		EA7A685A2199EB050026C7DE /* MessagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableViewController.swift; sourceTree = "<group>"; };
 		EA7A685C2199EB130026C7DE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		EA7A685F219A0AFF0026C7DE /* ListingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingsViewController.swift; sourceTree = "<group>"; };
+		EAC05CAE21F6C1DB00F91634 /* Messages.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Messages.storyboard; sourceTree = "<group>"; };
+		EAC05CB021F6C23000F91634 /* ViewListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewListingViewController.swift; path = SouthernSales/Controllers/ViewListingViewController.swift; sourceTree = SOURCE_ROOT; };
+		EAC05CB221F6C38B00F91634 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EADA9C5D21A8890600826C28 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		FB97ED0ABD4C2764CDA43E8D /* Pods-SouthernSales.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SouthernSales.release.xcconfig"; path = "Pods/Target Support Files/Pods-SouthernSales/Pods-SouthernSales.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6CCFC2F13AC8E91D35C5DD96 /* Pods_SouthernSales.framework in Frameworks */,
+				0B0E525E6B734CCA7ED68EB1 /* Pods_SouthernSales.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,7 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92AB2B2872027AB43E482EBA /* Pods_SouthernSalesTests.framework in Frameworks */,
+				DB6A046A602F7BB90DA852BD /* Pods_SouthernSales_SouthernSalesTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,22 +110,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04D0042714C8BBBD2CA46190 /* Pods_SouthernSalesUITests.framework in Frameworks */,
+				5B6F46D524180A1375061386 /* Pods_SouthernSales_SouthernSalesUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5A3BFF6DBB9EEBD5242B80C3 /* Pods */ = {
+		A2A1F3807C5C7432278823C3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BA2849F645749266004574F5 /* Pods-SouthernSales.debug.xcconfig */,
-				B37117B643D9301D3B183F6A /* Pods-SouthernSales.release.xcconfig */,
-				13875EFEADE166B4458046B5 /* Pods-SouthernSalesTests.debug.xcconfig */,
-				64513A97D69DA7BEA902A31A /* Pods-SouthernSalesTests.release.xcconfig */,
-				9BF3930BD46CA539C3384A0B /* Pods-SouthernSalesUITests.debug.xcconfig */,
-				39DA0B72819F8B4A82B86E19 /* Pods-SouthernSalesUITests.release.xcconfig */,
+				BCC458B193AFA633321D92CD /* Pods_SouthernSales.framework */,
+				54C44FE8FE81FF70D3A7EDF1 /* Pods_SouthernSales_SouthernSalesTests.framework */,
+				7FF451D5DD13F23E00A16DD8 /* Pods_SouthernSales_SouthernSalesUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AE6DDA79245A27A3017D854A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8CC69A903975771A36C54611 /* Pods-SouthernSales.debug.xcconfig */,
+				FB97ED0ABD4C2764CDA43E8D /* Pods-SouthernSales.release.xcconfig */,
+				DA10995B62B2C7FF4B842057 /* Pods-SouthernSales-SouthernSalesTests.debug.xcconfig */,
+				B80FCE9EB87A06400F508BC9 /* Pods-SouthernSales-SouthernSalesTests.release.xcconfig */,
+				565546D3E9C492C20E85E76F /* Pods-SouthernSales-SouthernSalesUITests.debug.xcconfig */,
+				95E1AE2BD35985523983D391 /* Pods-SouthernSales-SouthernSalesUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -131,8 +147,8 @@
 				EA0D646621992AD50015BEAA /* SouthernSalesTests */,
 				EA0D647121992AD50015BEAA /* SouthernSalesUITests */,
 				EA0D644E21992AD40015BEAA /* Products */,
-				5A3BFF6DBB9EEBD5242B80C3 /* Pods */,
-				FDECBB81C81CC65B86E58590 /* Frameworks */,
+				AE6DDA79245A27A3017D854A /* Pods */,
+				A2A1F3807C5C7432278823C3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -180,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				EA0D645621992AD40015BEAA /* Main.storyboard */,
+				EAC05CAE21F6C1DB00F91634 /* Messages.storyboard */,
 				EA0D645B21992AD50015BEAA /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
@@ -193,6 +210,7 @@
 				EA19193D21A1AF2B0053C68E /* GoogleService-Info.plist */,
 				EA0D645E21992AD50015BEAA /* Info.plist */,
 				EA19194C21A200B40053C68E /* Utility.swift */,
+				EAC05CB221F6C38B00F91634 /* Constants.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -201,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				EA7A685F219A0AFF0026C7DE /* ListingsViewController.swift */,
+				EAC05CB021F6C23000F91634 /* ViewListingViewController.swift */,
 				EA7A68582199EAF70026C7DE /* SavedCollectionViewController.swift */,
 				EA19194A21A1FD8A0053C68E /* PostViewController.swift */,
 				EA7A685A2199EB050026C7DE /* MessagesTableViewController.swift */,
@@ -228,16 +247,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		FDECBB81C81CC65B86E58590 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				B2087E1FE9AFC73E59F02E05 /* Pods_SouthernSales.framework */,
-				741C058D94BD2C6C98FA355B /* Pods_SouthernSalesTests.framework */,
-				67126D7FD1F5DF16566C4A89 /* Pods_SouthernSalesUITests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -245,13 +254,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EA0D647721992AD60015BEAA /* Build configuration list for PBXNativeTarget "SouthernSales" */;
 			buildPhases = (
-				43285507DDED9853C132089E /* [CP] Check Pods Manifest.lock */,
+				5B88FD00EA780B9FE1104EB8 /* [CP] Check Pods Manifest.lock */,
 				EA0D644921992AD40015BEAA /* Sources */,
 				EA0D644A21992AD40015BEAA /* Frameworks */,
 				EA0D644B21992AD40015BEAA /* Resources */,
-				E47248C83D7261BBA51B4046 /* [CP] Embed Pods Frameworks */,
 				EA19193F21A1B3140053C68E /* Crashalytics Run Script */,
-				F64086A8CA3851700020ED58 /* [CP] Copy Pods Resources */,
+				0D4F24073428F80EA8CA6974 /* [CP] Embed Pods Frameworks */,
+				F944269007CE6D6DA9730FA8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -266,10 +275,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EA0D647A21992AD60015BEAA /* Build configuration list for PBXNativeTarget "SouthernSalesTests" */;
 			buildPhases = (
-				3DCEB1321F632781CE904849 /* [CP] Check Pods Manifest.lock */,
+				561548C792613E9400CA54F1 /* [CP] Check Pods Manifest.lock */,
 				EA0D645F21992AD50015BEAA /* Sources */,
 				EA0D646021992AD50015BEAA /* Frameworks */,
 				EA0D646121992AD50015BEAA /* Resources */,
+				68501B5FF0854D97C8A92DFF /* [CP] Embed Pods Frameworks */,
+				CD4F2103370693324B36EC87 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -285,11 +296,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EA0D647D21992AD60015BEAA /* Build configuration list for PBXNativeTarget "SouthernSalesUITests" */;
 			buildPhases = (
-				06582EEE1E93A211C48E17FA /* [CP] Check Pods Manifest.lock */,
+				D3BDCE45A139043E883A1293 /* [CP] Check Pods Manifest.lock */,
 				EA0D646A21992AD50015BEAA /* Sources */,
 				EA0D646B21992AD50015BEAA /* Frameworks */,
 				EA0D646C21992AD50015BEAA /* Resources */,
-				D30FC1098C203AF32BBE4BA9 /* [CP] Embed Pods Frameworks */,
+				EDA276816563B9F4C5A5903E /* [CP] Embed Pods Frameworks */,
+				0EDA5AC0AB7283B9FAC3C879 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -352,6 +364,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAC05CAF21F6C1DB00F91634 /* Messages.storyboard in Resources */,
 				EA0D645D21992AD50015BEAA /* LaunchScreen.storyboard in Resources */,
 				EA19194521A1E3140053C68E /* ListingsCollectionViewCell.xib in Resources */,
 				EA19193E21A1AF2B0053C68E /* GoogleService-Info.plist in Resources */,
@@ -377,7 +390,73 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		06582EEE1E93A211C48E17FA /* [CP] Check Pods Manifest.lock */ = {
+		0D4F24073428F80EA8CA6974 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SouthernSales/Pods-SouthernSales-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/Onboard/Onboard.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Onboard.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SouthernSales/Pods-SouthernSales-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0EDA5AC0AB7283B9FAC3C879 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SouthernSales-SouthernSalesUITests/Pods-SouthernSales-SouthernSalesUITests-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates-Firestore.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates-Firestore.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseGoogleAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SouthernSales-SouthernSalesUITests/Pods-SouthernSales-SouthernSalesUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		561548C792613E9400CA54F1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -388,32 +467,14 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SouthernSalesUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-SouthernSales-SouthernSalesTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3DCEB1321F632781CE904849 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SouthernSalesTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		43285507DDED9853C132089E /* [CP] Check Pods Manifest.lock */ = {
+		5B88FD00EA780B9FE1104EB8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -431,64 +492,88 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D30FC1098C203AF32BBE4BA9 /* [CP] Embed Pods Frameworks */ = {
+		68501B5FF0854D97C8A92DFF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SouthernSalesUITests/Pods-SouthernSalesUITests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SwiftMonkey/SwiftMonkey.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMonkey.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SouthernSalesUITests/Pods-SouthernSalesUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E47248C83D7261BBA51B4046 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SouthernSales/Pods-SouthernSales-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-SouthernSales-SouthernSalesTests/Pods-SouthernSales-SouthernSalesTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/Onboard/Onboard.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Onboard.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SouthernSales/Pods-SouthernSales-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SouthernSales-SouthernSalesTests/Pods-SouthernSales-SouthernSalesTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD4F2103370693324B36EC87 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SouthernSales-SouthernSalesTests/Pods-SouthernSales-SouthernSalesTests-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates-Firestore.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates-Firestore.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseGoogleAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SouthernSales-SouthernSalesTests/Pods-SouthernSales-SouthernSalesTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D3BDCE45A139043E883A1293 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SouthernSales-SouthernSalesUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EA19193F21A1B3140053C68E /* Crashalytics Run Script */ = {
@@ -506,19 +591,65 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/Fabric/run\"\n";
 		};
-		F64086A8CA3851700020ED58 /* [CP] Copy Pods Resources */ = {
+		EDA276816563B9F4C5A5903E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SouthernSales-SouthernSalesUITests/Pods-SouthernSales-SouthernSalesUITests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/Onboard/Onboard.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftMonkey/SwiftMonkey.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Onboard.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMonkey.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SouthernSales-SouthernSalesUITests/Pods-SouthernSales-SouthernSalesUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F944269007CE6D6DA9730FA8 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SouthernSales/Pods-SouthernSales-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates-Firestore.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates-Firestore.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseGoogleAuthUI.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
@@ -537,10 +668,12 @@
 			files = (
 				EA19194B21A1FD8A0053C68E /* PostViewController.swift in Sources */,
 				EA19194421A1E3140053C68E /* ListingsCollectionViewCell.swift in Sources */,
+				EAC05CB121F6C23000F91634 /* ViewListingViewController.swift in Sources */,
 				EA0D645121992AD40015BEAA /* AppDelegate.swift in Sources */,
 				EA7A685B2199EB050026C7DE /* MessagesTableViewController.swift in Sources */,
 				EA7A685D2199EB130026C7DE /* ProfileViewController.swift in Sources */,
 				EA19194D21A200B40053C68E /* Utility.swift in Sources */,
+				EAC05CB321F6C38B00F91634 /* Constants.swift in Sources */,
 				EADA9C5E21A8890600826C28 /* SettingsTableViewController.swift in Sources */,
 				EA7A68592199EAF70026C7DE /* SavedCollectionViewController.swift in Sources */,
 				EA19195221A268360053C68E /* MainModels.swift in Sources */,
@@ -718,7 +851,7 @@
 		};
 		EA0D647821992AD60015BEAA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BA2849F645749266004574F5 /* Pods-SouthernSales.debug.xcconfig */;
+			baseConfigurationReference = 8CC69A903975771A36C54611 /* Pods-SouthernSales.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -739,7 +872,7 @@
 		};
 		EA0D647921992AD60015BEAA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B37117B643D9301D3B183F6A /* Pods-SouthernSales.release.xcconfig */;
+			baseConfigurationReference = FB97ED0ABD4C2764CDA43E8D /* Pods-SouthernSales.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -760,9 +893,9 @@
 		};
 		EA0D647B21992AD60015BEAA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 13875EFEADE166B4458046B5 /* Pods-SouthernSalesTests.debug.xcconfig */;
+			baseConfigurationReference = DA10995B62B2C7FF4B842057 /* Pods-SouthernSales-SouthernSalesTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7HLV4SJH4C;
@@ -782,9 +915,9 @@
 		};
 		EA0D647C21992AD60015BEAA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 64513A97D69DA7BEA902A31A /* Pods-SouthernSalesTests.release.xcconfig */;
+			baseConfigurationReference = B80FCE9EB87A06400F508BC9 /* Pods-SouthernSales-SouthernSalesTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7HLV4SJH4C;
@@ -804,9 +937,9 @@
 		};
 		EA0D647E21992AD60015BEAA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9BF3930BD46CA539C3384A0B /* Pods-SouthernSalesUITests.debug.xcconfig */;
+			baseConfigurationReference = 565546D3E9C492C20E85E76F /* Pods-SouthernSales-SouthernSalesUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7HLV4SJH4C;
 				INFOPLIST_FILE = SouthernSalesUITests/Info.plist;
@@ -825,9 +958,9 @@
 		};
 		EA0D647F21992AD60015BEAA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 39DA0B72819F8B4A82B86E19 /* Pods-SouthernSalesUITests.release.xcconfig */;
+			baseConfigurationReference = 95E1AE2BD35985523983D391 /* Pods-SouthernSales-SouthernSalesUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7HLV4SJH4C;
 				INFOPLIST_FILE = SouthernSalesUITests/Info.plist;

@@ -1,14 +1,17 @@
 //
 //  ListingsViewController.swift
-//  
+//  SouthernSales
 //
 //  Created by Thomas Manu on 11/12/18.
+//  Copyright © 2018 Thomas Manu. All rights reserved.
 //
 
 import UIKit
 import GoogleSignIn
 import FirebaseAuth
 import NVActivityIndicatorView
+import FirebaseStorage
+import FirebaseUI
 
 class ListingsViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate, NVActivityIndicatorViewable {
     
@@ -30,9 +33,10 @@ class ListingsViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDe
         collectionView.register(UINib(nibName: "ListingsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
         collectionView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(updateListings), for: .valueChanged)
-        refreshControl.tintColor = UIColor(red:0.66, green:0.38, blue:0.98, alpha:1.0)
+        refreshControl.tintColor = Colors.TintColor
         
         searchBar.delegate = self
+        collectionView.backgroundColor = Colors.BackgroundColor
     }
     
     // MARK: - Firebase
@@ -41,15 +45,25 @@ class ListingsViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDe
         if !refreshControl.isRefreshing {
             startAnimating(type: NVActivityIndicatorType.ballScaleRippleMultiple)
         }
-        Utility.databaseReadListings({ (listing) in
-            self.listingsData = listing
+        Utility.databaseReadListings({ (listings) in
+            Utility.databaseReadFavorites({ (favs) in
+                var data = [Listing]()
+                for listing in self.listingsData {
+                    var temp = listing
+                    temp.saved = favs.contains(where: { $0.reference?.documentID == listing.reference?.documentID  })
+                    data.append(temp)
+                }
+                self.listingsData = data
+            }) { (error) in
+                print("[LVC] Failed to get favorites")
+            }
+            self.listingsData = listings
             self.collectionView.reloadData()
             self.refreshControl.endRefreshing()
             self.stopAnimating()
         }) { (error) in
             self.refreshControl.endRefreshing()
             self.stopAnimating()
-            
         }
     }
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
@@ -61,17 +75,19 @@ class ListingsViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDe
         }
     }
 
-    
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == Constants.HomeToListingSegue {
+            let vlvc = segue.destination as! ViewListingViewController
+            let listing = sender as! Listing
+            vlvc.title = listing.title
+            vlvc.listing = listing
+        }
     }
-    */
-
 }
 
 // MARK: - Collection View
@@ -89,11 +105,15 @@ extension ListingsViewController: UICollectionViewDataSource, UICollectionViewDe
         let listing = listingsData[indexPath.row]
         cell.configure(title: listing.title, price: listing.price)
         
+        let userImageRef = Storage.storage().reference(withPath: "images/\(listing.user!.documentID)")
+        let previewImageRef = userImageRef.child("/\(listing.imageRefs[0])")
+        cell.previewImageView.sd_setImage(with: previewImageRef, placeholderImage: UIImage.init(named: "placeholder"))
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        performSegue(withIdentifier: Constants.HomeToListingSegue, sender: listingsData[indexPath.row])
     }
 }
 
@@ -101,17 +121,18 @@ extension ListingsViewController: UICollectionViewDataSource, UICollectionViewDe
 extension ListingsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (collectionView.bounds.width / 2) - 30
+        
         return CGSize(width: width, height: width)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+        return 5
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }
