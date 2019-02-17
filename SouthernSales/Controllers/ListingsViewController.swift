@@ -1,8 +1,9 @@
 //
 //  ListingsViewController.swift
-//  
+//  SouthernSales
 //
 //  Created by Thomas Manu on 11/12/18.
+//  Copyright © 2018 Thomas Manu. All rights reserved.
 //
 
 import UIKit
@@ -47,7 +48,7 @@ class ListingsViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDe
         Utility.databaseReadListings({ (listings) in
             Utility.databaseReadFavorites({ (favs) in
                 var data = [Listing]()
-                for var listing in self.listingsData {
+                for listing in self.listingsData {
                     var temp = listing
                     temp.saved = favs.contains(where: { $0.reference?.documentID == listing.reference?.documentID  })
                     data.append(temp)
