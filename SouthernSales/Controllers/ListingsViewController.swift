@@ -23,10 +23,10 @@ class ListingsViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance()?.uiDelegate = self
         GIDSignIn.sharedInstance()?.delegate = self
         GIDSignIn.sharedInstance()?.hostedDomain = "southern.edu"
-        GIDSignIn.sharedInstance().signIn()
+        GIDSignIn.sharedInstance()?.signIn()
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -66,13 +66,29 @@ class ListingsViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDe
             self.stopAnimating()
         }
     }
+    
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if error != nil {
             stopAnimating()
         }
         else {
+//            Auth.auth().addStateDidChangeListener { (auth, user) in
+//                if user != nil {
+//                    self.updateListings()
+//                } else {
+////                    signIn.signIn()
+//                }
+//            }
             updateListings()
         }
+    }
+
+    func sign(_ signIn: GIDSignIn!, present viewController: UIViewController!) {
+        present(viewController, animated: true, completion: nil)
+    }
+    
+    func sign(_ signIn: GIDSignIn!, dismiss viewController: UIViewController!) {
+        print("Bleh")
     }
 
     // MARK: - Navigation

@@ -48,6 +48,13 @@
 			remoteGlobalIDString = EA0D644C21992AD40015BEAA;
 			remoteInfo = SouthernSales;
 		};
+		EA22A660221AF6F40072259B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EA0D644521992AD40015BEAA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EA0D644C21992AD40015BEAA;
+			remoteInfo = SouthernSales;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +84,7 @@
 		EA19194A21A1FD8A0053C68E /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		EA19194C21A200B40053C68E /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		EA19195121A268360053C68E /* MainModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModels.swift; sourceTree = "<group>"; };
+		EA22A65B221AF6F40072259B /* SouthernSalesModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SouthernSalesModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA306B3021C7235E00E3A1E4 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		EA7A68582199EAF70026C7DE /* SavedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCollectionViewController.swift; sourceTree = "<group>"; };
 		EA7A685A2199EB050026C7DE /* MessagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +119,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B6F46D524180A1375061386 /* Pods_SouthernSales_SouthernSalesUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA22A658221AF6F40072259B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +173,7 @@
 				EA0D644D21992AD40015BEAA /* SouthernSales.app */,
 				EA0D646321992AD50015BEAA /* SouthernSalesTests.xctest */,
 				EA0D646E21992AD50015BEAA /* SouthernSalesUITests.xctest */,
+				EA22A65B221AF6F40072259B /* SouthernSalesModelTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -313,6 +329,24 @@
 			productReference = EA0D646E21992AD50015BEAA /* SouthernSalesUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		EA22A65A221AF6F40072259B /* SouthernSalesModelTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EA22A664221AF6F40072259B /* Build configuration list for PBXNativeTarget "SouthernSalesModelTests" */;
+			buildPhases = (
+				EA22A657221AF6F40072259B /* Sources */,
+				EA22A658221AF6F40072259B /* Frameworks */,
+				EA22A659221AF6F40072259B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EA22A661221AF6F40072259B /* PBXTargetDependency */,
+			);
+			name = SouthernSalesModelTests;
+			productName = SouthernSalesModelTests;
+			productReference = EA22A65B221AF6F40072259B /* SouthernSalesModelTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -337,6 +371,10 @@
 						LastSwiftMigration = 1010;
 						TestTargetID = EA0D644C21992AD40015BEAA;
 					};
+					EA22A65A221AF6F40072259B = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = EA0D644C21992AD40015BEAA;
+					};
 				};
 			};
 			buildConfigurationList = EA0D644821992AD40015BEAA /* Build configuration list for PBXProject "SouthernSales" */;
@@ -355,6 +393,7 @@
 				EA0D644C21992AD40015BEAA /* SouthernSales */,
 				EA0D646221992AD50015BEAA /* SouthernSalesTests */,
 				EA0D646D21992AD50015BEAA /* SouthernSalesUITests */,
+				EA22A65A221AF6F40072259B /* SouthernSalesModelTests */,
 			);
 		};
 /* End PBXProject section */
@@ -381,6 +420,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		EA0D646C21992AD50015BEAA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA22A659221AF6F40072259B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -698,6 +744,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EA22A657221AF6F40072259B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -710,6 +763,11 @@
 			isa = PBXTargetDependency;
 			target = EA0D644C21992AD40015BEAA /* SouthernSales */;
 			targetProxy = EA0D646F21992AD50015BEAA /* PBXContainerItemProxy */;
+		};
+		EA22A661221AF6F40072259B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EA0D644C21992AD40015BEAA /* SouthernSales */;
+			targetProxy = EA22A660221AF6F40072259B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -977,6 +1035,48 @@
 			};
 			name = Release;
 		};
+		EA22A662221AF6F40072259B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7HLV4SJH4C;
+				INFOPLIST_FILE = SouthernSalesModelTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.SeniorProject.SouthernSalesModelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SouthernSales.app/SouthernSales";
+			};
+			name = Debug;
+		};
+		EA22A663221AF6F40072259B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7HLV4SJH4C;
+				INFOPLIST_FILE = SouthernSalesModelTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.SeniorProject.SouthernSalesModelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SouthernSales.app/SouthernSales";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1012,6 +1112,15 @@
 			buildConfigurations = (
 				EA0D647E21992AD60015BEAA /* Debug */,
 				EA0D647F21992AD60015BEAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EA22A664221AF6F40072259B /* Build configuration list for PBXNativeTarget "SouthernSalesModelTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA22A662221AF6F40072259B /* Debug */,
+				EA22A663221AF6F40072259B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

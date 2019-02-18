@@ -79,8 +79,11 @@ class Utility {
     
     static func databaseReadFavorites(_ success: @escaping ([Listing]) -> Void, _ failure: @escaping (Error) -> Void) {
         let db = initializeFirestoreDatabase()
-        let user = getCurrentUser()
-        let userRef = db.collection("users").document(user!.id)
+        guard let user = getCurrentUser() else {
+            failure(NSError(domain: "", code: 404, userInfo: ["description": "User not found or initialized"]))
+            return
+        }
+        let userRef = db.collection("users").document(user.id)
         
         userRef.getDocument(completion: { (snapshot, error) in
             if let err = error {
@@ -99,6 +102,7 @@ class Utility {
                             } else {
                                 var listing = parseListing(from: (snapshot?.data())!)
                                 listing.reference = refs
+                                listing.saved = true
                                 listings.append(listing)
                             }
                             asyncGroup.leave()
