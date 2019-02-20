@@ -23,7 +23,7 @@ class ViewListingViewController: UIViewController {
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapOnSlideshow))
         imageSlideshow.addGestureRecognizer(gestureRecognizer)
         imageSlideshow.setImageInputs([ImageSource(image: UIImage.init(named: "placeholder")!)])
-        descriptionTextView.text = listing.description.replacingOccurrences(of: "\\n", with: "\n")
+        descriptionTextView.text = listing.descriptionString.replacingOccurrences(of: "\\n", with: "\n")
         getDownloadLinks()
     }
     

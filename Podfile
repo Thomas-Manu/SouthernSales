@@ -30,8 +30,8 @@ use_frameworks!
     pod 'Firebase/Database'
 
   target 'SouthernSalesTests' do
-      use_frameworks!
-#      inherit! :search_paths
+#      use_frameworks!
+      inherit! :search_paths
       # Pods for testing
   end
 

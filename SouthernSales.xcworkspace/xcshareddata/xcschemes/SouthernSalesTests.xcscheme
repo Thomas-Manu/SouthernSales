@@ -26,16 +26,6 @@
                referenceType = "1">
             </LocationScenarioReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EA22A65A221AF6F40072259B"
-               BuildableName = "SouthernSalesModelTests.xctest"
-               BlueprintName = "SouthernSalesModelTests"
-               ReferencedContainer = "container:SouthernSales.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

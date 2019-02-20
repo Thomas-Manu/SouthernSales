@@ -43,7 +43,7 @@ class Utility {
         ref = db.collection("listings").addDocument(data: [
             "title": listing.title,
             "price": listing.price,
-            "description": listing.description,
+            "description": listing.descriptionString,
             "timestamp": Timestamp.init(),
             "user": userRef
             ]) { error in
@@ -171,7 +171,7 @@ class Utility {
 
 extension Utility {
     static func parseListing(from document: QueryDocumentSnapshot) -> Listing {
-        var listing = parseListing(from: document.data())
+        let listing = parseListing(from: document.data())
         listing.reference = document.reference
         return listing
     }
