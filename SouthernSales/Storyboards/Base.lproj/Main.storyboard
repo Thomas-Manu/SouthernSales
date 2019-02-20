@@ -21,7 +21,7 @@
                             <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="QYv-lH-mt9">
                                 <rect key="frame" x="0.0" y="64" width="375" height="56"/>
                                 <color key="barTintColor" red="0.61663808850000001" green="0.25192767669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                 <connections>
                                     <outlet property="delegate" destination="NPb-VF-uAz" id="jVX-on-rNS"/>
                                 </connections>
@@ -515,7 +515,7 @@
         <image name="logo_noWords" width="293" height="293"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LLZ-9e-bLK"/>
+        <segue reference="W9B-gC-VVj"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.61568627450980395" green="0.25098039215686274" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

@@ -20,6 +20,8 @@ class ListingsViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDe
     private let reuseIdentifier = "listingsCell"
     private let refreshControl = UIRefreshControl()
     var listingsData = [Listing]()
+    var searchData = [Listing]()
+    var isSearching = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,16 +33,41 @@ class ListingsViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDe
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "ListingsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
+        collectionView.backgroundColor = Colors.BackgroundColor
         collectionView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(updateListings), for: .valueChanged)
         refreshControl.tintColor = Colors.TintColor
         
         searchBar.delegate = self
-        collectionView.backgroundColor = Colors.BackgroundColor
+        searchBar.tintColor = .white
+        searchBar.returnKeyType = .done
+        UITextField.appearance(whenContainedInInstancesOf: [type(of: searchBar)]).tintColor = .black
+        
+        let singleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.singleTap(sender:)))
+        singleTapGestureRecognizer.numberOfTapsRequired = 1
+        singleTapGestureRecognizer.isEnabled = true
+        singleTapGestureRecognizer.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(singleTapGestureRecognizer)
+        isSearching = false
     }
-    
-    // MARK: - Firebase
 
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == Constants.HomeToListingSegue {
+            let vlvc = segue.destination as! ViewListingViewController
+            let listing = sender as! Listing
+            vlvc.title = listing.title
+            vlvc.listing = listing
+        }
+    }
+}
+
+// MARK: - Firebase
+extension ListingsViewController {
     @objc fileprivate func updateListings() {
         if !refreshControl.isRefreshing {
             startAnimating(type: NVActivityIndicatorType.ballScaleRippleMultiple)
@@ -49,7 +76,7 @@ class ListingsViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDe
             Utility.databaseReadFavorites({ (favs) in
                 var data = [Listing]()
                 for listing in self.listingsData {
-                    var temp = listing
+                    let temp = listing
                     temp.saved = favs.contains(where: { $0.reference?.documentID == listing.reference?.documentID  })
                     data.append(temp)
                 }
@@ -72,37 +99,23 @@ class ListingsViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDe
             stopAnimating()
         }
         else {
-//            Auth.auth().addStateDidChangeListener { (auth, user) in
-//                if user != nil {
-//                    self.updateListings()
-//                } else {
-////                    signIn.signIn()
-//                }
-//            }
+            //            Auth.auth().addStateDidChangeListener { (auth, user) in
+            //                if user != nil {
+            //                    self.updateListings()
+            //                } else {
+            ////                    signIn.signIn()
+            //                }
+            //            }
             updateListings()
         }
     }
-
+    
     func sign(_ signIn: GIDSignIn!, present viewController: UIViewController!) {
         present(viewController, animated: true, completion: nil)
     }
     
     func sign(_ signIn: GIDSignIn!, dismiss viewController: UIViewController!) {
         print("Bleh")
-    }
-
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-        if segue.identifier == Constants.HomeToListingSegue {
-            let vlvc = segue.destination as! ViewListingViewController
-            let listing = sender as! Listing
-            vlvc.title = listing.title
-            vlvc.listing = listing
-        }
     }
 }
 
@@ -113,23 +126,27 @@ extension ListingsViewController: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return listingsData.count
+        return isSearching ? searchData.count : listingsData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ListingsCollectionViewCell
-        let listing = listingsData[indexPath.row]
+        let listing = isSearching ? searchData[indexPath.row] : listingsData[indexPath.row]
         cell.configure(title: listing.title, price: listing.price)
         
-        let userImageRef = Storage.storage().reference(withPath: "images/\(listing.user!.documentID)")
-        let previewImageRef = userImageRef.child("/\(listing.imageRefs[0])")
-        cell.previewImageView.sd_setImage(with: previewImageRef, placeholderImage: UIImage.init(named: "placeholder"))
+        if listing.imageRefs.count > 0 {
+            let userImageRef = Storage.storage().reference(withPath: "images/\(listing.user!.documentID)")
+            let previewImageRef = userImageRef.child("/\(listing.imageRefs[0])")
+            cell.previewImageView.sd_setImage(with: previewImageRef, placeholderImage: UIImage.init(named: "placeholder"))
+        } else {
+            cell.previewImageView.image = UIImage.init(named: "placeholder")
+        }
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: Constants.HomeToListingSegue, sender: listingsData[indexPath.row])
+        performSegue(withIdentifier: Constants.HomeToListingSegue, sender: isSearching ? searchData[indexPath.row] : listingsData[indexPath.row])
     }
 }
 
@@ -155,6 +172,38 @@ extension ListingsViewController: UICollectionViewDelegateFlowLayout {
 }
 
 // MARK: - Search Bar
-extension ListingsViewController: UISearchBarDelegate, UISearchControllerDelegate {
-    
+extension ListingsViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        isSearching = true
+        searchData = listingsData
+        searchBar.showsCancelButton = true
+    }
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.count > 0 {
+            searchData = listingsData.filter({ (listing) -> Bool in
+                listing.title.localizedCaseInsensitiveContains(searchText)
+            })
+        } else {
+            searchData = listingsData
+        }
+        print("Search: \(searchText) count: \(searchData.count)")
+        collectionView.reloadData()
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        print("Cancel button")
+        isSearching = false
+        searchBar.showsCancelButton = false
+        searchBar.text = nil
+        collectionView.reloadData()
+    }
+
+    @objc func singleTap(sender: UITapGestureRecognizer) {
+        self.searchBar.resignFirstResponder()
+    }
 }

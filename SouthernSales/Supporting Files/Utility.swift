@@ -181,7 +181,7 @@ extension Utility {
                             price: data["price"] as! Double,
                             description: data["description"] as! String,
                             user: data["user"] as? DocumentReference,
-                            imageRefs: data["images"] as! [String])
+                            imageRefs: data["images"] as? [String] ?? [])
     }
     
     static func randomString(length: Int) -> String {
