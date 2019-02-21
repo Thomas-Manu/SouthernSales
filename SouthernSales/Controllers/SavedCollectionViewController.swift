@@ -25,7 +25,7 @@ class SavedCollectionViewController: UICollectionViewController, NVActivityIndic
         collectionView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(updateListings), for: .valueChanged)
         refreshControl.tintColor = Colors.TintColor
-        
+        navigationController?.navigationBar.barStyle = .black
         updateListings()
     }
     

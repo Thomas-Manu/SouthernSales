@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         FirebaseApp.configure()
         GIDSignIn.sharedInstance()?.clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance()?.delegate = self
+        GIDSignIn.sharedInstance()?.hostedDomain = "southern.edu"
         GIDSignIn.sharedInstance()?.signInSilently()
         return true
     }
@@ -47,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 return
             }
             
-            NSLog("User with email: \(String(describing: authResult?.additionalUserInfo?.profile?["email"] as! String)) is signed in")
+            print("User with email: \(String(describing: authResult?.additionalUserInfo?.profile?["email"] as! String)) is signed in")
         }
     }
     

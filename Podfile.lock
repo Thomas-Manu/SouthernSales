@@ -185,10 +185,15 @@ PODS:
   - NVActivityIndicatorView/Presenter (4.4.1)
   - Onboard (2.3.3)
   - Protobuf (3.6.1)
+  - PryntTrimmerView (3.0.0)
   - SDWebImage (4.4.3):
     - SDWebImage/Core (= 4.4.3)
   - SDWebImage/Core (4.4.3)
+  - SteviaLayout (4.4.3)
   - SwiftMonkey (2.1.1)
+  - YPImagePicker (3.5.3):
+    - PryntTrimmerView (~> 3.0.0)
+    - SteviaLayout (~> 4.4.1)
 
 DEPENDENCIES:
   - Crashlytics
@@ -205,6 +210,7 @@ DEPENDENCIES:
   - NVActivityIndicatorView (~> 4.4.x)
   - Onboard
   - SwiftMonkey
+  - YPImagePicker
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -239,8 +245,11 @@ SPEC REPOS:
     - NVActivityIndicatorView
     - Onboard
     - Protobuf
+    - PryntTrimmerView
     - SDWebImage
+    - SteviaLayout
     - SwiftMonkey
+    - YPImagePicker
 
 SPEC CHECKSUMS:
   BoringSSL: e10f92a27043805c01071fe815a5cd98ae8212e7
@@ -274,9 +283,12 @@ SPEC CHECKSUMS:
   NVActivityIndicatorView: f0a6b0ed2973d9544da268f4eb76696f0a9577b0
   Onboard: 4d6e943e20bdd6bc229df967a347dd7514bc2a6f
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
+  PryntTrimmerView: 53ac64053c7ce63cb3e27f54090f52da0734891d
   SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
+  SteviaLayout: ae5ee66101e03607a93c9b3773b84ab7ba7b3d17
   SwiftMonkey: aea6f2707a4b7ab5277b4d2fd2f0723a083997b1
+  YPImagePicker: 5dd3814b47b1208e9c8cc8f6ef77fe90db3723b6
 
-PODFILE CHECKSUM: 63bb41138b478db8bf059fb2bbaf5cdc11bc13b5
+PODFILE CHECKSUM: 60f92d9751d350ecd2d64f7f6aff3390a472010b
 
 COCOAPODS: 1.5.3

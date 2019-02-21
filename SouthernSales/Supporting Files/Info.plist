@@ -65,6 +65,10 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
+	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>This app uses your camera to take pictures of products.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>You can select existing photos to upload.</string>
 </dict>
 </plist>

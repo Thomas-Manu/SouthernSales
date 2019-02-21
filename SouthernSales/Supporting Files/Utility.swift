@@ -10,7 +10,7 @@ import UIKit
 import FirebaseFirestore
 import FirebaseAuth
 import FirebaseStorage
-
+import GoogleSignIn
 
 class Utility {
     // MARK: - Firestore
@@ -30,6 +30,7 @@ class Utility {
     
     private static func getCurrentUser() -> User? {
         guard let currentUser = Auth.auth().currentUser else {
+            GIDSignIn.sharedInstance()?.signOut()
             return nil
         }
         return User.init(id: currentUser.uid, name: currentUser.displayName!, email: currentUser.email!)
@@ -45,7 +46,8 @@ class Utility {
             "price": listing.price,
             "description": listing.descriptionString,
             "timestamp": Timestamp.init(),
-            "user": userRef
+            "user": userRef,
+            "images": listing.imageRefs
             ]) { error in
             if let err = error {
                 failure(err)
@@ -72,11 +74,6 @@ class Utility {
         }
     }
     
-//    static func databaseReadListing(with listingRef: DocumentReference, _ success: @escaping (Listing) -> Void, _ failure: @escaping (Error) -> Void) {
-//        let db = initializeFirestoreDatabase()
-//
-//    }
-    
     static func databaseReadFavorites(_ success: @escaping ([Listing]) -> Void, _ failure: @escaping (Error) -> Void) {
         let db = initializeFirestoreDatabase()
         guard let user = getCurrentUser() else {
@@ -100,7 +97,7 @@ class Utility {
                                 failure(err)
                                 print("Error getting document: \(err)")
                             } else {
-                                var listing = parseListing(from: (snapshot?.data())!)
+                                let listing = parseListing(from: (snapshot?.data())!)
                                 listing.reference = refs
                                 listing.saved = true
                                 listings.append(listing)
@@ -143,7 +140,6 @@ class Utility {
             }
         }
     }
-    
 
     static func cloudStorageGetImageURLs(from listing: Listing, success: @escaping ([URL]) -> Void, failure: @escaping (Error) -> Void) {
         var urls = [URL]()
@@ -165,6 +161,33 @@ class Utility {
         }
         asyncGroup.notify(queue: .main) {
             success(urls)
+        }
+    }
+    
+    static func cloudStorageUploadImages(with images: [UIImage], success: @escaping ([String]) -> Void, failure: @escaping (Error) -> Void) {
+        let user = getCurrentUser()
+        let userStorage = Storage.storage().reference(withPath: "images/\(user!.id)")
+        let asyncGroup = DispatchGroup()
+        var imageNameList = [String]()
+        
+        for image in images {
+            asyncGroup.enter()
+            let imageName = randomString(length: 30) + ".jpg"
+            let imageReference = userStorage.child(imageName)
+            let metadata = StorageMetadata()
+            metadata.contentType = "image/jpeg"
+            imageReference.putData(image.jpegData(compressionQuality: 0.5)!, metadata: metadata) { (metadata, error) in
+                if error != nil {
+                    failure(error!)
+                } else {
+                    imageNameList.append(imageName)
+                }
+                asyncGroup.leave()
+            }
+        }
+        
+        asyncGroup.notify(queue: .main) {
+            success(imageNameList)
         }
     }
 }

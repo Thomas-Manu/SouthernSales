@@ -361,8 +361,11 @@
                         <viewLayoutGuide key="safeArea" id="qCU-hd-YbA"/>
                     </view>
                     <navigationItem key="navigationItem" title="Post" id="Npn-G7-LOW">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="6Y9-NU-Z2B">
+                        <barButtonItem key="leftBarButtonItem" title="Photo" id="6Y9-NU-Z2B">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="photoButtonTapped:" destination="sVQ-YY-6U8" id="Jjg-r3-smK"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="etK-zI-dwj">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

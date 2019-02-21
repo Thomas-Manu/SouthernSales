@@ -15,6 +15,7 @@ use_frameworks!
     pod 'ImageSlideshow/SDWebImage'
     pod 'NVActivityIndicatorView', '~> 4.4.x'
     pod 'Onboard'
+    pod 'YPImagePicker'
 
    # Firebase Pods
     pod 'Firebase/Core'

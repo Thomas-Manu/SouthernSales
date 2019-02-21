@@ -7,25 +7,29 @@
 //
 
 import UIKit
+import YPImagePicker
 
 class PostViewController: UIViewController {
 
     @IBOutlet weak var titleText: UITextField!
     @IBOutlet weak var priceText: UITextField!
     @IBOutlet weak var descriptionText: UITextView!
+    var images = [UIImage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        navigationController?.navigationBar.barStyle = .black
     }
     
     @IBAction func saveNewPost(_ sender: Any) {
         guard let title = titleText.text, let price = priceText.text, let description = descriptionText.text else {
             return
         }
-        let newPost = Listing.init(title: title, price: Double(price)!, description: description, imageRefs: [])
-        Utility.databaseAddNewListing(with: newPost) { (error) in
-            
+        Utility.cloudStorageUploadImages(with: images, success: { (references) in
+            let newPost = Listing.init(title: title, price: Double(price)!, description: description, imageRefs: references)
+            Utility.databaseAddNewListing(with: newPost) { (error) in }
+        }) { (error) in
+            print("[PVC] \(error)")
         }
     }
     
@@ -39,4 +43,35 @@ class PostViewController: UIViewController {
     }
     */
 
+    @IBAction func photoButtonTapped(_ sender: Any) {
+        openPicker()
+    }
+    
+    func openPicker() {
+        var config = YPImagePickerConfiguration()
+        config.startOnScreen = .library
+        config.colors.tintColor = Colors.TintColor
+        config.colors.coverSelectorBorderColor = Colors.TintColor
+        config.bottomMenuItemSelectedColour = Colors.TintColor
+        config.library.maxNumberOfItems = 10
+        config.library.mediaType = .photo
+        let picker = YPImagePicker(configuration: config)
+        picker.didFinishPicking { (items, cancelled) in
+            if cancelled {
+                print("Picker was cancelled.")
+            } else {
+                self.images.removeAll()
+                for item in items {
+                    switch item {
+                    case .photo(let photo):
+                        self.images.append(photo.image)
+                    case .video(_):
+                        break
+                    }
+                }
+            }
+            picker.dismiss(animated: true, completion: nil)
+        }
+        present(picker, animated: true, completion: nil)
+    }
 }

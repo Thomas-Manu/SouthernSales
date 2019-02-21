@@ -27,7 +27,6 @@ class ListingsViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDe
         super.viewDidLoad()
         GIDSignIn.sharedInstance()?.uiDelegate = self
         GIDSignIn.sharedInstance()?.delegate = self
-        GIDSignIn.sharedInstance()?.hostedDomain = "southern.edu"
         GIDSignIn.sharedInstance()?.signIn()
         
         collectionView.delegate = self
@@ -37,6 +36,8 @@ class ListingsViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDe
         collectionView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(updateListings), for: .valueChanged)
         refreshControl.tintColor = Colors.TintColor
+        
+        navigationController?.navigationBar.barStyle = .black
         
         searchBar.delegate = self
         searchBar.tintColor = .white
