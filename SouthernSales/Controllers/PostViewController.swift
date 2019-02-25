@@ -13,7 +13,7 @@ class PostViewController: UIViewController {
 
     @IBOutlet weak var titleText: UITextField!
     @IBOutlet weak var priceText: UITextField!
-    @IBOutlet weak var descriptionText: UITextView!
+    @IBOutlet weak var descriptionView: FloatLabelTextView!
     var images = [UIImage]()
     
     override func viewDidLoad() {
@@ -22,7 +22,7 @@ class PostViewController: UIViewController {
     }
     
     @IBAction func saveNewPost(_ sender: Any) {
-        guard let title = titleText.text, let price = priceText.text, let description = descriptionText.text else {
+        guard let title = titleText.text, let price = priceText.text, let description = descriptionView.text else {
             return
         }
         Utility.cloudStorageUploadImages(with: images, success: { (references) in
