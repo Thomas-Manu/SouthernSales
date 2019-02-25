@@ -9,7 +9,6 @@
 import UIKit
 import Firebase
 import GoogleSignIn
-import Onboard
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
@@ -24,13 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance()?.hostedDomain = "southern.edu"
         GIDSignIn.sharedInstance()?.signInSilently()
         return true
-    }
-    
-    func onboardInitialView(authUIVC: UIViewController) -> OnboardingViewController {
-        let firstPage = OnboardingContentViewController(title: "Page Title", body: "Page body goes here.", image: UIImage(named: "icon"), buttonText: "Text For Button") { () -> Void in
-            self.window?.rootViewController?.present(authUIVC, animated: true, completion: nil)
-        }
-        return OnboardingViewController(backgroundImage: UIImage(named: "Home"), contents: [firstPage])
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {

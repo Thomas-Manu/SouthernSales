@@ -11,11 +11,13 @@ use_frameworks!
 #    pod 'MessageKit'
 #    pod 'SnapKit', '~> 4.0.0'
 #    pod 'SwiftyJSON'
+#    pod 'Firebase/Storage'
 
     pod 'ImageSlideshow/SDWebImage'
     pod 'NVActivityIndicatorView', '~> 4.4.x'
-    pod 'Onboard'
+    pod 'paper-onboarding'
     pod 'YPImagePicker'
+    pod 'SkyFloatingLabelTextField'
 
    # Firebase Pods
     pod 'Firebase/Core'
@@ -26,7 +28,6 @@ use_frameworks!
     pod 'FirebaseUI/Auth'
     pod 'FirebaseUI/Google'
     pod 'Firebase/Performance'   
-    #pod 'Firebase/Storage'
     pod 'FirebaseUI/Storage'
     pod 'Firebase/Database'
 

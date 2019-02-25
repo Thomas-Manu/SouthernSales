@@ -31,8 +31,9 @@ class SplashViewController: UIViewController {
                 self.secondImageView.alpha = 1
             }) { (complete) in
                 DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-                    let initialController = self.storyboard?.instantiateViewController(withIdentifier: "initialView")
-                    self.present(initialController!, animated: false, completion: nil)
+                    self.performSegue(withIdentifier: "onboardingSegue", sender: nil)
+//                    let initialController = self.storyboard?.instantiateViewController(withIdentifier: "initialView")
+//                    self.present(initialController!, animated: false, completion: nil)
                 })
             }
         }

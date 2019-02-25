@@ -261,11 +261,27 @@
                     <connections>
                         <outlet property="firstImageView" destination="y7O-Qo-Hgx" id="pEU-BK-HfE"/>
                         <outlet property="secondImageView" destination="9EM-QN-XWo" id="G0p-JO-zYx"/>
+                        <segue destination="fGd-fe-c4D" kind="showDetail" identifier="onboardingSegue" id="OMa-pb-2vi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sx8-kI-hsa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1570.4000000000001" y="689.5052473763119"/>
+            <point key="canvasLocation" x="-2066" y="690"/>
+        </scene>
+        <!--Onboarding View Controller-->
+        <scene sceneID="9cn-pZ-53q">
+            <objects>
+                <viewController id="fGd-fe-c4D" customClass="OnboardingViewController" customModule="SouthernSales" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pDR-Jo-hcA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="aaA-j7-IzI"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WyO-HS-W3D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1166" y="690"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -297,66 +313,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3mz-Z9-Ugy">
-                                <rect key="frame" x="16" y="107" width="34" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMS-Of-j0y">
-                                <rect key="frame" x="16" y="152" width="39" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nvs-Ml-Di1">
-                                <rect key="frame" x="16" y="195" width="88" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W2z-eW-Lkf">
-                                <rect key="frame" x="262" y="102" width="97" height="31"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W2z-eW-Lkf" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                <rect key="frame" x="16" y="333" width="343" height="31"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="97" id="xg1-Rn-hDX"/>
+                                    <constraint firstAttribute="height" constant="31" id="1zk-vd-FIJ"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" spellCheckingType="yes" textContentType="name"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Title"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Title"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                        <color key="value" red="0.61568627450000002" green="0.25098039220000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BmA-n9-LZA">
-                                <rect key="frame" x="262" y="147" width="97" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BmA-n9-LZA" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                <rect key="frame" x="16" y="372" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Price"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Price"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                        <color key="value" red="0.61568627450000002" green="0.25098039220000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="odk-nm-hLv">
-                                <rect key="frame" x="119" y="195" width="240" height="128"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f8E-a4-Ppx">
+                                <rect key="frame" x="0.0" y="64" width="375" height="253"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="odk-nm-hLv" customClass="FloatLabelTextView" customModule="SouthernSales" customModuleProvider="target">
+                                <rect key="frame" x="16" y="410" width="343" height="200"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="CSk-9z-7TM"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="hint" value="Description"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleActiveTextColour">
+                                        <color key="value" red="0.61568627450000002" green="0.25098039220000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="3mz-Z9-Ugy" firstAttribute="leading" secondItem="sMS-Of-j0y" secondAttribute="leading" id="0Md-6l-ycr"/>
-                            <constraint firstItem="3mz-Z9-Ugy" firstAttribute="top" secondItem="qCU-hd-YbA" secondAttribute="top" constant="43" id="0de-yu-Iwn"/>
-                            <constraint firstItem="3mz-Z9-Ugy" firstAttribute="centerY" secondItem="W2z-eW-Lkf" secondAttribute="centerY" id="1A9-KW-qyn"/>
-                            <constraint firstItem="sMS-Of-j0y" firstAttribute="centerY" secondItem="BmA-n9-LZA" secondAttribute="centerY" id="5GI-ME-MNt"/>
-                            <constraint firstItem="W2z-eW-Lkf" firstAttribute="trailing" secondItem="8LV-Cw-T6d" secondAttribute="trailingMargin" id="6k5-4Z-MkF"/>
-                            <constraint firstItem="qCU-hd-YbA" firstAttribute="bottom" secondItem="odk-nm-hLv" secondAttribute="bottom" constant="295" id="6rg-Pu-UkI"/>
-                            <constraint firstItem="BmA-n9-LZA" firstAttribute="top" secondItem="W2z-eW-Lkf" secondAttribute="bottom" constant="15" id="Ay0-pB-IHd"/>
-                            <constraint firstItem="W2z-eW-Lkf" firstAttribute="top" secondItem="qCU-hd-YbA" secondAttribute="top" constant="38" id="Clb-aU-6QM"/>
-                            <constraint firstItem="BmA-n9-LZA" firstAttribute="trailing" secondItem="odk-nm-hLv" secondAttribute="trailing" id="GYk-NR-w5d"/>
-                            <constraint firstItem="3mz-Z9-Ugy" firstAttribute="leading" secondItem="8LV-Cw-T6d" secondAttribute="leadingMargin" id="Hl1-HP-UOL"/>
-                            <constraint firstItem="odk-nm-hLv" firstAttribute="leading" secondItem="Nvs-Ml-Di1" secondAttribute="trailing" constant="15" id="Oob-j1-QlT"/>
-                            <constraint firstItem="Nvs-Ml-Di1" firstAttribute="top" secondItem="odk-nm-hLv" secondAttribute="top" id="Zbc-qM-Hwa"/>
-                            <constraint firstItem="W2z-eW-Lkf" firstAttribute="trailing" secondItem="BmA-n9-LZA" secondAttribute="trailing" id="Zsu-E6-d0Z"/>
-                            <constraint firstItem="odk-nm-hLv" firstAttribute="top" secondItem="BmA-n9-LZA" secondAttribute="bottom" constant="18" id="jLS-gD-zWl"/>
-                            <constraint firstItem="W2z-eW-Lkf" firstAttribute="leading" secondItem="BmA-n9-LZA" secondAttribute="leading" id="oxo-6w-DLs"/>
-                            <constraint firstItem="Nvs-Ml-Di1" firstAttribute="top" secondItem="sMS-Of-j0y" secondAttribute="bottom" constant="22" id="pj1-JU-WX0"/>
-                            <constraint firstItem="sMS-Of-j0y" firstAttribute="leading" secondItem="Nvs-Ml-Di1" secondAttribute="leading" id="wce-9E-ax9"/>
-                            <constraint firstItem="qCU-hd-YbA" firstAttribute="bottom" secondItem="Nvs-Ml-Di1" secondAttribute="bottom" constant="402" id="xMF-Fp-6RI"/>
+                            <constraint firstItem="BmA-n9-LZA" firstAttribute="trailing" secondItem="odk-nm-hLv" secondAttribute="trailing" id="7CC-so-SJm"/>
+                            <constraint firstItem="f8E-a4-Ppx" firstAttribute="centerX" secondItem="W2z-eW-Lkf" secondAttribute="centerX" id="B8r-Yk-XXU"/>
+                            <constraint firstItem="f8E-a4-Ppx" firstAttribute="top" secondItem="qCU-hd-YbA" secondAttribute="top" id="ICE-wu-OsC"/>
+                            <constraint firstItem="f8E-a4-Ppx" firstAttribute="leading" secondItem="8LV-Cw-T6d" secondAttribute="leading" id="RGM-zn-4fQ"/>
+                            <constraint firstItem="W2z-eW-Lkf" firstAttribute="top" secondItem="f8E-a4-Ppx" secondAttribute="bottom" constant="16" id="UdA-Fl-ZcE"/>
+                            <constraint firstItem="W2z-eW-Lkf" firstAttribute="leading" secondItem="8LV-Cw-T6d" secondAttribute="leadingMargin" id="Wa5-ev-kDF"/>
+                            <constraint firstAttribute="trailing" secondItem="f8E-a4-Ppx" secondAttribute="trailing" id="bnd-y5-IE1"/>
+                            <constraint firstItem="W2z-eW-Lkf" firstAttribute="leading" secondItem="BmA-n9-LZA" secondAttribute="leading" id="cuO-69-Z69"/>
+                            <constraint firstItem="qCU-hd-YbA" firstAttribute="bottom" secondItem="odk-nm-hLv" secondAttribute="bottom" constant="8" id="epB-C0-X4L"/>
+                            <constraint firstItem="BmA-n9-LZA" firstAttribute="top" secondItem="W2z-eW-Lkf" secondAttribute="bottom" constant="8" symbolic="YES" id="ke2-th-hlO"/>
+                            <constraint firstItem="W2z-eW-Lkf" firstAttribute="trailing" secondItem="BmA-n9-LZA" secondAttribute="trailing" id="oFq-3S-lre"/>
+                            <constraint firstItem="BmA-n9-LZA" firstAttribute="leading" secondItem="odk-nm-hLv" secondAttribute="leading" id="pWu-fH-EeV"/>
+                            <constraint firstItem="odk-nm-hLv" firstAttribute="top" secondItem="BmA-n9-LZA" secondAttribute="bottom" constant="8" symbolic="YES" id="zpz-7m-BpM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qCU-hd-YbA"/>
                     </view>
@@ -375,7 +395,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="descriptionText" destination="odk-nm-hLv" id="LiG-0v-Vth"/>
+                        <outlet property="descriptionView" destination="odk-nm-hLv" id="jYo-fb-SGh"/>
                         <outlet property="priceText" destination="BmA-n9-LZA" id="y9c-C1-8hQ"/>
                         <outlet property="titleText" destination="W2z-eW-Lkf" id="Jzd-t4-PoB"/>
                     </connections>
