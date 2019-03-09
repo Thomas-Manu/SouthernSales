@@ -13,6 +13,7 @@ class SettingsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.backgroundColor = Colors.BackgroundColor
     }
 
     // MARK: - Table view data source

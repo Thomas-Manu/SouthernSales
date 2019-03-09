@@ -8,6 +8,7 @@
 
 import UIKit
 import ImageSlideshow
+import SnapKit
 
 class ViewListingViewController: UIViewController {
 
@@ -18,13 +19,28 @@ class ViewListingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = Colors.BackgroundColor
         navigationController?.navigationBar.tintColor = UIColor.white
+        
         savedButton.image = listing.saved ? UIImage.init(named: "Heart") : UIImage.init(named: "Saved")
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapOnSlideshow))
+        descriptionTextView.backgroundColor = Colors.BackgroundColor
+        imageSlideshow.backgroundColor = Colors.BackgroundColor
         imageSlideshow.addGestureRecognizer(gestureRecognizer)
         imageSlideshow.setImageInputs([ImageSource(image: UIImage.init(named: "placeholder")!)])
         descriptionTextView.text = listing.descriptionString.replacingOccurrences(of: "\\n", with: "\n")
         getDownloadLinks()
+    }
+    
+    override func updateViewConstraints() {
+        if listing.imageRefs.count == 0 {
+            descriptionTextView.snp.updateConstraints { (make) in
+                make.top.equalTo(self.topLayoutGuide.snp.bottom)
+            }
+            imageSlideshow.removeFromSuperview()
+        }
+        
+        super.updateViewConstraints()
     }
     
     @IBAction func messageSeller(_ sender: Any) {
@@ -55,7 +71,9 @@ class ViewListingViewController: UIViewController {
             for url in urls {
                 imageSources.append(SDWebImageSource(url: url))
             }
-            self.imageSlideshow.setImageInputs(imageSources)
+            if urls.count != 0 {
+                self.imageSlideshow.setImageInputs(imageSources)
+            }
         }) { (error) in
             
         }

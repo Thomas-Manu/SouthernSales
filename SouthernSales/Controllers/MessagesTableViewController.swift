@@ -13,6 +13,7 @@ class MessagesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.barStyle = .black
+        tableView.backgroundColor = Colors.BackgroundColor
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

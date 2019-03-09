@@ -8,17 +8,24 @@
 
 import UIKit
 import YPImagePicker
+import ImageSlideshow
 
 class PostViewController: UIViewController {
 
     @IBOutlet weak var titleText: UITextField!
     @IBOutlet weak var priceText: UITextField!
     @IBOutlet weak var descriptionView: FloatLabelTextView!
+    @IBOutlet weak var imageSlideshow: ImageSlideshow!
     var images = [UIImage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = Colors.BackgroundColor
         navigationController?.navigationBar.barStyle = .black
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapOnSlideshow))
+        imageSlideshow.addGestureRecognizer(gestureRecognizer)
+        imageSlideshow.setImageInputs([ImageSource(image: UIImage.init(named: "placeholder")!)])
+        imageSlideshow.backgroundColor = Colors.BackgroundColor
     }
     
     @IBAction func saveNewPost(_ sender: Any) {
@@ -70,8 +77,23 @@ class PostViewController: UIViewController {
                     }
                 }
             }
+            self.imageSlideshow.setImageInputs(self.convertUIImageToImageSource(from: self.images))
             picker.dismiss(animated: true, completion: nil)
         }
         present(picker, animated: true, completion: nil)
+    }
+    
+    @objc func didTapOnSlideshow() {
+        imageSlideshow.presentFullScreenController(from: self)
+    }
+}
+
+extension PostViewController {
+    func convertUIImageToImageSource(from images: [UIImage]) -> [ImageSource] {
+        var array = [ImageSource]()
+        for image in images {
+            array.append(ImageSource(image: image))
+        }
+        return array
     }
 }

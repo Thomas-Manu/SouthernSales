@@ -74,11 +74,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nvW-ua-ryi" customClass="ImageSlideshow" customModule="ImageSlideshow">
-                                <rect key="frame" x="0.0" y="64" width="375" height="167"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="159"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YG7-bg-GXa">
-                                <rect key="frame" x="16" y="239" width="343" height="349"/>
+                                <rect key="frame" x="16" y="231" width="343" height="349"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="349" id="fWd-6m-GAT"/>
@@ -87,8 +87,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KtM-WB-XNj">
-                                <rect key="frame" x="0.0" y="588" width="375" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KtM-WB-XNj">
+                                <rect key="frame" x="16" y="588" width="343" height="30"/>
                                 <state key="normal" title="Message Seller"/>
                                 <connections>
                                     <action selector="messageSeller:" destination="bvl-Zh-fj3" eventType="touchUpInside" id="E9y-u0-kSf"/>
@@ -99,12 +99,12 @@
                         <constraints>
                             <constraint firstItem="nvW-ua-ryi" firstAttribute="top" secondItem="hAv-mt-Wmd" secondAttribute="top" id="Qgh-a1-Hqc"/>
                             <constraint firstAttribute="trailing" secondItem="nvW-ua-ryi" secondAttribute="trailing" id="WRg-Ap-OQX"/>
-                            <constraint firstItem="nvW-ua-ryi" firstAttribute="centerX" secondItem="YG7-bg-GXa" secondAttribute="centerX" id="aTY-Hv-moJ"/>
+                            <constraint firstItem="YG7-bg-GXa" firstAttribute="centerX" secondItem="hAv-mt-Wmd" secondAttribute="centerX" id="agX-NK-VPR"/>
                             <constraint firstItem="YG7-bg-GXa" firstAttribute="leading" secondItem="KtM-WB-XNj" secondAttribute="leading" id="fU9-az-G7h"/>
                             <constraint firstItem="KtM-WB-XNj" firstAttribute="top" secondItem="YG7-bg-GXa" secondAttribute="bottom" constant="8" symbolic="YES" id="hCc-X3-UAi"/>
                             <constraint firstItem="nvW-ua-ryi" firstAttribute="leading" secondItem="OKY-yd-CIW" secondAttribute="leading" id="ktL-pW-nIk"/>
                             <constraint firstItem="YG7-bg-GXa" firstAttribute="trailing" secondItem="KtM-WB-XNj" secondAttribute="trailing" id="owS-R4-9Fk"/>
-                            <constraint firstItem="KtM-WB-XNj" firstAttribute="bottom" secondItem="hAv-mt-Wmd" secondAttribute="bottom" constant="8" id="pR9-o6-QIi"/>
+                            <constraint firstItem="KtM-WB-XNj" firstAttribute="bottom" secondItem="hAv-mt-Wmd" secondAttribute="bottom" id="pR9-o6-QIi"/>
                             <constraint firstItem="YG7-bg-GXa" firstAttribute="top" secondItem="nvW-ua-ryi" secondAttribute="bottom" constant="8" symbolic="YES" id="tiv-fm-yRT"/>
                             <constraint firstItem="YG7-bg-GXa" firstAttribute="leading" secondItem="OKY-yd-CIW" secondAttribute="leadingMargin" id="z02-ZS-ygn"/>
                         </constraints>
@@ -313,10 +313,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W2z-eW-Lkf" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="16" y="333" width="343" height="31"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="BmA-n9-LZA" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                <rect key="frame" x="112" y="138" width="263" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="1zk-vd-FIJ"/>
+                                    <constraint firstAttribute="height" constant="30" id="DY3-aZ-Umc"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Price"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Price"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                        <color key="value" red="0.61568627450000002" green="0.25098039220000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="odk-nm-hLv" customClass="FloatLabelTextView" customModule="SouthernSales" customModuleProvider="target">
+                                <rect key="frame" x="16" y="176" width="343" height="442"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="hint" value="Description"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleActiveTextColour">
+                                        <color key="value" red="0.61568627450000002" green="0.25098039220000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="W2z-eW-Lkf" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                <rect key="frame" x="112" y="99" width="263" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="pDr-Do-Ee9"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -329,54 +358,29 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BmA-n9-LZA" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="16" y="372" width="343" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Price"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Price"/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
-                                        <color key="value" red="0.61568627450000002" green="0.25098039220000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f8E-a4-Ppx">
-                                <rect key="frame" x="0.0" y="64" width="375" height="253"/>
-                            </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="odk-nm-hLv" customClass="FloatLabelTextView" customModule="SouthernSales" customModuleProvider="target">
-                                <rect key="frame" x="16" y="410" width="343" height="200"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CTl-c0-owD" customClass="ImageSlideshow" customModule="ImageSlideshow">
+                                <rect key="frame" x="0.0" y="64" width="104" height="104"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="CSk-9z-7TM"/>
+                                    <constraint firstAttribute="width" secondItem="CTl-c0-owD" secondAttribute="height" multiplier="1:1" id="95q-Lu-3nv"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="hint" value="Description"/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="titleActiveTextColour">
-                                        <color key="value" red="0.61568627450000002" green="0.25098039220000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="BmA-n9-LZA" firstAttribute="trailing" secondItem="odk-nm-hLv" secondAttribute="trailing" id="7CC-so-SJm"/>
-                            <constraint firstItem="f8E-a4-Ppx" firstAttribute="centerX" secondItem="W2z-eW-Lkf" secondAttribute="centerX" id="B8r-Yk-XXU"/>
-                            <constraint firstItem="f8E-a4-Ppx" firstAttribute="top" secondItem="qCU-hd-YbA" secondAttribute="top" id="ICE-wu-OsC"/>
-                            <constraint firstItem="f8E-a4-Ppx" firstAttribute="leading" secondItem="8LV-Cw-T6d" secondAttribute="leading" id="RGM-zn-4fQ"/>
-                            <constraint firstItem="W2z-eW-Lkf" firstAttribute="top" secondItem="f8E-a4-Ppx" secondAttribute="bottom" constant="16" id="UdA-Fl-ZcE"/>
-                            <constraint firstItem="W2z-eW-Lkf" firstAttribute="leading" secondItem="8LV-Cw-T6d" secondAttribute="leadingMargin" id="Wa5-ev-kDF"/>
-                            <constraint firstAttribute="trailing" secondItem="f8E-a4-Ppx" secondAttribute="trailing" id="bnd-y5-IE1"/>
-                            <constraint firstItem="W2z-eW-Lkf" firstAttribute="leading" secondItem="BmA-n9-LZA" secondAttribute="leading" id="cuO-69-Z69"/>
-                            <constraint firstItem="qCU-hd-YbA" firstAttribute="bottom" secondItem="odk-nm-hLv" secondAttribute="bottom" constant="8" id="epB-C0-X4L"/>
-                            <constraint firstItem="BmA-n9-LZA" firstAttribute="top" secondItem="W2z-eW-Lkf" secondAttribute="bottom" constant="8" symbolic="YES" id="ke2-th-hlO"/>
-                            <constraint firstItem="W2z-eW-Lkf" firstAttribute="trailing" secondItem="BmA-n9-LZA" secondAttribute="trailing" id="oFq-3S-lre"/>
-                            <constraint firstItem="BmA-n9-LZA" firstAttribute="leading" secondItem="odk-nm-hLv" secondAttribute="leading" id="pWu-fH-EeV"/>
-                            <constraint firstItem="odk-nm-hLv" firstAttribute="top" secondItem="BmA-n9-LZA" secondAttribute="bottom" constant="8" symbolic="YES" id="zpz-7m-BpM"/>
+                            <constraint firstItem="odk-nm-hLv" firstAttribute="bottom" secondItem="qCU-hd-YbA" secondAttribute="bottom" id="0Iu-UL-D9Q"/>
+                            <constraint firstItem="W2z-eW-Lkf" firstAttribute="leading" secondItem="BmA-n9-LZA" secondAttribute="leading" id="2QQ-bh-Jdn"/>
+                            <constraint firstItem="W2z-eW-Lkf" firstAttribute="leading" secondItem="CTl-c0-owD" secondAttribute="trailing" constant="8" symbolic="YES" id="5dK-Th-jE0"/>
+                            <constraint firstItem="qCU-hd-YbA" firstAttribute="trailing" secondItem="BmA-n9-LZA" secondAttribute="trailing" id="GbR-ev-glO"/>
+                            <constraint firstItem="odk-nm-hLv" firstAttribute="trailing" secondItem="8LV-Cw-T6d" secondAttribute="trailingMargin" id="HDj-Md-6m9"/>
+                            <constraint firstItem="BmA-n9-LZA" firstAttribute="top" secondItem="W2z-eW-Lkf" secondAttribute="bottom" constant="8" symbolic="YES" id="JOo-V3-1O6"/>
+                            <constraint firstItem="W2z-eW-Lkf" firstAttribute="top" secondItem="qCU-hd-YbA" secondAttribute="top" constant="35" id="Njo-6d-66t"/>
+                            <constraint firstItem="CTl-c0-owD" firstAttribute="leading" secondItem="8LV-Cw-T6d" secondAttribute="leading" id="X8P-3K-E2P"/>
+                            <constraint firstAttribute="trailing" secondItem="W2z-eW-Lkf" secondAttribute="trailing" id="gYj-ge-Q7X"/>
+                            <constraint firstItem="odk-nm-hLv" firstAttribute="leading" secondItem="8LV-Cw-T6d" secondAttribute="leadingMargin" id="lsb-SE-9Gs"/>
+                            <constraint firstItem="CTl-c0-owD" firstAttribute="top" secondItem="qCU-hd-YbA" secondAttribute="top" id="p4w-tu-dc6"/>
+                            <constraint firstItem="odk-nm-hLv" firstAttribute="top" secondItem="BmA-n9-LZA" secondAttribute="bottom" constant="8" symbolic="YES" id="tvR-pK-30F"/>
+                            <constraint firstItem="odk-nm-hLv" firstAttribute="top" secondItem="CTl-c0-owD" secondAttribute="bottom" constant="8" symbolic="YES" id="zr2-1c-fjP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qCU-hd-YbA"/>
                     </view>
@@ -387,7 +391,7 @@
                                 <action selector="photoButtonTapped:" destination="sVQ-YY-6U8" id="Jjg-r3-smK"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="etK-zI-dwj">
+                        <barButtonItem key="rightBarButtonItem" title="Preview" id="etK-zI-dwj">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="saveNewPost:" destination="sVQ-YY-6U8" id="1NC-Uv-UNy"/>
@@ -396,6 +400,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="descriptionView" destination="odk-nm-hLv" id="jYo-fb-SGh"/>
+                        <outlet property="imageSlideshow" destination="CTl-c0-owD" id="etC-3c-uCU"/>
                         <outlet property="priceText" destination="BmA-n9-LZA" id="y9c-C1-8hQ"/>
                         <outlet property="titleText" destination="W2z-eW-Lkf" id="Jzd-t4-PoB"/>
                     </connections>

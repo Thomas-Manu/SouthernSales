@@ -13,6 +13,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.barStyle = .black
+        view.backgroundColor = Colors.BackgroundColor
         // Do any additional setup after loading the view.
     }
     
