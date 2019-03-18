@@ -15,7 +15,7 @@ class Listing: NSObject {
     let descriptionString: String
     let user: DocumentReference?
     //    let previewImage: UIImage
-    let imageRefs: [String]
+    var imageRefs: [String]
     var reference: DocumentReference?
     var saved: Bool
     

@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import GoogleSignIn
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
@@ -22,6 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance()?.delegate = self
         GIDSignIn.sharedInstance()?.hostedDomain = "southern.edu"
         GIDSignIn.sharedInstance()?.signInSilently()
+        
+        IQKeyboardManager.shared.enable = true
+        
         return true
     }
     

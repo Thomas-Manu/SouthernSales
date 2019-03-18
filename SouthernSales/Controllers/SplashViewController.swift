@@ -31,9 +31,19 @@ class SplashViewController: UIViewController {
                 self.secondImageView.alpha = 1
             }) { (complete) in
                 DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-                    self.performSegue(withIdentifier: "onboardingSegue", sender: nil)
-//                    let initialController = self.storyboard?.instantiateViewController(withIdentifier: "initialView")
-//                    self.present(initialController!, animated: false, completion: nil)
+                    if UserDefaults.standard.bool(forKey: "oldTimer") {
+                        var identifier = ""
+                        if Utility.getCurrentUser() == nil {
+                            identifier = "signInVC"
+                        } else {
+                            identifier = "initialView"
+                        }
+                        let initialController = self.storyboard?.instantiateViewController(withIdentifier: identifier)
+                        self.present(initialController!, animated: false, completion: nil)
+                    }
+                    else {
+                        self.performSegue(withIdentifier: "onboardingSegue", sender: nil)
+                    }
                 })
             }
         }

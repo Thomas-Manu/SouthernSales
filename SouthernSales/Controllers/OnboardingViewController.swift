@@ -35,36 +35,57 @@ class OnboardingViewController: UIViewController, PaperOnboardingDataSource, Pap
     }
     
     func onboardingItemsCount() -> Int {
-        return 2
+        return 4
     }
     
     func onboardingItem(at index: Int) -> OnboardingItemInfo {
         return [
             OnboardingItemInfo(informationImage: UIImage.init(named: "logo_noWords")!,
                                title: "Welcome to SouthernSales",
-                               description: "SouthernSales is an intuitive app for students and made by students. We recognized that there has been a need for a marketplace just for us here at Southern Adventist University. Sure, Facebook Marketplace could work, but barely anyone uses it. So we created an app just for us here to be able to post and trade items such as books, clothes, and many other items.",
+                               description: "SouthernSales is an intuitive app for students and made by students. Swipe to view what you can do with this app!",
                                pageIcon: UIImage.init(named: "logo_noWords")!,
                                color: .white,
-                               titleColor: .blue,
-                               descriptionColor: .green,
+                               titleColor: .darkGray,
+                               descriptionColor: .darkGray,
                                titleFont: UIFont.systemFont(ofSize: 30),
-                               descriptionFont: UIFont.systemFont(ofSize: 16)),
+                               descriptionFont: UIFont.systemFont(ofSize: 14)),
             
             OnboardingItemInfo(informationImage: UIImage.init(named: "placeholder")!,
-                               title: "title",
-                               description: "description",
-                               pageIcon: UIImage.init(named: "placeholder")!,
-                               color: .red,
-                               titleColor: .blue,
-                               descriptionColor: .green,
+                               title: "Post and View Advertisments",
+                               description: "You can post your own ads for everyone to see. You can also just browse through all the ads that have been posted by fellow students.",
+                               pageIcon: UIImage.init(named: "logo_noWords")!,
+                               color: .white,
+                               titleColor: .darkGray,
+                               descriptionColor: .darkGray,
                                titleFont: UIFont.systemFont(ofSize: 22),
-                               descriptionFont: UIFont.systemFont(ofSize: 16))
+                               descriptionFont: UIFont.systemFont(ofSize: 14)),
+            
+            OnboardingItemInfo(informationImage: UIImage.init(named: "placeholder")!,
+                               title: "Message Sellers",
+                               description: "No need to go searching for phone numbers or emails! All you have to do when you find an ad you like is to just send a message to the seller in the same app.",
+                               pageIcon: UIImage.init(named: "logo_noWords")!,
+                               color: .white,
+                               titleColor: .darkGray,
+                               descriptionColor: .darkGray,
+                               titleFont: UIFont.systemFont(ofSize: 22),
+                               descriptionFont: UIFont.systemFont(ofSize: 14)),
+            
+            OnboardingItemInfo(informationImage: UIImage.init(named: "placeholder")!,
+                               title: "Enjoy",
+                               description: "We hope you use this app and share it with everyone else in this school! Swipe to move into the app.",
+                               pageIcon: UIImage.init(named: "logo_noWords")!,
+                               color: .white,
+                               titleColor: .darkGray,
+                               descriptionColor: .darkGray,
+                               titleFont: UIFont.systemFont(ofSize: 22),
+                               descriptionFont: UIFont.systemFont(ofSize: 14))
             ][index]
     }
     
     func onboardingWillTransitonToLeaving() {
-        print("Done?")
-        let initialController = self.storyboard?.instantiateViewController(withIdentifier: "initialView")
+        UserDefaults.standard.set(true, forKey: "oldTimer")
+        print("User has finished intro!")
+        let initialController = self.storyboard?.instantiateViewController(withIdentifier: "signInVC")
         self.present(initialController!, animated: true, completion: nil)
     }
 

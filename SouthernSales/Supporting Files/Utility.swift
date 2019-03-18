@@ -11,8 +11,15 @@ import FirebaseFirestore
 import FirebaseAuth
 import FirebaseStorage
 import GoogleSignIn
+import ImageSlideshow
 
 class Utility {
+    typealias Success = () -> Void
+    typealias SuccessListing = (Listing) -> Void
+    typealias SuccessListings = ([Listing]) -> Void
+    typealias Failure = (Error) -> Void
+    typealias Completion = () -> Void
+    
     // MARK: - Firestore
     
     /**
@@ -27,7 +34,7 @@ class Utility {
         return db
     }
     
-    private static func getCurrentUser() -> User? {
+    static func getCurrentUser() -> User? {
         guard let currentUser = Auth.auth().currentUser else {
             GIDSignIn.sharedInstance()?.signOut()
             return nil
@@ -36,6 +43,12 @@ class Utility {
     }
 
     static func databaseAddNewListing(with listing: Listing, failure: @escaping (Error) -> Void) {
+        databaseAddNewListing(with: listing, failure: { (error) in
+            failure(error)
+        }, completion: nil)
+    }
+    
+    static func databaseAddNewListing(with listing: Listing, failure: @escaping Failure, completion: Completion?) {
         let db = initializeFirestoreDatabase()
         let user = getCurrentUser()
         let userRef = db.collection("users").document(user!.id)
@@ -47,17 +60,18 @@ class Utility {
             "timestamp": Timestamp.init(),
             "user": userRef,
             "images": listing.imageRefs
-            ]) { error in
+        ]) { error in
             if let err = error {
                 failure(err)
                 print("Error adding document: \(err)")
             } else {
+                completion?()
                 print("Document added with ID: \(ref!.documentID)")
             }
         }
     }
 
-    static func databaseReadListings(_ success: @escaping ([Listing]) -> Void, _ failure: @escaping (Error) -> Void) {
+    static func databaseReadListings(_ success: @escaping SuccessListings, _ failure: @escaping Failure) {
         let db = initializeFirestoreDatabase()
         var listings = [Listing]()
         db.collection("listings").getDocuments { (snapshot, error) in
@@ -73,7 +87,7 @@ class Utility {
         }
     }
     
-    static func databaseReadFavorites(_ success: @escaping ([Listing]) -> Void, _ failure: @escaping (Error) -> Void) {
+    static func databaseReadFavorites(_ success: @escaping SuccessListings, _ failure: @escaping Failure) {
         let db = initializeFirestoreDatabase()
         guard let user = getCurrentUser() else {
             failure(NSError(domain: "", code: 404, userInfo: ["description": "User not found or initialized"]))
@@ -112,7 +126,7 @@ class Utility {
         })
     }
     
-    static func databaseAddNewFavorite(with listing: Listing, success: @escaping () -> Void, failure: @escaping (Error) -> Void) {
+    static func databaseAddNewFavorite(with listing: Listing, success: @escaping Success, failure: @escaping Failure) {
         let db = initializeFirestoreDatabase()
         let user = getCurrentUser()
         let userRef = db.collection("users").document(user!.id)
@@ -126,7 +140,7 @@ class Utility {
         }
     }
     
-    static func databaseRemoveFavorite(with listing: Listing, success: @escaping () -> Void, failure: @escaping (Error) -> Void) {
+    static func databaseRemoveFavorite(with listing: Listing, success: @escaping Success, failure: @escaping Failure) {
         let db = initializeFirestoreDatabase()
         let user = getCurrentUser()
         let userRef = db.collection("users").document(user!.id)
@@ -140,7 +154,7 @@ class Utility {
         }
     }
 
-    static func cloudStorageGetImageURLs(from listing: Listing, success: @escaping ([URL]) -> Void, failure: @escaping (Error) -> Void) {
+    static func cloudStorageGetImageURLs(from listing: Listing, success: @escaping ([URL]) -> Void, failure: @escaping Failure) {
         var urls = [URL]()
         let userImageRef = Storage.storage().reference(withPath: "images/\(listing.user!.documentID)")
         let asyncGroup = DispatchGroup()
@@ -163,7 +177,7 @@ class Utility {
         }
     }
     
-    static func cloudStorageUploadImages(with images: [UIImage], success: @escaping ([String]) -> Void, failure: @escaping (Error) -> Void) {
+    static func cloudStorageUploadImages(with images: [UIImage], success: @escaping ([String]) -> Void, failure: @escaping Failure) {
         let user = getCurrentUser()
         let userStorage = Storage.storage().reference(withPath: "images/\(user!.id)")
         let asyncGroup = DispatchGroup()
@@ -210,4 +224,14 @@ extension Utility {
         let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         return String((0...length-1).map{ _ in letters.randomElement()! })
     }
+    
+    static func convertUIImageToImageSource(from images: [UIImage]) -> [ImageSource] {
+        var array = [ImageSource]()
+        for image in images {
+            array.append(ImageSource(image: image))
+        }
+        return array
+    }
+    
+//    static func alert
 }

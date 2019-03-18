@@ -39,7 +39,7 @@ class SavedCollectionViewController: UICollectionViewController, NVActivityIndic
             self.stopAnimating()
             self.refreshControl.endRefreshing()
         }) { (error) in
-            print("[SCVC] Failed to get favorites")
+            print("[SCVC] Failed to get favorites with error: \(error)")
             self.stopAnimating()
             self.refreshControl.endRefreshing()
         }

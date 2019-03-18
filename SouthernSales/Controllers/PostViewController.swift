@@ -28,27 +28,50 @@ class PostViewController: UIViewController {
         imageSlideshow.backgroundColor = Colors.BackgroundColor
     }
     
+    @IBAction func resetPost(_ sender: Any) {
+        titleText.text = ""
+        priceText.text = ""
+        descriptionView.text = ""
+        images.removeAll()
+        imageSlideshow.setImageInputs([ImageSource(image: UIImage.init(named: "placeholder")!)])
+    }
+    
     @IBAction func saveNewPost(_ sender: Any) {
         guard let title = titleText.text, let price = priceText.text, let description = descriptionView.text else {
             return
         }
-        Utility.cloudStorageUploadImages(with: images, success: { (references) in
-            let newPost = Listing.init(title: title, price: Double(price)!, description: description, imageRefs: references)
-            Utility.databaseAddNewListing(with: newPost) { (error) in }
-        }) { (error) in
-            print("[PVC] \(error)")
+        var message = ""
+        if title.count == 0 {
+            message.append("• Title is required.\n")
+        }
+        if price.count == 0 {
+            message.append("• Price is required.\n")
+        }
+        if description.count == 0 {
+            message.append("• Description is required.")
+        }
+        if message.count != 0 {
+            let alert = UIAlertController.init(title: "Missing Information", message: message, preferredStyle: .alert)
+            let okAction = UIAlertAction.init(title: "OK", style: .default, handler: nil)
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
+        } else {
+            let newPost = Listing.init(title: title, price: Double(price)!, description: description, imageRefs: [])
+            performSegue(withIdentifier: Constants.PreviewSegue, sender: newPost)
         }
     }
     
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        let vlvc = segue.destination as! ViewListingViewController
+        let listing = sender as! Listing
+        vlvc.title = listing.title
+        vlvc.listing = listing
+        vlvc.isPreview = true
+        vlvc.images = images
     }
-    */
 
     @IBAction func photoButtonTapped(_ sender: Any) {
         openPicker()
@@ -64,10 +87,10 @@ class PostViewController: UIViewController {
         config.library.mediaType = .photo
         let picker = YPImagePicker(configuration: config)
         picker.didFinishPicking { (items, cancelled) in
+            self.images.removeAll()
             if cancelled {
                 print("Picker was cancelled.")
             } else {
-                self.images.removeAll()
                 for item in items {
                     switch item {
                     case .photo(let photo):
@@ -77,7 +100,11 @@ class PostViewController: UIViewController {
                     }
                 }
             }
-            self.imageSlideshow.setImageInputs(self.convertUIImageToImageSource(from: self.images))
+            if self.images.count > 0 {
+                self.imageSlideshow.setImageInputs(Utility.convertUIImageToImageSource(from: self.images))
+            } else {
+                self.imageSlideshow.setImageInputs([ImageSource(image: UIImage.init(named: "placeholder")!)])
+            }
             picker.dismiss(animated: true, completion: nil)
         }
         present(picker, animated: true, completion: nil)
@@ -85,15 +112,5 @@ class PostViewController: UIViewController {
     
     @objc func didTapOnSlideshow() {
         imageSlideshow.presentFullScreenController(from: self)
-    }
-}
-
-extension PostViewController {
-    func convertUIImageToImageSource(from images: [UIImage]) -> [ImageSource] {
-        var array = [ImageSource]()
-        for image in images {
-            array.append(ImageSource(image: image))
-        }
-        return array
     }
 }

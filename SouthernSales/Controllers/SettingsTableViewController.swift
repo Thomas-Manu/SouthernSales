@@ -74,6 +74,7 @@ class SettingsTableViewController: UITableViewController {
                 let firebaseAuth = Auth.auth()
                 do {
                     try firebaseAuth.signOut()
+                    present((storyboard?.instantiateViewController(withIdentifier: "signInVC"))!, animated: true, completion: nil)
                 } catch let signOutError as NSError {
                     print("Error signing out: \(signOutError)")
                 }

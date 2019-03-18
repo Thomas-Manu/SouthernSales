@@ -23,6 +23,7 @@
 		EA19194B21A1FD8A0053C68E /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA19194A21A1FD8A0053C68E /* PostViewController.swift */; };
 		EA19194D21A200B40053C68E /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA19194C21A200B40053C68E /* Utility.swift */; };
 		EA19195221A268360053C68E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA19195121A268360053C68E /* User.swift */; };
+		EA2017F3223F408300C841C0 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2017F2223F408300C841C0 /* SignInViewController.swift */; };
 		EA22A666221B3C930072259B /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA22A665221B3C930072259B /* Listing.swift */; };
 		EA306B3121C7235E00E3A1E4 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA306B3021C7235E00E3A1E4 /* SplashViewController.swift */; };
 		EA3DAF1022235C15009CBFB1 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3DAF0F22235C15009CBFB1 /* OnboardingViewController.swift */; };
@@ -91,6 +92,7 @@
 		EA19194A21A1FD8A0053C68E /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		EA19194C21A200B40053C68E /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		EA19195121A268360053C68E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		EA2017F2223F408300C841C0 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		EA22A65B221AF6F40072259B /* SouthernSalesModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SouthernSalesModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA22A665221B3C930072259B /* Listing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
 		EA306B3021C7235E00E3A1E4 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				EADA9C5D21A8890600826C28 /* SettingsTableViewController.swift */,
 				EA306B3021C7235E00E3A1E4 /* SplashViewController.swift */,
 				EA3DAF0F22235C15009CBFB1 /* OnboardingViewController.swift */,
+				EA2017F2223F408300C841C0 /* SignInViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -688,6 +691,7 @@
 				EA7A685B2199EB050026C7DE /* MessagesTableViewController.swift in Sources */,
 				EA7A685D2199EB130026C7DE /* ProfileViewController.swift in Sources */,
 				EAE70459221F3C8D00371636 /* FloatLabelTextView.swift in Sources */,
+				EA2017F3223F408300C841C0 /* SignInViewController.swift in Sources */,
 				EA19194D21A200B40053C68E /* Utility.swift in Sources */,
 				EAC05CB321F6C38B00F91634 /* Constants.swift in Sources */,
 				EA22A666221B3C930072259B /* Listing.swift in Sources */,
