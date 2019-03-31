@@ -23,6 +23,7 @@
 		EA19194B21A1FD8A0053C68E /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA19194A21A1FD8A0053C68E /* PostViewController.swift */; };
 		EA19194D21A200B40053C68E /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA19194C21A200B40053C68E /* Utility.swift */; };
 		EA19195221A268360053C68E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA19195121A268360053C68E /* User.swift */; };
+		EA1B6C48224D228E00C79AD3 /* credits.md in Resources */ = {isa = PBXBuildFile; fileRef = EA1B6C47224D228E00C79AD3 /* credits.md */; };
 		EA2017F3223F408300C841C0 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2017F2223F408300C841C0 /* SignInViewController.swift */; };
 		EA22A666221B3C930072259B /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA22A665221B3C930072259B /* Listing.swift */; };
 		EA306B3121C7235E00E3A1E4 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA306B3021C7235E00E3A1E4 /* SplashViewController.swift */; };
@@ -34,6 +35,7 @@
 		EAC05CAF21F6C1DB00F91634 /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAC05CAE21F6C1DB00F91634 /* Messages.storyboard */; };
 		EAC05CB121F6C23000F91634 /* ViewListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC05CB021F6C23000F91634 /* ViewListingViewController.swift */; };
 		EAC05CB321F6C38B00F91634 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC05CB221F6C38B00F91634 /* Constants.swift */; };
+		EAD0D2E622516D6300D648B0 /* MarkdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD0D2E522516D6300D648B0 /* MarkdownViewController.swift */; };
 		EADA9C5E21A8890600826C28 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADA9C5D21A8890600826C28 /* SettingsTableViewController.swift */; };
 		EAE70459221F3C8D00371636 /* FloatLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE70458221F3C8D00371636 /* FloatLabelTextView.swift */; };
 /* End PBXBuildFile section */
@@ -92,6 +94,8 @@
 		EA19194A21A1FD8A0053C68E /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		EA19194C21A200B40053C68E /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		EA19195121A268360053C68E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		EA1B6C46224D213700C79AD3 /* SouthernSales.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SouthernSales.entitlements; sourceTree = "<group>"; };
+		EA1B6C47224D228E00C79AD3 /* credits.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = credits.md; sourceTree = SOURCE_ROOT; };
 		EA2017F2223F408300C841C0 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		EA22A65B221AF6F40072259B /* SouthernSalesModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SouthernSalesModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA22A665221B3C930072259B /* Listing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
@@ -104,6 +108,7 @@
 		EAC05CAE21F6C1DB00F91634 /* Messages.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Messages.storyboard; sourceTree = "<group>"; };
 		EAC05CB021F6C23000F91634 /* ViewListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewListingViewController.swift; path = SouthernSales/Controllers/ViewListingViewController.swift; sourceTree = SOURCE_ROOT; };
 		EAC05CB221F6C38B00F91634 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		EAD0D2E522516D6300D648B0 /* MarkdownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownViewController.swift; sourceTree = "<group>"; };
 		EADA9C5D21A8890600826C28 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		EAE70458221F3C8D00371636 /* FloatLabelTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextView.swift; sourceTree = "<group>"; };
 		FB97ED0ABD4C2764CDA43E8D /* Pods-SouthernSales.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SouthernSales.release.xcconfig"; path = "Pods/Target Support Files/Pods-SouthernSales/Pods-SouthernSales.release.xcconfig"; sourceTree = "<group>"; };
@@ -197,6 +202,7 @@
 		EA0D644F21992AD40015BEAA /* SouthernSales */ = {
 			isa = PBXGroup;
 			children = (
+				EA1B6C46224D213700C79AD3 /* SouthernSales.entitlements */,
 				EA19194021A1E2D40053C68E /* Models */,
 				EA19194121A1E2E10053C68E /* Views */,
 				EA0D648221992B810015BEAA /* Controllers */,
@@ -237,6 +243,7 @@
 		EA0D648121992B7A0015BEAA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EA1B6C47224D228E00C79AD3 /* credits.md */,
 				EAE70458221F3C8D00371636 /* FloatLabelTextView.swift */,
 				EA0D645021992AD40015BEAA /* AppDelegate.swift */,
 				EA0D645921992AD50015BEAA /* Assets.xcassets */,
@@ -261,6 +268,7 @@
 				EA306B3021C7235E00E3A1E4 /* SplashViewController.swift */,
 				EA3DAF0F22235C15009CBFB1 /* OnboardingViewController.swift */,
 				EA2017F2223F408300C841C0 /* SignInViewController.swift */,
+				EAD0D2E522516D6300D648B0 /* MarkdownViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -378,6 +386,14 @@
 					EA0D644C21992AD40015BEAA = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1010;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					EA0D646221992AD50015BEAA = {
 						CreatedOnToolsVersion = 10.1;
@@ -426,6 +442,7 @@
 				EA19194521A1E3140053C68E /* ListingsCollectionViewCell.xib in Resources */,
 				EA19193E21A1AF2B0053C68E /* GoogleService-Info.plist in Resources */,
 				EA0D645A21992AD50015BEAA /* Assets.xcassets in Resources */,
+				EA1B6C48224D228E00C79AD3 /* credits.md in Resources */,
 				EA0D645821992AD40015BEAA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -467,6 +484,9 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
+				"${BUILT_PRODUCTS_DIR}/MarkdownView/MarkdownView.framework",
+				"${BUILT_PRODUCTS_DIR}/MessageInputBar/MessageInputBar.framework",
+				"${BUILT_PRODUCTS_DIR}/MessageKit/MessageKit.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/PryntTrimmerView/PryntTrimmerView.framework",
@@ -489,6 +509,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarkdownView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageInputBar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PryntTrimmerView.framework",
@@ -612,6 +635,9 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
+				"${BUILT_PRODUCTS_DIR}/MarkdownView/MarkdownView.framework",
+				"${BUILT_PRODUCTS_DIR}/MessageInputBar/MessageInputBar.framework",
+				"${BUILT_PRODUCTS_DIR}/MessageKit/MessageKit.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/PryntTrimmerView/PryntTrimmerView.framework",
@@ -635,6 +661,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarkdownView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageInputBar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PryntTrimmerView.framework",
@@ -699,6 +728,7 @@
 				EA3DAF1022235C15009CBFB1 /* OnboardingViewController.swift in Sources */,
 				EA7A68592199EAF70026C7DE /* SavedCollectionViewController.swift in Sources */,
 				EA19195221A268360053C68E /* User.swift in Sources */,
+				EAD0D2E622516D6300D648B0 /* MarkdownViewController.swift in Sources */,
 				EA7A6860219A0AFF0026C7DE /* ListingsViewController.swift in Sources */,
 				EA306B3121C7235E00E3A1E4 /* SplashViewController.swift in Sources */,
 			);
@@ -888,6 +918,7 @@
 			baseConfigurationReference = 8CC69A903975771A36C54611 /* Pods-SouthernSales.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SouthernSales/SouthernSales.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7HLV4SJH4C;
 				INFOPLIST_FILE = "$(SRCROOT)/SouthernSales/Supporting Files/Info.plist";
@@ -909,6 +940,7 @@
 			baseConfigurationReference = FB97ED0ABD4C2764CDA43E8D /* Pods-SouthernSales.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SouthernSales/SouthernSales.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7HLV4SJH4C;
 				INFOPLIST_FILE = "$(SRCROOT)/SouthernSales/Supporting Files/Info.plist";

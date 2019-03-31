@@ -19,12 +19,14 @@ class SettingsTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 3
+        } else if section == 1 {
+            return 1
         } else {
             return 5
         }
@@ -41,6 +43,8 @@ class SettingsTableViewController: UITableViewController {
             } else {
                 cell.textLabel?.text = "Notifications"
             }
+        }  else if indexPath.section == 1 {
+            cell.textLabel?.text = "Manage Listings"
         } else {
             if indexPath.row == 0 {
                 cell.textLabel?.text = "Help"
@@ -69,7 +73,12 @@ class SettingsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             
+        } else if indexPath.section == 1 {
+            performSegue(withIdentifier: Constants.SettingsToLicensesSegue, sender: nil)
         } else {
+            if indexPath.row == 3 {
+                
+            }
             if indexPath.row == 4 {
                 let firebaseAuth = Auth.auth()
                 do {

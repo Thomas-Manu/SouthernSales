@@ -7,7 +7,6 @@ use_frameworks!
 #    pod 'Alamofire'
 #    pod 'CocoaLumberjack/Swift'
 #    pod 'Eureka'
-#    pod 'MessageKit'
 #    pod 'SwiftyJSON'
 #    pod 'Firebase/Storage'
 
@@ -18,6 +17,8 @@ use_frameworks!
     pod 'YPImagePicker'
     pod 'SkyFloatingLabelTextField'
     pod 'IQKeyboardManagerSwift'
+    pod 'MessageKit'
+    pod 'MarkdownView'
 
    # Firebase Pods
     pod 'Firebase/Core'

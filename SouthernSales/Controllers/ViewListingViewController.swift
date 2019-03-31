@@ -22,7 +22,7 @@ class ViewListingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Colors.BackgroundColor
-        navigationController?.navigationBar.tintColor = UIColor.white
+        navigationController?.navigationBar.tintColor = .white
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapOnSlideshow))
         descriptionTextView.backgroundColor = Colors.BackgroundColor
         imageSlideshow.backgroundColor = Colors.BackgroundColor
