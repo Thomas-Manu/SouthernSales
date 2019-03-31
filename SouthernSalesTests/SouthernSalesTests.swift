@@ -8,27 +8,33 @@
 
 import XCTest
 @testable import SouthernSales
+import Firebase
 
 class SouthernSalesTests: XCTestCase {
-
+    var listingUnderTest: Listing!
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        listingUnderTest = Listing.init(title: "Test", price: 200, description: "Test", imageRefs: ["image1.jpg"])
+    }
+    
+    func testThatListingIsInitializedCorrectly() {
+        XCTAssertEqual(listingUnderTest.title, "Test")
+        XCTAssertEqual(listingUnderTest.price, 200)
+        XCTAssertEqual(listingUnderTest.descriptionString, "Test")
+        XCTAssertEqual(listingUnderTest.imageRefs.count, 1)
+        XCTAssertEqual(listingUnderTest.imageRefs[0], "image1.jpg")
+        XCTAssertNil(listingUnderTest.reference)
+        XCTAssertFalse(listingUnderTest.saved)
+    }
+    
+    func testThatChangingSavedPropertyWorks() {
+        XCTAssertFalse(listingUnderTest.saved)
+        listingUnderTest.saved = true
+        XCTAssertTrue(listingUnderTest.saved)
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+        listingUnderTest = nil
     }
 
 }

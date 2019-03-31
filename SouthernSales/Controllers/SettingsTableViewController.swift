@@ -13,6 +13,7 @@ class SettingsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.backgroundColor = Colors.BackgroundColor
     }
 
     // MARK: - Table view data source
@@ -73,6 +74,7 @@ class SettingsTableViewController: UITableViewController {
                 let firebaseAuth = Auth.auth()
                 do {
                     try firebaseAuth.signOut()
+                    present((storyboard?.instantiateViewController(withIdentifier: "signInVC"))!, animated: true, completion: nil)
                 } catch let signOutError as NSError {
                     print("Error signing out: \(signOutError)")
                 }

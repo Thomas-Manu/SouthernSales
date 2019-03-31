@@ -7,14 +7,17 @@ use_frameworks!
 #    pod 'Alamofire'
 #    pod 'CocoaLumberjack/Swift'
 #    pod 'Eureka'
-#    pod 'IQKeyboardManagerSwift'
 #    pod 'MessageKit'
-#    pod 'SnapKit', '~> 4.0.0'
 #    pod 'SwiftyJSON'
+#    pod 'Firebase/Storage'
 
+    pod 'SnapKit', '~> 4.0.0'
     pod 'ImageSlideshow/SDWebImage'
     pod 'NVActivityIndicatorView', '~> 4.4.x'
-    pod 'Onboard'
+    pod 'paper-onboarding'
+    pod 'YPImagePicker'
+    pod 'SkyFloatingLabelTextField'
+    pod 'IQKeyboardManagerSwift'
 
    # Firebase Pods
     pod 'Firebase/Core'
@@ -25,13 +28,12 @@ use_frameworks!
     pod 'FirebaseUI/Auth'
     pod 'FirebaseUI/Google'
     pod 'Firebase/Performance'   
-    #pod 'Firebase/Storage'
     pod 'FirebaseUI/Storage'
     pod 'Firebase/Database'
 
   target 'SouthernSalesTests' do
-      use_frameworks!
-#      inherit! :search_paths
+#      use_frameworks!
+      inherit! :search_paths
       # Pods for testing
   end
 

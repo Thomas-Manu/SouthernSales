@@ -10,6 +10,7 @@
 		0B0E525E6B734CCA7ED68EB1 /* Pods_SouthernSales.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCC458B193AFA633321D92CD /* Pods_SouthernSales.framework */; };
 		5B6F46D524180A1375061386 /* Pods_SouthernSales_SouthernSalesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF451D5DD13F23E00A16DD8 /* Pods_SouthernSales_SouthernSalesUITests.framework */; };
 		DB6A046A602F7BB90DA852BD /* Pods_SouthernSales_SouthernSalesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C44FE8FE81FF70D3A7EDF1 /* Pods_SouthernSales_SouthernSalesTests.framework */; };
+		E4CA074FB7A2B6777FE91CF0 /* Pods_SouthernSalesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D50989635B928C27393BF76 /* Pods_SouthernSalesTests.framework */; };
 		EA0D645121992AD40015BEAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0D645021992AD40015BEAA /* AppDelegate.swift */; };
 		EA0D645821992AD40015BEAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA0D645621992AD40015BEAA /* Main.storyboard */; };
 		EA0D645A21992AD50015BEAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA0D645921992AD50015BEAA /* Assets.xcassets */; };
@@ -21,8 +22,11 @@
 		EA19194521A1E3140053C68E /* ListingsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA19194321A1E3130053C68E /* ListingsCollectionViewCell.xib */; };
 		EA19194B21A1FD8A0053C68E /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA19194A21A1FD8A0053C68E /* PostViewController.swift */; };
 		EA19194D21A200B40053C68E /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA19194C21A200B40053C68E /* Utility.swift */; };
-		EA19195221A268360053C68E /* MainModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA19195121A268360053C68E /* MainModels.swift */; };
+		EA19195221A268360053C68E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA19195121A268360053C68E /* User.swift */; };
+		EA2017F3223F408300C841C0 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2017F2223F408300C841C0 /* SignInViewController.swift */; };
+		EA22A666221B3C930072259B /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA22A665221B3C930072259B /* Listing.swift */; };
 		EA306B3121C7235E00E3A1E4 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA306B3021C7235E00E3A1E4 /* SplashViewController.swift */; };
+		EA3DAF1022235C15009CBFB1 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3DAF0F22235C15009CBFB1 /* OnboardingViewController.swift */; };
 		EA7A68592199EAF70026C7DE /* SavedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7A68582199EAF70026C7DE /* SavedCollectionViewController.swift */; };
 		EA7A685B2199EB050026C7DE /* MessagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7A685A2199EB050026C7DE /* MessagesTableViewController.swift */; };
 		EA7A685D2199EB130026C7DE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7A685C2199EB130026C7DE /* ProfileViewController.swift */; };
@@ -31,6 +35,7 @@
 		EAC05CB121F6C23000F91634 /* ViewListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC05CB021F6C23000F91634 /* ViewListingViewController.swift */; };
 		EAC05CB321F6C38B00F91634 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC05CB221F6C38B00F91634 /* Constants.swift */; };
 		EADA9C5E21A8890600826C28 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADA9C5D21A8890600826C28 /* SettingsTableViewController.swift */; };
+		EAE70459221F3C8D00371636 /* FloatLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE70458221F3C8D00371636 /* FloatLabelTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +53,13 @@
 			remoteGlobalIDString = EA0D644C21992AD40015BEAA;
 			remoteInfo = SouthernSales;
 		};
+		EA22A660221AF6F40072259B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EA0D644521992AD40015BEAA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EA0D644C21992AD40015BEAA;
+			remoteInfo = SouthernSales;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -56,7 +68,10 @@
 		7FF451D5DD13F23E00A16DD8 /* Pods_SouthernSales_SouthernSalesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SouthernSales_SouthernSalesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CC69A903975771A36C54611 /* Pods-SouthernSales.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SouthernSales.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SouthernSales/Pods-SouthernSales.debug.xcconfig"; sourceTree = "<group>"; };
 		95E1AE2BD35985523983D391 /* Pods-SouthernSales-SouthernSalesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SouthernSales-SouthernSalesUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SouthernSales-SouthernSalesUITests/Pods-SouthernSales-SouthernSalesUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9D50989635B928C27393BF76 /* Pods_SouthernSalesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SouthernSalesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6873F8A381D21952B49BE75 /* Pods-SouthernSalesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SouthernSalesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SouthernSalesTests/Pods-SouthernSalesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B80FCE9EB87A06400F508BC9 /* Pods-SouthernSales-SouthernSalesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SouthernSales-SouthernSalesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SouthernSales-SouthernSalesTests/Pods-SouthernSales-SouthernSalesTests.release.xcconfig"; sourceTree = "<group>"; };
+		BC6E4EE93EA6C7AE0FEA0DC4 /* Pods-SouthernSalesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SouthernSalesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SouthernSalesTests/Pods-SouthernSalesTests.release.xcconfig"; sourceTree = "<group>"; };
 		BCC458B193AFA633321D92CD /* Pods_SouthernSales.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SouthernSales.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA10995B62B2C7FF4B842057 /* Pods-SouthernSales-SouthernSalesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SouthernSales-SouthernSalesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SouthernSales-SouthernSalesTests/Pods-SouthernSales-SouthernSalesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EA0D644D21992AD40015BEAA /* SouthernSales.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SouthernSales.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,8 +91,12 @@
 		EA19194321A1E3130053C68E /* ListingsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListingsCollectionViewCell.xib; sourceTree = "<group>"; };
 		EA19194A21A1FD8A0053C68E /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		EA19194C21A200B40053C68E /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
-		EA19195121A268360053C68E /* MainModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModels.swift; sourceTree = "<group>"; };
+		EA19195121A268360053C68E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		EA2017F2223F408300C841C0 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		EA22A65B221AF6F40072259B /* SouthernSalesModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SouthernSalesModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA22A665221B3C930072259B /* Listing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
 		EA306B3021C7235E00E3A1E4 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		EA3DAF0F22235C15009CBFB1 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		EA7A68582199EAF70026C7DE /* SavedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCollectionViewController.swift; sourceTree = "<group>"; };
 		EA7A685A2199EB050026C7DE /* MessagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableViewController.swift; sourceTree = "<group>"; };
 		EA7A685C2199EB130026C7DE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +105,7 @@
 		EAC05CB021F6C23000F91634 /* ViewListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewListingViewController.swift; path = SouthernSales/Controllers/ViewListingViewController.swift; sourceTree = SOURCE_ROOT; };
 		EAC05CB221F6C38B00F91634 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EADA9C5D21A8890600826C28 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		EAE70458221F3C8D00371636 /* FloatLabelTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextView.swift; sourceTree = "<group>"; };
 		FB97ED0ABD4C2764CDA43E8D /* Pods-SouthernSales.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SouthernSales.release.xcconfig"; path = "Pods/Target Support Files/Pods-SouthernSales/Pods-SouthernSales.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,6 +123,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB6A046A602F7BB90DA852BD /* Pods_SouthernSales_SouthernSalesTests.framework in Frameworks */,
+				E4CA074FB7A2B6777FE91CF0 /* Pods_SouthernSalesTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +132,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B6F46D524180A1375061386 /* Pods_SouthernSales_SouthernSalesUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EA22A658221AF6F40072259B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +151,7 @@
 				BCC458B193AFA633321D92CD /* Pods_SouthernSales.framework */,
 				54C44FE8FE81FF70D3A7EDF1 /* Pods_SouthernSales_SouthernSalesTests.framework */,
 				7FF451D5DD13F23E00A16DD8 /* Pods_SouthernSales_SouthernSalesUITests.framework */,
+				9D50989635B928C27393BF76 /* Pods_SouthernSalesTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -136,6 +165,8 @@
 				B80FCE9EB87A06400F508BC9 /* Pods-SouthernSales-SouthernSalesTests.release.xcconfig */,
 				565546D3E9C492C20E85E76F /* Pods-SouthernSales-SouthernSalesUITests.debug.xcconfig */,
 				95E1AE2BD35985523983D391 /* Pods-SouthernSales-SouthernSalesUITests.release.xcconfig */,
+				A6873F8A381D21952B49BE75 /* Pods-SouthernSalesTests.debug.xcconfig */,
+				BC6E4EE93EA6C7AE0FEA0DC4 /* Pods-SouthernSalesTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -158,6 +189,7 @@
 				EA0D644D21992AD40015BEAA /* SouthernSales.app */,
 				EA0D646321992AD50015BEAA /* SouthernSalesTests.xctest */,
 				EA0D646E21992AD50015BEAA /* SouthernSalesUITests.xctest */,
+				EA22A65B221AF6F40072259B /* SouthernSalesModelTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -205,6 +237,7 @@
 		EA0D648121992B7A0015BEAA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EAE70458221F3C8D00371636 /* FloatLabelTextView.swift */,
 				EA0D645021992AD40015BEAA /* AppDelegate.swift */,
 				EA0D645921992AD50015BEAA /* Assets.xcassets */,
 				EA19193D21A1AF2B0053C68E /* GoogleService-Info.plist */,
@@ -226,6 +259,8 @@
 				EA7A685C2199EB130026C7DE /* ProfileViewController.swift */,
 				EADA9C5D21A8890600826C28 /* SettingsTableViewController.swift */,
 				EA306B3021C7235E00E3A1E4 /* SplashViewController.swift */,
+				EA3DAF0F22235C15009CBFB1 /* OnboardingViewController.swift */,
+				EA2017F2223F408300C841C0 /* SignInViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -233,7 +268,8 @@
 		EA19194021A1E2D40053C68E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				EA19195121A268360053C68E /* MainModels.swift */,
+				EA19195121A268360053C68E /* User.swift */,
+				EA22A665221B3C930072259B /* Listing.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -279,8 +315,6 @@
 				EA0D645F21992AD50015BEAA /* Sources */,
 				EA0D646021992AD50015BEAA /* Frameworks */,
 				EA0D646121992AD50015BEAA /* Resources */,
-				68501B5FF0854D97C8A92DFF /* [CP] Embed Pods Frameworks */,
-				CD4F2103370693324B36EC87 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -313,6 +347,24 @@
 			productReference = EA0D646E21992AD50015BEAA /* SouthernSalesUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		EA22A65A221AF6F40072259B /* SouthernSalesModelTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EA22A664221AF6F40072259B /* Build configuration list for PBXNativeTarget "SouthernSalesModelTests" */;
+			buildPhases = (
+				EA22A657221AF6F40072259B /* Sources */,
+				EA22A658221AF6F40072259B /* Frameworks */,
+				EA22A659221AF6F40072259B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EA22A661221AF6F40072259B /* PBXTargetDependency */,
+			);
+			name = SouthernSalesModelTests;
+			productName = SouthernSalesModelTests;
+			productReference = EA22A65B221AF6F40072259B /* SouthernSalesModelTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -337,6 +389,10 @@
 						LastSwiftMigration = 1010;
 						TestTargetID = EA0D644C21992AD40015BEAA;
 					};
+					EA22A65A221AF6F40072259B = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = EA0D644C21992AD40015BEAA;
+					};
 				};
 			};
 			buildConfigurationList = EA0D644821992AD40015BEAA /* Build configuration list for PBXProject "SouthernSales" */;
@@ -355,6 +411,7 @@
 				EA0D644C21992AD40015BEAA /* SouthernSales */,
 				EA0D646221992AD50015BEAA /* SouthernSalesTests */,
 				EA0D646D21992AD50015BEAA /* SouthernSalesUITests */,
+				EA22A65A221AF6F40072259B /* SouthernSalesModelTests */,
 			);
 		};
 /* End PBXProject section */
@@ -387,6 +444,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EA22A659221AF6F40072259B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -397,35 +461,47 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SouthernSales/Pods-SouthernSales-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
-				"${BUILT_PRODUCTS_DIR}/Onboard/Onboard.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/PryntTrimmerView/PryntTrimmerView.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SteviaLayout/Stevia.framework",
+				"${BUILT_PRODUCTS_DIR}/YPImagePicker/YPImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/paper-onboarding/paper_onboarding.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Onboard.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PryntTrimmerView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stevia.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YPImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/paper_onboarding.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -439,14 +515,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SouthernSales-SouthernSalesUITests/Pods-SouthernSales-SouthernSalesUITests-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates-Firestore.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates-Firestore.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseGoogleAuthUI.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
@@ -467,7 +541,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SouthernSales-SouthernSalesTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-SouthernSalesTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -490,72 +564,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		68501B5FF0854D97C8A92DFF /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SouthernSales-SouthernSalesTests/Pods-SouthernSales-SouthernSalesTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
-				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
-				"${BUILT_PRODUCTS_DIR}/Onboard/Onboard.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
-				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Onboard.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SouthernSales-SouthernSalesTests/Pods-SouthernSales-SouthernSalesTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CD4F2103370693324B36EC87 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SouthernSales-SouthernSalesTests/Pods-SouthernSales-SouthernSalesTests-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates-Firestore.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
-				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates-Firestore.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseGoogleAuthUI.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SouthernSales-SouthernSalesTests/Pods-SouthernSales-SouthernSalesTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D3BDCE45A139043E883A1293 /* [CP] Check Pods Manifest.lock */ = {
@@ -598,36 +606,48 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SouthernSales-SouthernSalesUITests/Pods-SouthernSales-SouthernSalesUITests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
-				"${BUILT_PRODUCTS_DIR}/Onboard/Onboard.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/PryntTrimmerView/PryntTrimmerView.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SteviaLayout/Stevia.framework",
+				"${BUILT_PRODUCTS_DIR}/YPImagePicker/YPImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/paper-onboarding/paper_onboarding.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftMonkey/SwiftMonkey.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Onboard.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PryntTrimmerView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stevia.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YPImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/paper_onboarding.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftMonkey.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -642,14 +662,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SouthernSales/Pods-SouthernSales-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates-Firestore.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates-Firestore.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseGoogleAuthUI.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
@@ -672,11 +690,15 @@
 				EA0D645121992AD40015BEAA /* AppDelegate.swift in Sources */,
 				EA7A685B2199EB050026C7DE /* MessagesTableViewController.swift in Sources */,
 				EA7A685D2199EB130026C7DE /* ProfileViewController.swift in Sources */,
+				EAE70459221F3C8D00371636 /* FloatLabelTextView.swift in Sources */,
+				EA2017F3223F408300C841C0 /* SignInViewController.swift in Sources */,
 				EA19194D21A200B40053C68E /* Utility.swift in Sources */,
 				EAC05CB321F6C38B00F91634 /* Constants.swift in Sources */,
+				EA22A666221B3C930072259B /* Listing.swift in Sources */,
 				EADA9C5E21A8890600826C28 /* SettingsTableViewController.swift in Sources */,
+				EA3DAF1022235C15009CBFB1 /* OnboardingViewController.swift in Sources */,
 				EA7A68592199EAF70026C7DE /* SavedCollectionViewController.swift in Sources */,
-				EA19195221A268360053C68E /* MainModels.swift in Sources */,
+				EA19195221A268360053C68E /* User.swift in Sources */,
 				EA7A6860219A0AFF0026C7DE /* ListingsViewController.swift in Sources */,
 				EA306B3121C7235E00E3A1E4 /* SplashViewController.swift in Sources */,
 			);
@@ -698,6 +720,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EA22A657221AF6F40072259B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -710,6 +739,11 @@
 			isa = PBXTargetDependency;
 			target = EA0D644C21992AD40015BEAA /* SouthernSales */;
 			targetProxy = EA0D646F21992AD50015BEAA /* PBXContainerItemProxy */;
+		};
+		EA22A661221AF6F40072259B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EA0D644C21992AD40015BEAA /* SouthernSales */;
+			targetProxy = EA22A660221AF6F40072259B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -893,7 +927,7 @@
 		};
 		EA0D647B21992AD60015BEAA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DA10995B62B2C7FF4B842057 /* Pods-SouthernSales-SouthernSalesTests.debug.xcconfig */;
+			baseConfigurationReference = A6873F8A381D21952B49BE75 /* Pods-SouthernSalesTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -915,7 +949,7 @@
 		};
 		EA0D647C21992AD60015BEAA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B80FCE9EB87A06400F508BC9 /* Pods-SouthernSales-SouthernSalesTests.release.xcconfig */;
+			baseConfigurationReference = BC6E4EE93EA6C7AE0FEA0DC4 /* Pods-SouthernSalesTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -977,6 +1011,48 @@
 			};
 			name = Release;
 		};
+		EA22A662221AF6F40072259B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7HLV4SJH4C;
+				INFOPLIST_FILE = SouthernSalesModelTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.SeniorProject.SouthernSalesModelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SouthernSales.app/SouthernSales";
+			};
+			name = Debug;
+		};
+		EA22A663221AF6F40072259B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7HLV4SJH4C;
+				INFOPLIST_FILE = SouthernSalesModelTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.SeniorProject.SouthernSalesModelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SouthernSales.app/SouthernSales";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1012,6 +1088,15 @@
 			buildConfigurations = (
 				EA0D647E21992AD60015BEAA /* Debug */,
 				EA0D647F21992AD60015BEAA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EA22A664221AF6F40072259B /* Build configuration list for PBXNativeTarget "SouthernSalesModelTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EA22A662221AF6F40072259B /* Debug */,
+				EA22A663221AF6F40072259B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

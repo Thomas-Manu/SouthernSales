@@ -8,6 +8,7 @@
 
 import UIKit
 import ImageSlideshow
+import SnapKit
 
 class ViewListingViewController: UIViewController {
 
@@ -15,16 +16,41 @@ class ViewListingViewController: UIViewController {
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var savedButton: UIBarButtonItem!
     var listing: Listing!
+    var images = [UIImage]()
+    var isPreview = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = Colors.BackgroundColor
         navigationController?.navigationBar.tintColor = UIColor.white
-        savedButton.image = listing.saved ? UIImage.init(named: "Heart") : UIImage.init(named: "Saved")
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapOnSlideshow))
+        descriptionTextView.backgroundColor = Colors.BackgroundColor
+        imageSlideshow.backgroundColor = Colors.BackgroundColor
         imageSlideshow.addGestureRecognizer(gestureRecognizer)
-        imageSlideshow.setImageInputs([ImageSource(image: UIImage.init(named: "placeholder")!)])
-        descriptionTextView.text = listing.description.replacingOccurrences(of: "\\n", with: "\n")
-        getDownloadLinks()
+        
+        if isPreview {
+            savedButton.title = "Post"
+            savedButton.image = nil
+            savedButton.action = #selector(postListing(_:))
+            imageSlideshow.setImageInputs(Utility.convertUIImageToImageSource(from: images))
+            descriptionTextView.text = listing.descriptionString
+        } else {
+            savedButton.image = listing.saved ? UIImage.init(named: "Heart") : UIImage.init(named: "Saved")
+            imageSlideshow.setImageInputs([ImageSource(image: UIImage.init(named: "placeholder")!)])
+            descriptionTextView.text = listing.descriptionString.replacingOccurrences(of: "\\n", with: "\n")
+            getDownloadLinks()
+        }
+    }
+    
+    override func updateViewConstraints() {
+        if listing.imageRefs.count == 0 && !isPreview {
+            descriptionTextView.snp.updateConstraints { (make) in
+                make.top.equalTo(self.topLayoutGuide.snp.bottom)
+            }
+            imageSlideshow.removeFromSuperview()
+        }
+        
+        super.updateViewConstraints()
     }
     
     @IBAction func messageSeller(_ sender: Any) {
@@ -48,6 +74,19 @@ class ViewListingViewController: UIViewController {
         }
     }
     
+    @IBAction func postListing(_ sender: Any) {
+        Utility.cloudStorageUploadImages(with: images, success: { (references) in
+            self.listing.imageRefs = references
+//            Utility.databaseAddNewListing(with: self.listing) { (error) in }
+            Utility.databaseAddNewListing(with: self.listing, failure: { (error) in
+            }, completion: {
+                self.navigationController?.popViewController(animated: true)
+            })
+        }) { (error) in
+            print("[VLVC] \(error)")
+        }
+    }
+    
     func getDownloadLinks() {
         Utility.cloudStorageGetImageURLs(from: listing, success: { (urls) in
             print("All urls: \(urls)")
@@ -55,7 +94,9 @@ class ViewListingViewController: UIViewController {
             for url in urls {
                 imageSources.append(SDWebImageSource(url: url))
             }
-            self.imageSlideshow.setImageInputs(imageSources)
+            if urls.count != 0 {
+                self.imageSlideshow.setImageInputs(imageSources)
+            }
         }) { (error) in
             
         }

@@ -31,20 +31,21 @@ class SplashViewController: UIViewController {
                 self.secondImageView.alpha = 1
             }) { (complete) in
                 DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1), execute: {
-                    let initialController = self.storyboard?.instantiateViewController(withIdentifier: "initialView")
-                    self.present(initialController!, animated: false, completion: nil)
+                    if UserDefaults.standard.bool(forKey: "oldTimer") {
+                        var identifier = ""
+                        if Utility.getCurrentUser() == nil {
+                            identifier = "signInVC"
+                        } else {
+                            identifier = "initialView"
+                        }
+                        let initialController = self.storyboard?.instantiateViewController(withIdentifier: identifier)
+                        self.present(initialController!, animated: false, completion: nil)
+                    }
+                    else {
+                        self.performSegue(withIdentifier: "onboardingSegue", sender: nil)
+                    }
                 })
             }
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -11,6 +11,7 @@ import UIKit
 struct Constants {
     static let HomeToListingSegue = "homeToListingSegue"
     static let SavedToListingSegue = "savedToListingSegue"
+    static let PreviewSegue = "previewSegue"
 }
 
 struct Colors {

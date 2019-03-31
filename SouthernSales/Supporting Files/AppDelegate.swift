@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 import GoogleSignIn
-import Onboard
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
@@ -21,15 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         FirebaseApp.configure()
         GIDSignIn.sharedInstance()?.clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance()?.delegate = self
+        GIDSignIn.sharedInstance()?.hostedDomain = "southern.edu"
         GIDSignIn.sharedInstance()?.signInSilently()
+        
+        IQKeyboardManager.shared.enable = true
+        
         return true
-    }
-    
-    func onboardInitialView(authUIVC: UIViewController) -> OnboardingViewController {
-        let firstPage = OnboardingContentViewController(title: "Page Title", body: "Page body goes here.", image: UIImage(named: "icon"), buttonText: "Text For Button") { () -> Void in
-            self.window?.rootViewController?.present(authUIVC, animated: true, completion: nil)
-        }
-        return OnboardingViewController(backgroundImage: UIImage(named: "Home"), contents: [firstPage])
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -47,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 return
             }
             
-            NSLog("User with email: \(String(describing: authResult?.additionalUserInfo?.profile?["email"] as! String)) is signed in")
+            print("User with email: \(String(describing: authResult?.additionalUserInfo?.profile?["email"] as! String)) is signed in")
         }
     }
     
