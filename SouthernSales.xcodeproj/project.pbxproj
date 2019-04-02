@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0B0E525E6B734CCA7ED68EB1 /* Pods_SouthernSales.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCC458B193AFA633321D92CD /* Pods_SouthernSales.framework */; };
-		5B6F46D524180A1375061386 /* Pods_SouthernSales_SouthernSalesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF451D5DD13F23E00A16DD8 /* Pods_SouthernSales_SouthernSalesUITests.framework */; };
-		DB6A046A602F7BB90DA852BD /* Pods_SouthernSales_SouthernSalesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C44FE8FE81FF70D3A7EDF1 /* Pods_SouthernSales_SouthernSalesTests.framework */; };
+		35A36FDA041FAC0BD31D17BC /* Pods_SouthernSales_SouthernSalesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54C44FE8FE81FF70D3A7EDF1 /* Pods_SouthernSales_SouthernSalesTests.framework */; };
+		D9BAAC7B0FC9582127C5FE4F /* Pods_SouthernSales_SouthernSalesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FF451D5DD13F23E00A16DD8 /* Pods_SouthernSales_SouthernSalesUITests.framework */; };
 		E4CA074FB7A2B6777FE91CF0 /* Pods_SouthernSalesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D50989635B928C27393BF76 /* Pods_SouthernSalesTests.framework */; };
 		EA0D645121992AD40015BEAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0D645021992AD40015BEAA /* AppDelegate.swift */; };
 		EA0D645821992AD40015BEAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA0D645621992AD40015BEAA /* Main.storyboard */; };
@@ -30,6 +30,7 @@
 		EA3DAF1022235C15009CBFB1 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3DAF0F22235C15009CBFB1 /* OnboardingViewController.swift */; };
 		EA539B6522529BA80092301B /* terms-conditions.md in Resources */ = {isa = PBXBuildFile; fileRef = EA539B6322529BA80092301B /* terms-conditions.md */; };
 		EA539B6622529BA80092301B /* privacy-policy.md in Resources */ = {isa = PBXBuildFile; fileRef = EA539B6422529BA80092301B /* privacy-policy.md */; };
+		EA5619F72253B96200242825 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5619F62253B96200242825 /* UserTests.swift */; };
 		EA5CB87322531844005463C3 /* ManageListingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5CB87222531844005463C3 /* ManageListingsTableViewController.swift */; };
 		EA7A68592199EAF70026C7DE /* SavedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7A68582199EAF70026C7DE /* SavedCollectionViewController.swift */; };
 		EA7A685B2199EB050026C7DE /* MessagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7A685A2199EB050026C7DE /* MessagesTableViewController.swift */; };
@@ -106,6 +107,7 @@
 		EA3DAF0F22235C15009CBFB1 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		EA539B6322529BA80092301B /* terms-conditions.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "terms-conditions.md"; sourceTree = "<group>"; };
 		EA539B6422529BA80092301B /* privacy-policy.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "privacy-policy.md"; sourceTree = "<group>"; };
+		EA5619F62253B96200242825 /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		EA5CB87222531844005463C3 /* ManageListingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageListingsTableViewController.swift; sourceTree = "<group>"; };
 		EA7A68582199EAF70026C7DE /* SavedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCollectionViewController.swift; sourceTree = "<group>"; };
 		EA7A685A2199EB050026C7DE /* MessagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableViewController.swift; sourceTree = "<group>"; };
@@ -133,8 +135,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB6A046A602F7BB90DA852BD /* Pods_SouthernSales_SouthernSalesTests.framework in Frameworks */,
 				E4CA074FB7A2B6777FE91CF0 /* Pods_SouthernSalesTests.framework in Frameworks */,
+				35A36FDA041FAC0BD31D17BC /* Pods_SouthernSales_SouthernSalesTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,7 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B6F46D524180A1375061386 /* Pods_SouthernSales_SouthernSalesUITests.framework in Frameworks */,
+				D9BAAC7B0FC9582127C5FE4F /* Pods_SouthernSales_SouthernSalesUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				EA0D646721992AD50015BEAA /* SouthernSalesTests.swift */,
+				EA5619F62253B96200242825 /* UserTests.swift */,
 				EA0D646921992AD50015BEAA /* Info.plist */,
 			);
 			path = SouthernSalesTests;
@@ -340,6 +343,8 @@
 				EA0D645F21992AD50015BEAA /* Sources */,
 				EA0D646021992AD50015BEAA /* Frameworks */,
 				EA0D646121992AD50015BEAA /* Resources */,
+				03930C61E017970C1FA63B44 /* [CP] Embed Pods Frameworks */,
+				5BA04F72C137B9E539FC3D64 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -490,6 +495,70 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		03930C61E017970C1FA63B44 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SouthernSales-SouthernSalesTests/Pods-SouthernSales-SouthernSalesTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
+				"${BUILT_PRODUCTS_DIR}/MarkdownView/MarkdownView.framework",
+				"${BUILT_PRODUCTS_DIR}/MessageInputBar/MessageInputBar.framework",
+				"${BUILT_PRODUCTS_DIR}/MessageKit/MessageKit.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/PryntTrimmerView/PryntTrimmerView.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SteviaLayout/Stevia.framework",
+				"${BUILT_PRODUCTS_DIR}/YPImagePicker/YPImagePicker.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/paper-onboarding/paper_onboarding.framework",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarkdownView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageInputBar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PryntTrimmerView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stevia.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YPImagePicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/paper_onboarding.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SouthernSales-SouthernSalesTests/Pods-SouthernSales-SouthernSalesTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		0D4F24073428F80EA8CA6974 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -583,7 +652,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SouthernSalesTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-SouthernSales-SouthernSalesTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -606,6 +675,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5BA04F72C137B9E539FC3D64 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SouthernSales-SouthernSalesTests/Pods-SouthernSales-SouthernSalesTests-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseGoogleAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SouthernSales-SouthernSalesTests/Pods-SouthernSales-SouthernSalesTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D3BDCE45A139043E883A1293 /* [CP] Check Pods Manifest.lock */ = {
@@ -758,6 +849,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA5619F72253B96200242825 /* UserTests.swift in Sources */,
 				EA0D646821992AD50015BEAA /* SouthernSalesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -979,7 +1071,7 @@
 		};
 		EA0D647B21992AD60015BEAA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A6873F8A381D21952B49BE75 /* Pods-SouthernSalesTests.debug.xcconfig */;
+			baseConfigurationReference = DA10995B62B2C7FF4B842057 /* Pods-SouthernSales-SouthernSalesTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1001,7 +1093,7 @@
 		};
 		EA0D647C21992AD60015BEAA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BC6E4EE93EA6C7AE0FEA0DC4 /* Pods-SouthernSalesTests.release.xcconfig */;
+			baseConfigurationReference = B80FCE9EB87A06400F508BC9 /* Pods-SouthernSales-SouthernSalesTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";

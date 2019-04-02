@@ -8,27 +8,27 @@ PODS:
   - Crashlytics (3.12.0):
     - Fabric (~> 1.9.0)
   - Fabric (1.9.0)
-  - Firebase/Auth (5.19.0):
+  - Firebase/Auth (5.20.1):
     - Firebase/CoreOnly
-    - FirebaseAuth (= 5.4.1)
-  - Firebase/Core (5.19.0):
+    - FirebaseAuth (= 5.4.2)
+  - Firebase/Core (5.20.1):
     - Firebase/CoreOnly
     - FirebaseAnalytics (= 5.8.0)
-  - Firebase/CoreOnly (5.19.0):
-    - FirebaseCore (= 5.4.0)
-  - Firebase/Database (5.19.0):
+  - Firebase/CoreOnly (5.20.1):
+    - FirebaseCore (= 5.4.1)
+  - Firebase/Database (5.20.1):
     - Firebase/CoreOnly
     - FirebaseDatabase (= 5.1.1)
-  - Firebase/Firestore (5.19.0):
+  - Firebase/Firestore (5.20.1):
     - Firebase/CoreOnly
-    - FirebaseFirestore (= 1.1.0)
-  - Firebase/Messaging (5.19.0):
+    - FirebaseFirestore (= 1.2.1)
+  - Firebase/Messaging (5.20.1):
     - Firebase/CoreOnly
-    - FirebaseMessaging (= 3.4.0)
-  - Firebase/Performance (5.19.0):
+    - FirebaseMessaging (= 3.5.0)
+  - Firebase/Performance (5.20.1):
     - Firebase/Core
     - FirebasePerformance (= 2.2.4)
-  - Firebase/Storage (5.19.0):
+  - Firebase/Storage (5.20.1):
     - Firebase/CoreOnly
     - FirebaseStorage (= 3.1.1)
   - FirebaseABTesting (2.0.0):
@@ -44,39 +44,39 @@ PODS:
     - "GoogleUtilities/NSData+zlib (~> 5.2)"
     - nanopb (~> 0.3)
   - FirebaseAnalyticsInterop (1.2.0)
-  - FirebaseAuth (5.4.1):
+  - FirebaseAuth (5.4.2):
     - FirebaseAuthInterop (~> 1.0)
     - FirebaseCore (~> 5.2)
     - GoogleUtilities/Environment (~> 5.2)
     - GTMSessionFetcher/Core (~> 1.1)
   - FirebaseAuthInterop (1.0.0)
-  - FirebaseCore (5.4.0):
+  - FirebaseCore (5.4.1):
     - GoogleUtilities/Environment (~> 5.2)
     - GoogleUtilities/Logger (~> 5.2)
   - FirebaseDatabase (5.1.1):
     - FirebaseAuthInterop (~> 1.0)
     - FirebaseCore (~> 5.2)
     - leveldb-library (~> 1.18)
-  - FirebaseFirestore (1.1.0):
+  - FirebaseFirestore (1.2.1):
     - FirebaseAuthInterop (~> 1.0)
     - FirebaseCore (~> 5.2)
-    - FirebaseFirestore/abseil-cpp (= 1.1.0)
+    - FirebaseFirestore/abseil-cpp (= 1.2.1)
     - "gRPC-C++ (= 0.0.6)"
     - leveldb-library (~> 1.20)
     - nanopb (~> 0.3.901)
     - Protobuf (~> 3.1)
-  - FirebaseFirestore/abseil-cpp (1.1.0):
+  - FirebaseFirestore/abseil-cpp (1.2.1):
     - FirebaseAuthInterop (~> 1.0)
     - FirebaseCore (~> 5.2)
     - "gRPC-C++ (= 0.0.6)"
     - leveldb-library (~> 1.20)
     - nanopb (~> 0.3.901)
     - Protobuf (~> 3.1)
-  - FirebaseInstanceID (3.8.0):
+  - FirebaseInstanceID (3.8.1):
     - FirebaseCore (~> 5.2)
     - GoogleUtilities/Environment (~> 5.2)
     - GoogleUtilities/UserDefaults (~> 5.2)
-  - FirebaseMessaging (3.4.0):
+  - FirebaseMessaging (3.5.0):
     - FirebaseAnalyticsInterop (~> 1.1)
     - FirebaseCore (~> 5.2)
     - FirebaseInstanceID (~> 3.6)
@@ -188,12 +188,14 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - Nimble (8.0.1)
   - NVActivityIndicatorView (4.6.1):
     - NVActivityIndicatorView/Presenter (= 4.6.1)
   - NVActivityIndicatorView/Presenter (4.6.1)
   - paper-onboarding (6.0.0)
   - Protobuf (3.7.0)
   - PryntTrimmerView (3.0.0)
+  - Quick (2.0.0)
   - SDWebImage (4.4.6):
     - SDWebImage/Core (= 4.4.6)
   - SDWebImage/Core (4.4.6)
@@ -220,8 +222,10 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - MarkdownView
   - MessageKit
+  - Nimble
   - NVActivityIndicatorView (~> 4.4.x)
   - paper-onboarding
+  - Quick
   - SkyFloatingLabelTextField
   - SnapKit (~> 4.0.0)
   - SwiftMonkey
@@ -261,10 +265,12 @@ SPEC REPOS:
     - MessageInputBar
     - MessageKit
     - nanopb
+    - Nimble
     - NVActivityIndicatorView
     - paper-onboarding
     - Protobuf
     - PryntTrimmerView
+    - Quick
     - SDWebImage
     - SkyFloatingLabelTextField
     - SnapKit
@@ -276,17 +282,17 @@ SPEC CHECKSUMS:
   BoringSSL-GRPC: 2a230d9cd93e7ce39916044f645cebb31f37dde6
   Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
   Fabric: f988e33c97f08930a413e08123064d2e5f68d655
-  Firebase: c60d49e9c2630875a96207d15e2affb8364996d1
+  Firebase: 2f5235e62f141cb86181c3af0dfe4509706351ac
   FirebaseABTesting: 1f50b8d50f5e3469eea54e7463a7b7fe221d1f5e
   FirebaseAnalytics: fd72a26bf8dac84cefba2f0864366f718555a5b0
   FirebaseAnalyticsInterop: efbe45c8385ec626e29f9525e5ebd38520dfb6c1
-  FirebaseAuth: cbb892a66baed025efc179372598941252acf853
+  FirebaseAuth: dd7bbf03a5aee0eafb3a1aee4d2812bd74bac890
   FirebaseAuthInterop: 0ffa57668be100582bb7643d4fcb7615496c41fc
-  FirebaseCore: 22a79a961c3951ef2f77b67bfbc99e454247b319
+  FirebaseCore: f1a9a8be1aee4bf71a2fc0f4096df6788bdfda61
   FirebaseDatabase: 2c15b0ea6f2c6eb5e57413f9d6340f1e50b81ae3
-  FirebaseFirestore: 1531eefe02da66be6860966ac4e2cdac635706e2
-  FirebaseInstanceID: cf488df2f4b79782f0e430b04a0e17c0aa7979b2
-  FirebaseMessaging: 2d53d08d752fbe63ce0820428d70be5ab87c11fb
+  FirebaseFirestore: faca891c0f0d1d6c10c793473e2f6a29d75014b5
+  FirebaseInstanceID: a122b0c258720cf250551bb2bedf48c699f80d90
+  FirebaseMessaging: 4235f949ce1c4e827aeb19705ba5c53f9b85aa10
   FirebasePerformance: 25ecee2a260bcf398d7f32d6f4804438df953100
   FirebaseRemoteConfig: 7e11c65f0769c09bff6947997c209515058c5318
   FirebaseStorage: 6162ef4322502b818d9de0ec552f5226d283de43
@@ -305,10 +311,12 @@ SPEC CHECKSUMS:
   MessageInputBar: e81c7535347f1f7b923de7080409a535a004b6e4
   MessageKit: 29c1c87e5a396d2ca7a3f712e5171dc9aba42a1e
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  Nimble: 45f786ae66faa9a709624227fae502db55a8bdd0
   NVActivityIndicatorView: 4ca19fccc84595a78957336a086d00a49be6ce61
   paper-onboarding: 239bb1bc520b965d67d14088a26a6d277e3cadd8
   Protobuf: 7a877b7f3e5964e3fce995e2eb323dbc6831bb5a
   PryntTrimmerView: 53ac64053c7ce63cb3e27f54090f52da0734891d
+  Quick: ce1276c7c27ba2da3cb2fd0cde053c3648b3b22d
   SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
   SkyFloatingLabelTextField: 38164979b79512f9ff9288ad8acfc4bbf5d843e3
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
@@ -316,6 +324,6 @@ SPEC CHECKSUMS:
   SwiftMonkey: aea6f2707a4b7ab5277b4d2fd2f0723a083997b1
   YPImagePicker: 5dd3814b47b1208e9c8cc8f6ef77fe90db3723b6
 
-PODFILE CHECKSUM: 9e23fb967234ad987efcc685f7956580cf0d95bf
+PODFILE CHECKSUM: 16a88d775485681c41c47fffebfa2ce10af9e2b8
 
 COCOAPODS: 1.5.3

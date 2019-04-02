@@ -32,11 +32,11 @@ use_frameworks!
     pod 'FirebaseUI/Storage'
     pod 'Firebase/Database'
 
-  target 'SouthernSalesTests' do
-#      use_frameworks!
-      inherit! :search_paths
-      # Pods for testing
-  end
+    target 'SouthernSalesTests' do
+        use_frameworks!
+        pod 'Quick'
+        pod 'Nimble'
+    end
 
   target 'SouthernSalesUITests' do
       use_frameworks!

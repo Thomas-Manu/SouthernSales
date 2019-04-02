@@ -7,6 +7,8 @@
 //
 
 import XCTest
+import Quick
+import Nimble
 @testable import SouthernSales
 import Firebase
 
@@ -18,19 +20,19 @@ class SouthernSalesTests: XCTestCase {
     }
     
     func testThatListingIsInitializedCorrectly() {
-        XCTAssertEqual(listingUnderTest.title, "Test")
-        XCTAssertEqual(listingUnderTest.price, 200)
-        XCTAssertEqual(listingUnderTest.descriptionString, "Test")
-        XCTAssertEqual(listingUnderTest.imageRefs.count, 1)
-        XCTAssertEqual(listingUnderTest.imageRefs[0], "image1.jpg")
-        XCTAssertNil(listingUnderTest.reference)
-        XCTAssertFalse(listingUnderTest.saved)
+        expect(self.listingUnderTest.title).to(equal("Test"))
+        expect(self.listingUnderTest.price).to(equal(200))
+        expect(self.listingUnderTest.descriptionString).to(equal("Test"))
+        expect(self.listingUnderTest.imageRefs.count).to(equal(1))
+        expect(self.listingUnderTest.imageRefs[0]).to(equal("image1.jpg"))
+        expect(self.listingUnderTest.reference).to(beNil())
+        expect(self.listingUnderTest.saved).to(beFalse())
     }
     
     func testThatChangingSavedPropertyWorks() {
-        XCTAssertFalse(listingUnderTest.saved)
+        expect(self.listingUnderTest.saved).to(beFalse())
         listingUnderTest.saved = true
-        XCTAssertTrue(listingUnderTest.saved)
+        expect(self.listingUnderTest.saved).to(beTrue())
     }
 
     override func tearDown() {
