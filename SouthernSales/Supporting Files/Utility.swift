@@ -87,6 +87,24 @@ class Utility {
         }
     }
     
+    static func databaseViewOwnedListings(_ success: @escaping SuccessListings, _ failure: @escaping Failure) {
+        let db = initializeFirestoreDatabase()
+        let user = getCurrentUser()
+        let userRef = db.collection("users").document(user!.id)
+        var listings = [Listing]()
+        db.collection("listings").whereField("user", isEqualTo: userRef).getDocuments { (snapshot, error) in
+            if let err = error {
+                failure(err)
+                print("Error getting documents: \(err)")
+            } else {
+                for document in snapshot!.documents {
+                    listings.append(parseListing(from: document))
+                }
+                success(listings)
+            }
+        }
+    }
+    
     static func databaseReadFavorites(_ success: @escaping SuccessListings, _ failure: @escaping Failure) {
         let db = initializeFirestoreDatabase()
         guard let user = getCurrentUser() else {
@@ -150,6 +168,27 @@ class Utility {
             }
             else {
                 success()
+            }
+        }
+    }
+    
+    static func databaseRemoveListing(_ listing: Listing, success: @escaping Success, failure: @escaping Failure) {
+        listing.reference?.delete(completion: { (error) in
+            if let error = error {
+                failure(error)
+            } else {
+                success()
+                print("Document successfully removed!")
+            }
+        })
+    }
+    
+    static func databaseRemoveListings(_ listings: [Listing], success: @escaping Success, failure: @escaping Failure) {
+        for listing in listings {
+            Utility.databaseRemoveListing(listing, success: {
+                success()
+            }) { (error) in
+                failure(error)
             }
         }
     }

@@ -13,6 +13,10 @@ struct Constants {
     static let SavedToListingSegue = "savedToListingSegue"
     static let SettingsToLicensesSegue = "settingsToLicensesSegue"
     static let PreviewSegue = "previewSegue"
+    static let SettingsToManageListingsSegue = "settingsToManageListingsSegue"
+    
+    static let replyAction = "replyAction"
+    static let messageCategory = "messageCategory"
 }
 
 struct Colors {

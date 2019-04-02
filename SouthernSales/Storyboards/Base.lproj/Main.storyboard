@@ -229,12 +229,50 @@
                     </navigationItem>
                     <connections>
                         <segue destination="Nqe-Uw-Ob9" kind="show" identifier="settingsToLicensesSegue" id="EP8-4R-Cp1"/>
+                        <segue destination="Xv2-VU-ZFS" kind="show" identifier="settingsToManageListingsSegue" id="mwv-NQ-Uc0"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RaI-ye-kUB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="OCa-t2-KwX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5138" y="2276"/>
+        </scene>
+        <!--Manage Listings Table View Controller-->
+        <scene sceneID="Xil-LY-owz">
+            <objects>
+                <tableViewController id="Xv2-VU-ZFS" customClass="ManageListingsTableViewController" customModule="SouthernSales" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="JNw-wM-6zW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="listingCell" textLabel="A3T-sh-7Xn" style="IBUITableViewCellStyleDefault" id="fWR-d1-d8I">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fWR-d1-d8I" id="E1f-fT-joJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="A3T-sh-7Xn">
+                                            <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Xv2-VU-ZFS" id="HcN-CK-Hxa"/>
+                            <outlet property="delegate" destination="Xv2-VU-ZFS" id="AiD-Yz-XkQ"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ztd-jd-Wfe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5990" y="1982"/>
         </scene>
         <!--Markdown View Controller-->
         <scene sceneID="oEw-Eu-fsU">
@@ -264,7 +302,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iJa-Hu-ell" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6041" y="2276"/>
+            <point key="canvasLocation" x="5991" y="2751"/>
         </scene>
         <!--Splash View Controller-->
         <scene sceneID="eC7-4b-niU">

@@ -13,18 +13,19 @@ import NVActivityIndicatorView
 class MarkdownViewController: UIViewController, NVActivityIndicatorViewable {
 
     @IBOutlet weak var markdownView: MarkdownView!
+    var fileName: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.tintColor = .white
         startAnimating(type: NVActivityIndicatorType.ballScaleRippleMultiple)
-        title = "Licenses"
-        if let filepath = Bundle.main.path(forResource: "credits", ofType: "md") {
+        if let filepath = Bundle.main.path(forResource: fileName, ofType: "md") {
             do {
                 let contents = try String(contentsOfFile: filepath)
                 markdownView.load(markdown: contents)
             } catch {
                 stopAnimating()
+                navigationController?.popViewController(animated: true)
                 print("[MVC] Error loading from file \(filepath)")
             }
         }

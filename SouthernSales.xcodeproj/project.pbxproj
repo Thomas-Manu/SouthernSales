@@ -28,6 +28,9 @@
 		EA22A666221B3C930072259B /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA22A665221B3C930072259B /* Listing.swift */; };
 		EA306B3121C7235E00E3A1E4 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA306B3021C7235E00E3A1E4 /* SplashViewController.swift */; };
 		EA3DAF1022235C15009CBFB1 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3DAF0F22235C15009CBFB1 /* OnboardingViewController.swift */; };
+		EA539B6522529BA80092301B /* terms-conditions.md in Resources */ = {isa = PBXBuildFile; fileRef = EA539B6322529BA80092301B /* terms-conditions.md */; };
+		EA539B6622529BA80092301B /* privacy-policy.md in Resources */ = {isa = PBXBuildFile; fileRef = EA539B6422529BA80092301B /* privacy-policy.md */; };
+		EA5CB87322531844005463C3 /* ManageListingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5CB87222531844005463C3 /* ManageListingsTableViewController.swift */; };
 		EA7A68592199EAF70026C7DE /* SavedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7A68582199EAF70026C7DE /* SavedCollectionViewController.swift */; };
 		EA7A685B2199EB050026C7DE /* MessagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7A685A2199EB050026C7DE /* MessagesTableViewController.swift */; };
 		EA7A685D2199EB130026C7DE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7A685C2199EB130026C7DE /* ProfileViewController.swift */; };
@@ -101,6 +104,9 @@
 		EA22A665221B3C930072259B /* Listing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
 		EA306B3021C7235E00E3A1E4 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		EA3DAF0F22235C15009CBFB1 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		EA539B6322529BA80092301B /* terms-conditions.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "terms-conditions.md"; sourceTree = "<group>"; };
+		EA539B6422529BA80092301B /* privacy-policy.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "privacy-policy.md"; sourceTree = "<group>"; };
+		EA5CB87222531844005463C3 /* ManageListingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageListingsTableViewController.swift; sourceTree = "<group>"; };
 		EA7A68582199EAF70026C7DE /* SavedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCollectionViewController.swift; sourceTree = "<group>"; };
 		EA7A685A2199EB050026C7DE /* MessagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableViewController.swift; sourceTree = "<group>"; };
 		EA7A685C2199EB130026C7DE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -243,6 +249,8 @@
 		EA0D648121992B7A0015BEAA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EA539B6422529BA80092301B /* privacy-policy.md */,
+				EA539B6322529BA80092301B /* terms-conditions.md */,
 				EA1B6C47224D228E00C79AD3 /* credits.md */,
 				EAE70458221F3C8D00371636 /* FloatLabelTextView.swift */,
 				EA0D645021992AD40015BEAA /* AppDelegate.swift */,
@@ -258,17 +266,16 @@
 		EA0D648221992B810015BEAA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EAAC35262252900A0097D3B7 /* Settings */,
 				EA7A685F219A0AFF0026C7DE /* ListingsViewController.swift */,
-				EAC05CB021F6C23000F91634 /* ViewListingViewController.swift */,
-				EA7A68582199EAF70026C7DE /* SavedCollectionViewController.swift */,
-				EA19194A21A1FD8A0053C68E /* PostViewController.swift */,
 				EA7A685A2199EB050026C7DE /* MessagesTableViewController.swift */,
-				EA7A685C2199EB130026C7DE /* ProfileViewController.swift */,
-				EADA9C5D21A8890600826C28 /* SettingsTableViewController.swift */,
-				EA306B3021C7235E00E3A1E4 /* SplashViewController.swift */,
 				EA3DAF0F22235C15009CBFB1 /* OnboardingViewController.swift */,
+				EA19194A21A1FD8A0053C68E /* PostViewController.swift */,
+				EA7A685C2199EB130026C7DE /* ProfileViewController.swift */,
+				EA7A68582199EAF70026C7DE /* SavedCollectionViewController.swift */,
 				EA2017F2223F408300C841C0 /* SignInViewController.swift */,
-				EAD0D2E522516D6300D648B0 /* MarkdownViewController.swift */,
+				EA306B3021C7235E00E3A1E4 /* SplashViewController.swift */,
+				EAC05CB021F6C23000F91634 /* ViewListingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -289,6 +296,16 @@
 				EA19194321A1E3130053C68E /* ListingsCollectionViewCell.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		EAAC35262252900A0097D3B7 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				EADA9C5D21A8890600826C28 /* SettingsTableViewController.swift */,
+				EAD0D2E522516D6300D648B0 /* MarkdownViewController.swift */,
+				EA5CB87222531844005463C3 /* ManageListingsTableViewController.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -441,9 +458,11 @@
 				EA0D645D21992AD50015BEAA /* LaunchScreen.storyboard in Resources */,
 				EA19194521A1E3140053C68E /* ListingsCollectionViewCell.xib in Resources */,
 				EA19193E21A1AF2B0053C68E /* GoogleService-Info.plist in Resources */,
+				EA539B6522529BA80092301B /* terms-conditions.md in Resources */,
 				EA0D645A21992AD50015BEAA /* Assets.xcassets in Resources */,
 				EA1B6C48224D228E00C79AD3 /* credits.md in Resources */,
 				EA0D645821992AD40015BEAA /* Main.storyboard in Resources */,
+				EA539B6622529BA80092301B /* privacy-policy.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -729,6 +748,7 @@
 				EA7A68592199EAF70026C7DE /* SavedCollectionViewController.swift in Sources */,
 				EA19195221A268360053C68E /* User.swift in Sources */,
 				EAD0D2E622516D6300D648B0 /* MarkdownViewController.swift in Sources */,
+				EA5CB87322531844005463C3 /* ManageListingsTableViewController.swift in Sources */,
 				EA7A6860219A0AFF0026C7DE /* ListingsViewController.swift in Sources */,
 				EA306B3121C7235E00E3A1E4 /* SplashViewController.swift in Sources */,
 			);
