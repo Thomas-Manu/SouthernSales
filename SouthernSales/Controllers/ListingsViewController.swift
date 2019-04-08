@@ -73,10 +73,16 @@ extension ListingsViewController {
             startAnimating(type: NVActivityIndicatorType.ballScaleRippleMultiple)
         }
         Utility.databaseReadListings({ (listings) in
+            guard let listings = listings else {
+                return
+            }
             Utility.databaseReadFavorites({ (favs) in
+                guard let favs = favs else {
+                    return
+                }
                 var data = [Listing]()
                 for listing in self.listingsData {
-                    let temp = listing
+                    var temp = listing
                     temp.saved = favs.contains(where: { $0.reference?.documentID == listing.reference?.documentID  })
                     data.append(temp)
                 }

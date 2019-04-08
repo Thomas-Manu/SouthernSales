@@ -15,8 +15,12 @@ import ImageSlideshow
 
 class Utility {
     typealias Success = () -> Void
-    typealias SuccessListing = (Listing) -> Void
-    typealias SuccessListings = ([Listing]) -> Void
+    typealias SuccessListing = (Listing?) -> Void
+    typealias SuccessListings = ([Listing]?) -> Void
+    typealias SuccessChannel = (Channel?) -> Void
+    typealias SuccessChannels = ([Channel]) -> Void
+    typealias SuccessMessage = (Message) -> Void
+    typealias SuccessMessages = ([Message]) -> Void
     typealias Failure = (Error) -> Void
     typealias Completion = () -> Void
     
@@ -42,6 +46,7 @@ class Utility {
         return User.init(id: currentUser.uid, name: currentUser.displayName!, email: currentUser.email!)
     }
 
+    // MARK: Listing
     static func databaseAddNewListing(with listing: Listing, failure: @escaping (Error) -> Void) {
         databaseAddNewListing(with: listing, failure: { (error) in
             failure(error)
@@ -74,7 +79,7 @@ class Utility {
     static func databaseReadListings(_ success: @escaping SuccessListings, _ failure: @escaping Failure) {
         let db = initializeFirestoreDatabase()
         var listings = [Listing]()
-        db.collection("listings").getDocuments { (snapshot, error) in
+        db.collection("listings").order(by: "timestamp", descending: true).getDocuments { (snapshot, error) in
             if let err = error {
                 failure(err)
                 print("Error getting documents: \(err)")
@@ -84,6 +89,23 @@ class Utility {
                 }
                 success(listings)
             }
+        }
+        
+        db.collection("listings").order(by: "timestamp", descending: true).addSnapshotListener { (snapshot, error) in
+            guard let snapshot = snapshot else {
+                return
+            }
+            
+            snapshot.documentChanges.forEach({ (change) in
+                switch (change.type) {
+                case .added:
+                    print("[Utility] Document added \(change.document.data())")
+                case .modified:
+                    print("[Utility] Document modified \(change.document.data())")
+                case .removed:
+                    print("[Utility] Document removed \(change.document.data())")
+                }
+            })
         }
     }
     
@@ -92,7 +114,7 @@ class Utility {
         let user = getCurrentUser()
         let userRef = db.collection("users").document(user!.id)
         var listings = [Listing]()
-        db.collection("listings").whereField("user", isEqualTo: userRef).getDocuments { (snapshot, error) in
+        db.collection("listings").whereField("user", isEqualTo: userRef).order(by: "timestamp", descending: true).getDocuments { (snapshot, error) in
             if let err = error {
                 failure(err)
                 print("Error getting documents: \(err)")
@@ -105,6 +127,43 @@ class Utility {
         }
     }
     
+    static func databaseUpdateListing(_ listing: Listing, success: @escaping Success, failure: @escaping Failure) {
+        listing.reference?.updateData([
+            "title": listing.title,
+            "price": listing.price,
+            "description": listing.descriptionString,
+            "images": listing.imageRefs
+            ], completion: { (error) in
+                if let error = error {
+                    failure(error)
+                } else {
+                    success()
+                }
+        })
+    }
+    
+    static func databaseRemoveListing(_ listing: Listing, success: @escaping Success, failure: @escaping Failure) {
+        listing.reference?.delete(completion: { (error) in
+            if let error = error {
+                failure(error)
+            } else {
+                success()
+                print("Document successfully removed!")
+            }
+        })
+    }
+    
+    static func databaseRemoveListings(_ listings: [Listing], success: @escaping Success, failure: @escaping Failure) {
+        for listing in listings {
+            Utility.databaseRemoveListing(listing, success: {
+                success()
+            }) { (error) in
+                failure(error)
+            }
+        }
+    }
+    
+    // MARK: Favorites
     static func databaseReadFavorites(_ success: @escaping SuccessListings, _ failure: @escaping Failure) {
         let db = initializeFirestoreDatabase()
         guard let user = getCurrentUser() else {
@@ -118,7 +177,11 @@ class Utility {
                 failure(err)
                 print("Error getting document: \(err)")
             } else {
-                if let documentRefs = snapshot?.data()!["favorites"] as? [DocumentReference] {
+                guard let data = snapshot?.data() else {
+                    success(nil)
+                    return
+                }
+                if let documentRefs = data["favorites"] as? [DocumentReference] {
                     var listings = [Listing]()
                     let asyncGroup = DispatchGroup()
                     for refs in documentRefs {
@@ -128,7 +191,7 @@ class Utility {
                                 failure(err)
                                 print("Error getting document: \(err)")
                             } else {
-                                let listing = parseListing(from: (snapshot?.data())!)
+                                var listing = parseListing(from: (snapshot?.data())!)
                                 listing.reference = refs
                                 listing.saved = true
                                 listings.append(listing)
@@ -172,27 +235,24 @@ class Utility {
         }
     }
     
-    static func databaseRemoveListing(_ listing: Listing, success: @escaping Success, failure: @escaping Failure) {
-        listing.reference?.delete(completion: { (error) in
+    // MARK: Messaging
+    static func databaseReadChannels(_ success: @escaping SuccessChannels, failure: @escaping Failure) {
+        let db = initializeFirestoreDatabase()
+        let user = getCurrentUser()
+        db.collection("channels").whereField("participants", arrayContains: user!.id).getDocuments { (snapshot, error) in
             if let error = error {
                 failure(error)
             } else {
-                success()
-                print("Document successfully removed!")
-            }
-        })
-    }
-    
-    static func databaseRemoveListings(_ listings: [Listing], success: @escaping Success, failure: @escaping Failure) {
-        for listing in listings {
-            Utility.databaseRemoveListing(listing, success: {
-                success()
-            }) { (error) in
-                failure(error)
+                var channels = [Channel]()
+                for document in snapshot!.documents {
+                    channels.append(Channel(id: document.reference, participants: document.data()["participants"] as! [String], listing: document.data()["listing"] as! DocumentReference))
+                }
+                success(channels)
             }
         }
     }
 
+    // MARK: Cloud Storage
     static func cloudStorageGetImageURLs(from listing: Listing, success: @escaping ([URL]) -> Void, failure: @escaping Failure) {
         var urls = [URL]()
         let userImageRef = Storage.storage().reference(withPath: "images/\(listing.user!.documentID)")
@@ -246,7 +306,7 @@ class Utility {
 
 extension Utility {
     static func parseListing(from document: QueryDocumentSnapshot) -> Listing {
-        let listing = parseListing(from: document.data())
+        var listing = parseListing(from: document.data())
         listing.reference = document.reference
         return listing
     }
@@ -272,5 +332,11 @@ extension Utility {
         return array
     }
     
-//    static func alert
+    static func alertWith(_ title: String, message: String, actions: [UIAlertAction]) -> UIAlertController {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        for action in actions {
+            alert.addAction(action)
+        }
+        return alert
+    }
 }

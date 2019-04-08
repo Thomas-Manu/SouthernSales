@@ -24,8 +24,10 @@ class ManageListingsTableViewController: UITableViewController, NVActivityIndica
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         startAnimating(type: NVActivityIndicatorType.ballScaleRippleMultiple)
         Utility.databaseViewOwnedListings({ (listings) in
-            self.listingsData = listings
-            self.tableView.reloadData()
+            if let listings = listings {
+                self.listingsData = listings
+                self.tableView.reloadData()
+            }
             self.stopAnimating()
         }) { (error) in
             print("[MLTVC] Error: \(error)")
@@ -68,30 +70,18 @@ class ManageListingsTableViewController: UITableViewController, NVActivityIndica
             }
         }
     }
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "editListingSegue", sender: indexPath.row)
     }
-    */
 
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        let pvc = segue.destination as! PostViewController
+        pvc.listing = listingsData[sender as! Int]
+        pvc.isUpdating = true
     }
-    */
 
 }

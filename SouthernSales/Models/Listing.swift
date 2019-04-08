@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class Listing: NSObject {
+struct Listing {
     let title: String
     let price: Double
     let descriptionString: String
@@ -27,5 +27,22 @@ class Listing: NSObject {
         self.imageRefs = imageRefs
         self.reference = reference
         self.saved = saved
+    }
+}
+
+extension Listing: DatabaseRepresentation {
+    var representation: [String : Any] {
+        var rep: [String: Any] = [
+            "title": title,
+            "price": price,
+            "description": descriptionString,
+            "images": imageRefs
+        ]
+        
+        if let user = user {
+            rep["user"] = user
+        }
+        
+        return rep
     }
 }

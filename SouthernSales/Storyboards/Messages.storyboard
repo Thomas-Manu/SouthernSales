@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Om9-Ii-r7S">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Om9-Ii-r7S">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,13 +19,66 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="messagesCell" id="nhX-YA-bDd">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="messagesCell" rowHeight="75" id="nhX-YA-bDd" customClass="MessageTableViewCell" customModule="SouthernSales" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nhX-YA-bDd" id="efS-JH-FLh">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nhX-YA-bDd" id="efS-JH-FLh">
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="74.666666666666671"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HQA-fl-4Si">
+                                            <rect key="frame" x="16" y="5" width="64" height="64"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="64" id="HWg-02-KtX"/>
+                                                <constraint firstAttribute="width" constant="64" id="JQ5-aw-hRm"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MkE-UF-tFb">
+                                            <rect key="frame" x="88" y="5" width="165" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MlS-8T-zy2">
+                                            <rect key="frame" x="88" y="34" width="245" height="35"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wednesday" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ddt-Un-dTQ">
+                                            <rect key="frame" x="261" y="5" width="80" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="80" id="4OX-N2-UAY"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="MkE-UF-tFb" firstAttribute="leading" secondItem="HQA-fl-4Si" secondAttribute="trailing" constant="8" id="0jv-KW-REd"/>
+                                        <constraint firstItem="MlS-8T-zy2" firstAttribute="top" secondItem="MkE-UF-tFb" secondAttribute="bottom" constant="8" id="CtQ-QK-9i2"/>
+                                        <constraint firstItem="MkE-UF-tFb" firstAttribute="leading" secondItem="HQA-fl-4Si" secondAttribute="trailing" constant="8" id="EeM-VB-3e5"/>
+                                        <constraint firstItem="MkE-UF-tFb" firstAttribute="top" secondItem="efS-JH-FLh" secondAttribute="top" constant="5" id="Sk5-55-vnf"/>
+                                        <constraint firstAttribute="trailing" secondItem="Ddt-Un-dTQ" secondAttribute="trailing" id="cBO-fm-bOl"/>
+                                        <constraint firstItem="MkE-UF-tFb" firstAttribute="top" secondItem="Ddt-Un-dTQ" secondAttribute="top" id="fA0-sb-uUg"/>
+                                        <constraint firstItem="HQA-fl-4Si" firstAttribute="leading" secondItem="efS-JH-FLh" secondAttribute="leading" constant="16" id="fRL-QP-Ka7"/>
+                                        <constraint firstItem="MlS-8T-zy2" firstAttribute="top" secondItem="MkE-UF-tFb" secondAttribute="bottom" constant="8" id="ltW-3l-dL2"/>
+                                        <constraint firstAttribute="bottom" secondItem="HQA-fl-4Si" secondAttribute="bottom" constant="5" id="rLy-a8-D2e"/>
+                                        <constraint firstItem="MlS-8T-zy2" firstAttribute="top" secondItem="Ddt-Un-dTQ" secondAttribute="bottom" constant="8" symbolic="YES" id="rRj-vU-VYe"/>
+                                        <constraint firstItem="Ddt-Un-dTQ" firstAttribute="leading" secondItem="MkE-UF-tFb" secondAttribute="trailing" constant="8" id="utE-C0-je2"/>
+                                        <constraint firstItem="MlS-8T-zy2" firstAttribute="trailing" secondItem="efS-JH-FLh" secondAttribute="trailingMargin" id="wDx-RU-5wG"/>
+                                        <constraint firstItem="MlS-8T-zy2" firstAttribute="leading" secondItem="HQA-fl-4Si" secondAttribute="trailing" constant="8" id="ypf-5q-gi0"/>
+                                        <constraint firstItem="MlS-8T-zy2" firstAttribute="bottom" secondItem="HQA-fl-4Si" secondAttribute="bottom" id="yr1-E2-k3e"/>
+                                        <constraint firstItem="HQA-fl-4Si" firstAttribute="top" secondItem="efS-JH-FLh" secondAttribute="top" constant="5" id="zSd-lm-zDK"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dateLabel" destination="Ddt-Un-dTQ" id="vbL-Mx-cN5"/>
+                                    <outlet property="nameLabel" destination="MkE-UF-tFb" id="q32-Jv-xGK"/>
+                                    <outlet property="previewLabel" destination="MlS-8T-zy2" id="S2G-Rc-XJs"/>
+                                    <outlet property="profileImageView" destination="HQA-fl-4Si" id="feb-1l-ran"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -37,10 +91,28 @@
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="zjm-X9-HXw" kind="show" identifier="messageSegue" id="ejO-V1-wv4"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dEJ-Gz-57a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3176.8000000000002" y="1499.1004497751126"/>
+            <point key="canvasLocation" x="3176.8000000000002" y="1498.5221674876848"/>
+        </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="L8k-2o-Lsi">
+            <objects>
+                <viewController id="zjm-X9-HXw" customClass="ChatViewController" customModule="SouthernSales" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="khV-33-GX1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Vkb-6u-cwF"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pIM-E7-czv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4098" y="1499"/>
         </scene>
         <!--Messages-->
         <scene sceneID="nhX-1g-zlF">
@@ -67,7 +139,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Messages" width="41.400001525878906" height="41.400001525878906"/>
+        <image name="Messages" width="23" height="23"/>
     </resources>
     <color key="tintColor" red="0.61663808850000001" green="0.25192767669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

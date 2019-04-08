@@ -34,8 +34,10 @@ class SavedCollectionViewController: UICollectionViewController, NVActivityIndic
             startAnimating(type: NVActivityIndicatorType.ballScaleRippleMultiple)
         }
         Utility.databaseReadFavorites({ (favs) in
-            self.listingsData = favs
-            self.collectionView.reloadData()
+            if let favs = favs {
+                self.listingsData = favs
+                self.collectionView.reloadData()
+            }
             self.stopAnimating()
             self.refreshControl.endRefreshing()
         }) { (error) in
