@@ -46,17 +46,21 @@ class Utility {
             GIDSignIn.sharedInstance()?.signOut()
             return nil
         }
-        return User.init(id: currentUser.uid, name: currentUser.displayName!, email: currentUser.email!)
+        
+        return User(id: currentUser.uid,
+                    name: currentUser.displayName!,
+                    email: currentUser.email!,
+                    reference: initializeFirestoreDatabase().collection("users").document(currentUser.uid))
     }
 
     // MARK: Listing
-    static func databaseAddNewListing(with listing: Listing, failure: @escaping (Error) -> Void) {
-        databaseAddNewListing(with: listing, failure: { (error) in
+    static func databaseCreateListing(with listing: Listing, failure: @escaping (Error) -> Void) {
+        databaseCreateListing(with: listing, failure: { (error) in
             failure(error)
         }, completion: nil)
     }
     
-    static func databaseAddNewListing(with listing: Listing, failure: @escaping Failure, completion: Completion?) {
+    static func databaseCreateListing(with listing: Listing, failure: @escaping Failure, completion: Completion?) {
         let db = initializeFirestoreDatabase()
         let user = getCurrentUser()
         let userRef = db.collection("users").document(user!.id)
@@ -82,33 +86,33 @@ class Utility {
     static func databaseReadListings(_ success: @escaping SuccessListings, _ failure: @escaping Failure) {
         let db = initializeFirestoreDatabase()
         var listings = [Listing]()
-        db.collection("listings").order(by: "timestamp", descending: true).getDocuments { (snapshot, error) in
-            if let err = error {
-                failure(err)
-                print("Error getting documents: \(err)")
-            } else {
-                for document in snapshot!.documents {
-                    listings.append(parseListing(from: document))
-                }
-                success(listings)
-            }
-        }
         
         db.collection("listings").order(by: "timestamp", descending: true).addSnapshotListener { (snapshot, error) in
             guard let snapshot = snapshot else {
                 return
             }
             
-            snapshot.documentChanges.forEach({ (change) in
-                switch (change.type) {
-                case .added:
-                    print("[Utility] Document added \(change.document.data())")
-                case .modified:
-                    print("[Utility] Document modified \(change.document.data())")
-                case .removed:
-                    print("[Utility] Document removed \(change.document.data())")
+            if let err = error {
+                failure(err)
+                print("Error getting documents: \(err)")
+            } else {
+                for document in snapshot.documents {
+                    listings.append(parseListing(from: document))
                 }
-            })
+                success(listings)
+            }
+        }
+    }
+    
+    static func databaseReadListing(fromReference reference: DocumentReference, success: @escaping SuccessListing, failure: @escaping Failure) {
+        reference.getDocument { (snapshot, error) in
+            if let error = error {
+                failure(error)
+            } else {
+                var listing = parseListing(from: snapshot!.data()!)
+                listing.reference = snapshot?.reference
+                success(listing)
+            }
         }
     }
     
@@ -256,6 +260,41 @@ class Utility {
         }
     }
     
+    static func databaseReadChannel(fromReference reference: DocumentReference, success: @escaping SuccessChannel, failure: @escaping Failure) {
+        reference.getDocument { (snapshot, error) in
+            if let error = error {
+                failure(error)
+            } else {
+                guard let snapshot = snapshot else {
+                    return
+                }
+                success(parseChannel(from: snapshot.data()!, reference: reference))
+            }
+        }
+    }
+    
+    static func databaseCreateChannel(fromListing listing: Listing, success: @escaping SuccessChannel, failure: @escaping Failure) {
+        let db = initializeFirestoreDatabase()
+        let user = getCurrentUser()
+        let newChannel = db.collection("channels").addDocument(data: [
+            "listing": listing.reference!,
+            "participants": [user?.id, listing.user?.documentID],
+            "title": listing.title
+        ]) { (error) in
+            if let error = error {
+                failure(error)
+            }
+        }
+        
+        databaseReadChannel(fromReference: newChannel, success: { (channel) in
+            if let channel = channel {
+                success(channel)
+            }
+        }) { (error) in
+            failure(error)
+        }
+    }
+    
     static func databaseReadAllMessagesFromChannel(channel: Channel, listener: @escaping SuccessListener, success: @escaping SuccessMessages, change: @escaping Change, failure: @escaping Failure) {
         let listen = channel.id?.collection("thread").order(by: "created", descending: true).addSnapshotListener({ (snapshot, error) in
             if let error = error {
@@ -278,21 +317,21 @@ class Utility {
         listener(listen!)
     }
     
-    static func databaseSendMessage(message: String, throughChannel channel: Channel?, failure: @escaping Failure) {
+    static func databaseSendMessage(message: String, throughChannel channel: Channel, failure: @escaping Failure) {
         guard let user = getCurrentUser() else {
-//            failure()
             return
         }
-        channel?.id?.collection("thread").addDocument(data: [
+        let data: [String: Any] = [
             "kind": "text",
             "message": message,
             "senderID": user.id,
             "senderName": user.name,
             "created": Timestamp.init()
-            ], completion: { (error) in
-                if let error = error {
-                    failure(error)
-                }
+        ]
+        channel.id?.collection("thread").addDocument(data: data, completion: { (error) in
+            if let error = error {
+                failure(error)
+            }
         })
     }
 
@@ -364,9 +403,13 @@ extension Utility {
                        created: (data["timestamp"] as! Timestamp).dateValue())
     }
     
-//    static func parseChannel(from data: [String: Any]) -> Channel {
-//        return Channel(participants: <#T##[String]#>, listing: <#T##DocumentReference#>, title: <#T##String#>)
-//    }
+    static func parseChannel(from data: [String: Any], reference: DocumentReference) -> Channel {
+        return Channel(id: reference,
+                       participants: data["participants"] as! [String],
+                       listing: data["listing"] as! DocumentReference,
+                       title: data["title"] as! String,
+                       date: (data["latestDate"] as! Timestamp).dateValue())
+    }
     
     static func parseMessage(from data: [String: Any], withID id: String) -> Message {
         switch data["kind"] as! String {

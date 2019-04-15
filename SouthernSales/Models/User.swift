@@ -7,23 +7,12 @@
 //
 
 import UIKit
-//import FirebaseFirestore
+import FirebaseFirestore
 
 struct User {
     let id: String
     let name: String
     let email: String
+    let reference: DocumentReference
 //    let profilePicture: UIImage
-}
-
-extension User: DatabaseRepresentation {
-    var representation: [String : Any] {
-        let rep: [String: Any] = [
-            "id": id,
-            "name": name,
-            "email": email
-        ]
-        
-        return rep
-    }
 }

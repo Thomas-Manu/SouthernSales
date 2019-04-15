@@ -128,7 +128,7 @@
 		EAC05CB221F6C38B00F91634 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = "../Supporting Files/Constants.swift"; sourceTree = "<group>"; };
 		EAD0D2E522516D6300D648B0 /* MarkdownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownViewController.swift; sourceTree = "<group>"; };
 		EADA9C5D21A8890600826C28 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
-		EAE70458221F3C8D00371636 /* FloatLabelTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextView.swift; sourceTree = "<group>"; };
+		EAE70458221F3C8D00371636 /* FloatLabelTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FloatLabelTextView.swift; path = "../Supporting Files/FloatLabelTextView.swift"; sourceTree = "<group>"; };
 		FB97ED0ABD4C2764CDA43E8D /* Pods-SouthernSales.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SouthernSales.release.xcconfig"; path = "Pods/Target Support Files/Pods-SouthernSales/Pods-SouthernSales.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -266,7 +266,6 @@
 				EA539B6422529BA80092301B /* privacy-policy.md */,
 				EA539B6322529BA80092301B /* terms-conditions.md */,
 				EA1B6C47224D228E00C79AD3 /* credits.md */,
-				EAE70458221F3C8D00371636 /* FloatLabelTextView.swift */,
 				EA0D645021992AD40015BEAA /* AppDelegate.swift */,
 				EA0D645921992AD50015BEAA /* Assets.xcassets */,
 				EA19193D21A1AF2B0053C68E /* GoogleService-Info.plist */,
@@ -295,11 +294,11 @@
 		EA19194021A1E2D40053C68E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				EA19195121A268360053C68E /* User.swift */,
+				EA5D77BF225A7889004EE329 /* Channel.swift */,
+				EA5D77BD225A7623004EE329 /* DatabaseRepresentation.swift */,
 				EA22A665221B3C930072259B /* Listing.swift */,
 				EA5D77B9225A703F004EE329 /* Message.swift */,
-				EA5D77BD225A7623004EE329 /* DatabaseRepresentation.swift */,
-				EA5D77BF225A7889004EE329 /* Channel.swift */,
+				EA19195121A268360053C68E /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -307,6 +306,7 @@
 		EA19194121A1E2E10053C68E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EAE70458221F3C8D00371636 /* FloatLabelTextView.swift */,
 				EA19194221A1E3130053C68E /* ListingsCollectionViewCell.swift */,
 				EA19194321A1E3130053C68E /* ListingsCollectionViewCell.xib */,
 				EA5D77BB225A7489004EE329 /* MessageTableViewCell.swift */,

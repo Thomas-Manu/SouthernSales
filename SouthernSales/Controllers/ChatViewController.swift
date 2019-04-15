@@ -14,6 +14,7 @@ import FirebaseFirestore
 class ChatViewController: MessagesViewController {
     
     var channel: Channel?
+    var listing: Listing?
     private var messages: [Message] = []
     private var messageListener: ListenerRegistration?
 
@@ -96,9 +97,34 @@ extension ChatViewController {
 extension ChatViewController: MessageInputBarDelegate {
     func messageInputBar(_ inputBar: MessageInputBar, didPressSendButtonWith text: String) {
         inputBar.inputTextView.text = ""
-        Utility.databaseSendMessage(message: text, throughChannel: channel) { (error) in
-            print("[CVC] Error: \(error)")
+        
+        if let channel = channel {
+            Utility.databaseSendMessage(message: text, throughChannel: channel) { (error) in
+                print("[CVC] Error: \(error)")
+            }
+        } else {
+            guard let reference = listing?.reference else {
+                return
+            }
+            Utility.databaseReadListing(fromReference: reference, success: { (listing) in
+                guard let listing = listing else {
+                    return
+                }
+                Utility.databaseCreateChannel(fromListing: listing, success: { (channel) in
+                    guard let channel = channel else {
+                        return
+                    }
+                    Utility.databaseSendMessage(message: text, throughChannel: channel, failure: { (error) in
+                        print("[CVC] Error: \(error)")
+                    })
+                }) { (error) in
+                    print("[CVC] Error: \(error)")
+                }
+            }) { (error) in
+                print("[CVC] Error: \(error)")
+            }
         }
+        
     }
 }
 

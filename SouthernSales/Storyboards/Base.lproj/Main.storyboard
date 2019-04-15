@@ -123,6 +123,7 @@
                     <connections>
                         <outlet property="descriptionTextView" destination="YG7-bg-GXa" id="MmA-ep-P1M"/>
                         <outlet property="imageSlideshow" destination="nvW-ua-ryi" id="SZr-y5-exd"/>
+                        <outlet property="messageSellerButton" destination="KtM-WB-XNj" id="Lbg-6X-LAm"/>
                         <outlet property="savedButton" destination="hgg-Jo-Q1u" id="3CJ-ZM-OEq"/>
                     </connections>
                 </viewController>

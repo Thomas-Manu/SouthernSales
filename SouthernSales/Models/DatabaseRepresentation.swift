@@ -44,3 +44,15 @@ extension Listing: DatabaseRepresentation {
         return rep
     }
 }
+
+extension User: DatabaseRepresentation {
+    var representation: [String : Any] {
+        let rep: [String: Any] = [
+            "id": id,
+            "name": name,
+            "email": email
+        ]
+        
+        return rep
+    }
+}

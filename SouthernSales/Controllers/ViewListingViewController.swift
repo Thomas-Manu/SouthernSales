@@ -15,6 +15,7 @@ class ViewListingViewController: UIViewController {
     @IBOutlet weak var imageSlideshow: ImageSlideshow!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var savedButton: UIBarButtonItem!
+    @IBOutlet weak var messageSellerButton: UIButton!
     var listing: Listing!
     var images = [UIImage]()
     var isPreview = false
@@ -38,6 +39,11 @@ class ViewListingViewController: UIViewController {
             savedButton.image = listing.saved ? UIImage.init(named: "Heart") : UIImage.init(named: "Saved")
             imageSlideshow.setImageInputs([ImageSource(image: UIImage.init(named: "placeholder")!)])
             descriptionTextView.text = listing.descriptionString.replacingOccurrences(of: "\\n", with: "\n")
+            
+            if listing.user == Utility.getCurrentUser()?.reference {
+                messageSellerButton.isHidden = true
+            }
+            
             getDownloadLinks()
         }
     }
@@ -78,7 +84,7 @@ class ViewListingViewController: UIViewController {
         Utility.cloudStorageUploadImages(with: images, success: { (references) in
             self.listing.imageRefs = references
 //            Utility.databaseAddNewListing(with: self.listing) { (error) in }
-            Utility.databaseAddNewListing(with: self.listing, failure: { (error) in
+            Utility.databaseCreateListing(with: self.listing, failure: { (error) in
             }, completion: {
                 self.navigationController?.popViewController(animated: true)
             })
