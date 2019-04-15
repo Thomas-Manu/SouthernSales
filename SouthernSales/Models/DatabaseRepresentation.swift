@@ -7,7 +7,40 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 protocol DatabaseRepresentation {
     var representation: [String: Any] { get }    
+}
+
+//extension Message: DatabaseRepresentation {
+//    var representation: [String : Any] {
+//        var rep: [String: Any] = [
+//            "kind": kind,
+//            "message": "",
+//            "senderID": "",
+//            "senderName": "",
+//            "created": Timestamp.init()
+//        ]
+//        
+//        return rep
+//    }
+//}
+
+extension Listing: DatabaseRepresentation {
+    var representation: [String : Any] {
+        var rep: [String: Any] = [
+            "title": title,
+            "price": price,
+            "description": descriptionString,
+            "images": imageRefs,
+            "timestamp": Timestamp(date: created)
+        ]
+        
+        if let user = user {
+            rep["user"] = user
+        }
+        
+        return rep
+    }
 }

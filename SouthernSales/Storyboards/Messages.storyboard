@@ -33,13 +33,13 @@
                                                 <constraint firstAttribute="width" constant="64" id="JQ5-aw-hRm"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MkE-UF-tFb">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Listing Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MkE-UF-tFb">
                                             <rect key="frame" x="88" y="5" width="165" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MlS-8T-zy2">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MlS-8T-zy2">
                                             <rect key="frame" x="88" y="34" width="245" height="35"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -75,9 +75,9 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="dateLabel" destination="Ddt-Un-dTQ" id="vbL-Mx-cN5"/>
-                                    <outlet property="nameLabel" destination="MkE-UF-tFb" id="q32-Jv-xGK"/>
-                                    <outlet property="previewLabel" destination="MlS-8T-zy2" id="S2G-Rc-XJs"/>
                                     <outlet property="profileImageView" destination="HQA-fl-4Si" id="feb-1l-ran"/>
+                                    <outlet property="titleLabel" destination="MkE-UF-tFb" id="6Y0-89-XrT"/>
+                                    <outlet property="usernameLabel" destination="MlS-8T-zy2" id="HPQ-fK-66N"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

@@ -78,14 +78,14 @@ class PostViewController: UIViewController {
             if images.count > 0 {
                 
             }
-            let updatedPost = Listing.init(title: title, price: Double(price)!, description: description, user: listing.user, imageRefs: listing.imageRefs, reference: listing.reference, saved: false)
+            let updatedPost = Listing(title: title, price: Double(price)!, description: description, user: listing.user, imageRefs: listing.imageRefs, reference: listing.reference, saved: false, created: listing.created)
             Utility.databaseUpdateListing(updatedPost, success: {
                 self.dismiss(animated: true, completion: nil)
             }) { (error) in
                 print("[PVC] Error updating listing: \(error)")
             }
         } else {
-            let newPost = Listing.init(title: title, price: Double(price)!, description: description, imageRefs: [])
+            let newPost = Listing(title: title, price: Double(price)!, description: description, imageRefs: [], created: Date.init())
             performSegue(withIdentifier: Constants.PreviewSegue, sender: newPost)
         }
     }

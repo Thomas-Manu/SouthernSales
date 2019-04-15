@@ -54,17 +54,23 @@ struct Message: MessageType {
         self.init(kind: .photo(mediaItem), sender: sender, messageId: messageId, date: date)
     }
     
-    init(thumbnail: UIImage, sender: Sender, messageId: String, date: Date) {
-        let mediaItem = ImageMediaItem(image: thumbnail)
-        self.init(kind: .video(mediaItem), sender: sender, messageId: messageId, date: date)
-    }
+//    init(thumbnail: UIImage, sender: Sender, messageId: String, date: Date) {
+//        let mediaItem = ImageMediaItem(image: thumbnail)
+//        self.init(kind: .video(mediaItem), sender: sender, messageId: messageId, date: date)
+//    }
     
 //    init(location: CLLocation, sender: Sender, messageId: String, date: Date) {
 //        let locationItem = CoordinateItem(location: location)
 //        self.init(kind: .location(locationItem), sender: sender, messageId: messageId, date: date)
 //    }
     
-    init(emoji: String, sender: Sender, messageId: String, date: Date) {
-        self.init(kind: .emoji(emoji), sender: sender, messageId: messageId, date: date)
+//    init(emoji: String, sender: Sender, messageId: String, date: Date) {
+//        self.init(kind: .emoji(emoji), sender: sender, messageId: messageId, date: date)
+//    }
+}
+
+extension Message: Equatable {
+    static func == (lhs: Message, rhs: Message) -> Bool {
+        return lhs.sender == rhs.sender && lhs.messageId == rhs.messageId && lhs.sentDate == rhs.sentDate
     }
 }

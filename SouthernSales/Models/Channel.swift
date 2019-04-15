@@ -13,10 +13,14 @@ struct Channel {
     let id: DocumentReference?
     let participants: [String]
     let listing: DocumentReference
+    let title: String
+    let latestDate: Date
     
-    init(id: DocumentReference? = nil, participants: [String], listing: DocumentReference) {
+    init(id: DocumentReference? = nil, participants: [String], listing: DocumentReference, title: String, date: Date) {
         self.id = id
         self.participants = participants
         self.listing = listing
+        self.title = title
+        self.latestDate = date
     }
 }

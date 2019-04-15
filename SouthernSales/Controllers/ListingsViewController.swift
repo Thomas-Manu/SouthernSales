@@ -91,6 +91,9 @@ extension ListingsViewController {
                 print("[LVC] Failed to get favorites")
             }
             self.listingsData = listings
+            self.listingsData.sort { (lhs, rhs) -> Bool in
+                return lhs.created > rhs.created
+            }
             self.collectionView.reloadData()
             self.refreshControl.endRefreshing()
             self.stopAnimating()

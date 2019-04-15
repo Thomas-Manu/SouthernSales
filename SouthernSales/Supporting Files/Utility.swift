@@ -12,6 +12,7 @@ import FirebaseAuth
 import FirebaseStorage
 import GoogleSignIn
 import ImageSlideshow
+import MessageKit
 
 class Utility {
     typealias Success = () -> Void
@@ -21,6 +22,8 @@ class Utility {
     typealias SuccessChannels = ([Channel]) -> Void
     typealias SuccessMessage = (Message) -> Void
     typealias SuccessMessages = ([Message]) -> Void
+    typealias SuccessListener = (ListenerRegistration) -> Void
+    typealias Change = (DocumentChange) -> Void
     typealias Failure = (Error) -> Void
     typealias Completion = () -> Void
     
@@ -245,11 +248,52 @@ class Utility {
             } else {
                 var channels = [Channel]()
                 for document in snapshot!.documents {
-                    channels.append(Channel(id: document.reference, participants: document.data()["participants"] as! [String], listing: document.data()["listing"] as! DocumentReference))
+                    let data = document.data()
+                    channels.append(Channel(id: document.reference, participants: data["participants"] as! [String], listing: data["listing"] as! DocumentReference, title: data["title"] as! String, date: (data["latestDate"] as! Timestamp).dateValue()))
                 }
                 success(channels)
             }
         }
+    }
+    
+    static func databaseReadAllMessagesFromChannel(channel: Channel, listener: @escaping SuccessListener, success: @escaping SuccessMessages, change: @escaping Change, failure: @escaping Failure) {
+        let listen = channel.id?.collection("thread").order(by: "created", descending: true).addSnapshotListener({ (snapshot, error) in
+            if let error = error {
+                failure(error)
+            } else {
+                var messages = [Message]()
+                guard let documents = snapshot?.documents else {
+                    return
+                }
+                for document in documents {
+                    messages.append(parseMessage(from: document.data(), withID: document.reference.documentID))
+                }
+                success(messages)
+            }
+            
+            snapshot?.documentChanges.forEach({ (newChange) in
+                change(newChange)
+            })
+        })
+        listener(listen!)
+    }
+    
+    static func databaseSendMessage(message: String, throughChannel channel: Channel?, failure: @escaping Failure) {
+        guard let user = getCurrentUser() else {
+//            failure()
+            return
+        }
+        channel?.id?.collection("thread").addDocument(data: [
+            "kind": "text",
+            "message": message,
+            "senderID": user.id,
+            "senderName": user.name,
+            "created": Timestamp.init()
+            ], completion: { (error) in
+                if let error = error {
+                    failure(error)
+                }
+        })
     }
 
     // MARK: Cloud Storage
@@ -312,11 +356,31 @@ extension Utility {
     }
     
     static func parseListing(from data: [String: Any]) -> Listing {
-        return Listing.init(title: data["title"] as! String,
-                            price: data["price"] as! Double,
-                            description: data["description"] as! String,
-                            user: data["user"] as? DocumentReference,
-                            imageRefs: data["images"] as? [String] ?? [])
+        return Listing(title: data["title"] as! String,
+                       price: data["price"] as! Double,
+                       description: data["description"] as! String,
+                       user: data["user"] as? DocumentReference,
+                       imageRefs: data["images"] as? [String] ?? [],
+                       created: (data["timestamp"] as! Timestamp).dateValue())
+    }
+    
+//    static func parseChannel(from data: [String: Any]) -> Channel {
+//        return Channel(participants: <#T##[String]#>, listing: <#T##DocumentReference#>, title: <#T##String#>)
+//    }
+    
+    static func parseMessage(from data: [String: Any], withID id: String) -> Message {
+        switch data["kind"] as! String {
+        case "text":
+            return Message(text: data["message"] as! String,
+                           sender: Sender(id: data["senderID"] as! String, displayName: data["senderName"] as! String),
+                           messageId: id,
+                           date: (data["created"] as! Timestamp).dateValue())
+        default:
+            return Message(custom: data["message"] as! String,
+                           sender: Sender(id: data["senderID"] as! String, displayName: data["senderName"] as! String),
+                           messageId: id,
+                           date: (data["created"] as! Timestamp).dateValue())
+        }
     }
     
     static func randomString(length: Int) -> String {

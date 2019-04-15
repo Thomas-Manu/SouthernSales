@@ -8,17 +8,33 @@
 
 import UIKit
 import MessageKit
+import MessageInputBar
 import FirebaseFirestore
 
 class ChatViewController: MessagesViewController {
     
+    var channel: Channel?
     private var messages: [Message] = []
     private var messageListener: ListenerRegistration?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        navigationController?.navigationBar.barStyle = .black
+        title = channel?.title ?? ""
+        messagesCollectionView.messagesDataSource = self
+        messagesCollectionView.messagesLayoutDelegate = self
+        messagesCollectionView.messagesDisplayDelegate = self
+        messagesCollectionView.backgroundColor = Colors.BackgroundColor
+        
+        messageInputBar.delegate = self
+        messageInputBar.tintColor = Colors.TintColor
+        
+        getAllMessages()
         // Do any additional setup after loading the view.
+    }
+    
+    deinit {
+        messageListener?.remove()
     }
     
 
@@ -34,18 +50,68 @@ class ChatViewController: MessagesViewController {
 
 }
 
-//extension ChatViewController: MessagesDataSource {
-//    func currentSender() -> Sender {
-//        
-//    }
-//    
-//    func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
-//        
-//    }
-//    
-//    func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
-//        
-//    }
-//    
-//    
-//}
+extension ChatViewController {
+    private func getAllMessages() {
+        guard let channel = channel else {
+            return
+        }
+        Utility.databaseReadAllMessagesFromChannel(channel: channel, listener: { (listener) in
+            self.messageListener = listener
+        }, success: { (messages) in
+            self.messages = messages
+            self.messages.sort { (lhs, rhs) -> Bool in
+                return lhs.sentDate < rhs.sentDate
+            }
+            self.messagesCollectionView.reloadData()
+        }, change: { (change) in
+            self.handleNewMessages(change)
+        }) { (error) in
+            print("[CVC] Error: \(error)")
+        }
+    }
+    
+    private func handleNewMessages(_ change: DocumentChange) {
+        switch change.type {
+        case .added:
+            insertNewMessage(message: Utility.parseMessage(from: change.document.data(), withID: change.document.reference.documentID))
+        default:
+            break
+        }
+    }
+    
+    private func insertNewMessage(message: Message) {
+        guard !messages.contains(message) else {
+            return
+        }
+        
+        messages.append(message)
+        messages.sort { (lhs, rhs) -> Bool in
+            return lhs.sentDate < rhs.sentDate
+        }
+        messagesCollectionView.reloadData()
+        messagesCollectionView.scrollToBottom(animated: true)
+    }
+}
+
+extension ChatViewController: MessageInputBarDelegate {
+    func messageInputBar(_ inputBar: MessageInputBar, didPressSendButtonWith text: String) {
+        inputBar.inputTextView.text = ""
+        Utility.databaseSendMessage(message: text, throughChannel: channel) { (error) in
+            print("[CVC] Error: \(error)")
+        }
+    }
+}
+
+extension ChatViewController: MessagesDataSource, MessagesLayoutDelegate, MessagesDisplayDelegate {
+    func currentSender() -> Sender {
+        return Sender(id: "WcWtEpANFMbaHpR0hnIkWFLwN793", displayName: "Thomas M")
+    }
+    
+    func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
+        return messages[indexPath.section]
+    }
+    
+    func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
+        return messages.count
+    }
+}

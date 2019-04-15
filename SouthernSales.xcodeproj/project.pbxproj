@@ -223,8 +223,8 @@
 				EA1B6C46224D213700C79AD3 /* SouthernSales.entitlements */,
 				EA19194021A1E2D40053C68E /* Models */,
 				EA19194121A1E2E10053C68E /* Views */,
-				EA5D77C1225A90F2004EE329 /* Helpers */,
 				EA0D648221992B810015BEAA /* Controllers */,
+				EA5D77C1225A90F2004EE329 /* Helpers */,
 				EA0D648021992B660015BEAA /* Storyboards */,
 				EA0D648121992B7A0015BEAA /* Supporting Files */,
 			);

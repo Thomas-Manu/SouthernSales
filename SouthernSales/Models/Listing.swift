@@ -18,8 +18,9 @@ struct Listing {
     var imageRefs: [String]
     var reference: DocumentReference?
     var saved: Bool
+    var created: Date
     
-    init(title: String, price: Double, description: String, user: DocumentReference? = nil, imageRefs: [String], reference: DocumentReference? = nil, saved: Bool = false) {
+    init(title: String, price: Double, description: String, user: DocumentReference? = nil, imageRefs: [String], reference: DocumentReference? = nil, saved: Bool = false, created: Date) {
         self.title = title
         self.price = price
         self.descriptionString = description
@@ -27,22 +28,19 @@ struct Listing {
         self.imageRefs = imageRefs
         self.reference = reference
         self.saved = saved
+        self.created = created
     }
 }
 
-extension Listing: DatabaseRepresentation {
-    var representation: [String : Any] {
-        var rep: [String: Any] = [
-            "title": title,
-            "price": price,
-            "description": descriptionString,
-            "images": imageRefs
-        ]
-        
-        if let user = user {
-            rep["user"] = user
-        }
-        
-        return rep
+extension Listing: Equatable {
+    static func == (lhs: Listing, rhs: Listing) -> Bool {
+        return
+            lhs.title == rhs.title &&
+            lhs.price == rhs.price &&
+            lhs.descriptionString == rhs.descriptionString &&
+            lhs.user == rhs.user &&
+            lhs.imageRefs == rhs.imageRefs &&
+            lhs.reference == rhs.reference &&
+            lhs.created == rhs.created
     }
 }
