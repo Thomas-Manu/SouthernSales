@@ -14,5 +14,5 @@ struct User {
     let name: String
     let email: String
     let reference: DocumentReference
-//    let profilePicture: UIImage
+//    let photo: UIImage?
 }

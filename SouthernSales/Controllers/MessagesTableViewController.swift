@@ -37,8 +37,8 @@ class MessagesTableViewController: UITableViewController {
         let channel = channels[indexPath.row]
         
         cell.titleLabel.text = channel.title
-        cell.usernameLabel.text = channel.participants[0]
-        cell.dateLabel.text = Date.init().description
+        cell.usernameLabel.text = channel.username
+        cell.dateLabel.text = channel.latestDate.formatRelativeString()
 
         return cell
     }
@@ -78,11 +78,36 @@ extension MessagesTableViewController {
         Utility.databaseReadChannels({ (channels) in
             self.channels = channels
             self.channels.sort { (lhs, rhs) -> Bool in
-                return lhs.latestDate < rhs.latestDate
+                return lhs.latestDate > rhs.latestDate
             }
             self.tableView.reloadData()
         }) { (error) in
             print("[MTVC] Error: \(error)")
         }
+    }
+}
+
+// https://stackoverflow.com/a/48652058
+extension Date {
+    func formatRelativeString() -> String {
+        let dateFormatter = DateFormatter()
+        let calendar = Calendar(identifier: .gregorian)
+        dateFormatter.doesRelativeDateFormatting = true
+        
+        if calendar.isDateInToday(self) {
+            dateFormatter.timeStyle = .short
+            dateFormatter.dateStyle = .none
+        } else if calendar.isDateInYesterday(self){
+            dateFormatter.timeStyle = .none
+            dateFormatter.dateStyle = .medium
+        } else if calendar.compare(Date(), to: self, toGranularity: .weekOfYear) == .orderedSame {
+            let weekday = calendar.dateComponents([.weekday], from: self).weekday ?? 0
+            return dateFormatter.weekdaySymbols[weekday-1]
+        } else {
+            dateFormatter.timeStyle = .none
+            dateFormatter.dateStyle = .short
+        }
+        
+        return dateFormatter.string(from: self)
     }
 }

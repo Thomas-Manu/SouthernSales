@@ -14,7 +14,8 @@ struct Channel {
     let participants: [String]
     let listing: DocumentReference
     let title: String
-    let latestDate: Date
+    var latestDate: Date
+    var username: String?
     
     init(id: DocumentReference? = nil, participants: [String], listing: DocumentReference, title: String, date: Date) {
         self.id = id

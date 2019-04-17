@@ -80,7 +80,11 @@ class PostViewController: UIViewController {
             }
             let updatedPost = Listing(title: title, price: Double(price)!, description: description, user: listing.user, imageRefs: listing.imageRefs, reference: listing.reference, saved: false, created: listing.created)
             Utility.databaseUpdateListing(updatedPost, success: {
-                self.dismiss(animated: true, completion: nil)
+                if let nvc = self.navigationController {
+                    nvc.popViewController(animated: true)
+                } else {
+                    self.dismiss(animated: true, completion: nil)
+                }
             }) { (error) in
                 print("[PVC] Error updating listing: \(error)")
             }

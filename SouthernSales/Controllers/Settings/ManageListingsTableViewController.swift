@@ -8,10 +8,12 @@
 
 import UIKit
 import NVActivityIndicatorView
+import FirebaseFirestore
 
 class ManageListingsTableViewController: UITableViewController, NVActivityIndicatorViewable {
 
     var listingsData = [Listing]()
+    var listener: ListenerRegistration?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,15 +25,29 @@ class ManageListingsTableViewController: UITableViewController, NVActivityIndica
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         startAnimating(type: NVActivityIndicatorType.ballScaleRippleMultiple)
-        Utility.databaseViewOwnedListings({ (listings) in
+        Utility.databaseViewOwnedListings({ (listener) in
+            self.listener = listener
+        }, success: { (listings) in
             if let listings = listings {
                 self.listingsData = listings
                 self.tableView.reloadData()
             }
             self.stopAnimating()
+        }, change: { (change) in
+            self.handleChanges(change: change)
         }) { (error) in
             print("[MLTVC] Error: \(error)")
             self.stopAnimating()
+        }
+    }
+    
+    func handleChanges(change: DocumentChange) {
+        switch change.type {
+        case .modified:
+            var listing = listingsData.first(where: {$0.reference?.documentID == change.document.reference.documentID})
+//            listing = change.
+        default:
+            break
         }
     }
 

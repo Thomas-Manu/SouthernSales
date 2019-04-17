@@ -30,6 +30,7 @@
 		EA3DAF1022235C15009CBFB1 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3DAF0F22235C15009CBFB1 /* OnboardingViewController.swift */; };
 		EA539B6522529BA80092301B /* terms-conditions.md in Resources */ = {isa = PBXBuildFile; fileRef = EA539B6322529BA80092301B /* terms-conditions.md */; };
 		EA539B6622529BA80092301B /* privacy-policy.md in Resources */ = {isa = PBXBuildFile; fileRef = EA539B6422529BA80092301B /* privacy-policy.md */; };
+		EA53F68E22657B0900F627C0 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA53F68D22657A2800F627C0 /* Settings.storyboard */; };
 		EA5619F72253B96200242825 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5619F62253B96200242825 /* UserTests.swift */; };
 		EA5CB87322531844005463C3 /* ManageListingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5CB87222531844005463C3 /* ManageListingsTableViewController.swift */; };
 		EA5D77B8225A6787004EE329 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5D77B7225A6787004EE329 /* ChatViewController.swift */; };
@@ -112,6 +113,7 @@
 		EA3DAF0F22235C15009CBFB1 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		EA539B6322529BA80092301B /* terms-conditions.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "terms-conditions.md"; sourceTree = "<group>"; };
 		EA539B6422529BA80092301B /* privacy-policy.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "privacy-policy.md"; sourceTree = "<group>"; };
+		EA53F68D22657A2800F627C0 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Settings.storyboard; path = "/Users/thomasm/Documents/Southern Sales App/SouthernSales.nosync/SouthernSales/Storyboards/Settings.storyboard"; sourceTree = "<absolute>"; };
 		EA5619F62253B96200242825 /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
 		EA5CB87222531844005463C3 /* ManageListingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageListingsTableViewController.swift; sourceTree = "<group>"; };
 		EA5D77B7225A6787004EE329 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatViewController.swift; path = ../ChatViewController.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 		EA0D648021992B660015BEAA /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				EA53F68D22657A2800F627C0 /* Settings.storyboard */,
 				EA0D645621992AD40015BEAA /* Main.storyboard */,
 				EAC05CAE21F6C1DB00F91634 /* Messages.storyboard */,
 				EA0D645B21992AD50015BEAA /* LaunchScreen.storyboard */,
@@ -493,6 +496,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA53F68E22657B0900F627C0 /* Settings.storyboard in Resources */,
 				EAC05CAF21F6C1DB00F91634 /* Messages.storyboard in Resources */,
 				EA0D645D21992AD50015BEAA /* LaunchScreen.storyboard in Resources */,
 				EA19194521A1E3140053C68E /* ListingsCollectionViewCell.xib in Resources */,

@@ -14,6 +14,7 @@ class SettingsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundColor = Colors.BackgroundColor
+        navigationController?.navigationBar.barStyle = .black
     }
 
     // MARK: - Table view data source

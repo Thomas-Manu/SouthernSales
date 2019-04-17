@@ -13,6 +13,7 @@ import FirebaseStorage
 import GoogleSignIn
 import ImageSlideshow
 import MessageKit
+import SDWebImage
 
 class Utility {
     typealias Success = () -> Void
@@ -22,7 +23,7 @@ class Utility {
     typealias SuccessChannels = ([Channel]) -> Void
     typealias SuccessMessage = (Message) -> Void
     typealias SuccessMessages = ([Message]) -> Void
-    typealias SuccessListener = (ListenerRegistration) -> Void
+    typealias Listener = (ListenerRegistration) -> Void
     typealias Change = (DocumentChange) -> Void
     typealias Failure = (Error) -> Void
     typealias Completion = () -> Void
@@ -32,7 +33,7 @@ class Utility {
     /**
      An initializer for all helper functions
      
-     Returns: The current Firestore database
+     - returns: The current Firestore database
      */
     private static func initializeFirestoreDatabase() -> Firestore {
         let db = Firestore.firestore()
@@ -41,31 +42,87 @@ class Utility {
         return db
     }
     
+    /**
+     Returns the current user that is logged in. If it returns a nil,
+     user is still being initialized or not logged in.
+     
+     - returns: Current user
+     */
     static func getCurrentUser() -> User? {
+//        let handle = Auth.auth().addStateDidChangeListener { (auth, user) in
+//            print("[Utility] \(user)")
+//        }
+//        
         guard let currentUser = Auth.auth().currentUser else {
             GIDSignIn.sharedInstance()?.signOut()
             return nil
         }
         
+//        let group = DispatchGroup()
+//        let manager = SDWebImageManager()
+//        var photo = UIImage()
+//        group.enter()
+//        manager.loadImage(with: currentUser.photoURL, options: [], progress: { (recieved, expected, url) in
+//            print("\(recieved)/\(expected)")
+//        }) { (image, data, error, cacheType, finished, url) in
+//            print("Finished? \(finished)")
+//            if error == nil, let image = image {
+//                photo = image
+//            }
+//            group.leave()
+//        }
+//
+//        group.wait()
         return User(id: currentUser.uid,
                     name: currentUser.displayName!,
                     email: currentUser.email!,
                     reference: initializeFirestoreDatabase().collection("users").document(currentUser.uid))
     }
+    
+    static func getUserInformation(userID: String, success: @escaping (User) -> Void, failure: @escaping Failure) {
+        let db = initializeFirestoreDatabase()
+        db.collection("users").document(userID).getDocument { (snapshot, error) in
+            if let error = error {
+                failure(error)
+            } else {
+                guard let snapshot = snapshot, let data = snapshot.data() else {
+                    return
+                }
+                success(User(id: userID,
+                             name: data["name"] as! String,
+                             email: data["email"] as! String,
+                             reference: snapshot.reference))
+            }
+        }
+    }
 
     // MARK: Listing
+    /**
+     Uploads a new listing to Firestore database.
+
+     - parameters:
+         - listing: Listing to upload
+         - failure: The failure closure in case an error occurs
+    */
     static func databaseCreateListing(with listing: Listing, failure: @escaping (Error) -> Void) {
         databaseCreateListing(with: listing, failure: { (error) in
             failure(error)
         }, completion: nil)
     }
     
+    /**
+     Uploads a new listing to Firestore database.
+     
+     - parameters:
+        - listing: Listing to upload
+        - failure: The failure closure in case an error occurs
+        - completion: The completion closure in case you need to know if it completed correctly.
+    */
     static func databaseCreateListing(with listing: Listing, failure: @escaping Failure, completion: Completion?) {
         let db = initializeFirestoreDatabase()
         let user = getCurrentUser()
         let userRef = db.collection("users").document(user!.id)
-        var ref: DocumentReference? = nil
-        ref = db.collection("listings").addDocument(data: [
+        db.collection("listings").addDocument(data: [
             "title": listing.title,
             "price": listing.price,
             "description": listing.descriptionString,
@@ -78,24 +135,29 @@ class Utility {
                 print("Error adding document: \(err)")
             } else {
                 completion?()
-                print("Document added with ID: \(ref!.documentID)")
             }
         }
     }
 
+    /**
+     Get all available listings with information.
+     
+     - parameters:
+        - success: Success closure with an array of listings available
+        - failure: The failure closure in case an error occurs
+     */
     static func databaseReadListings(_ success: @escaping SuccessListings, _ failure: @escaping Failure) {
         let db = initializeFirestoreDatabase()
         var listings = [Listing]()
         
         db.collection("listings").order(by: "timestamp", descending: true).addSnapshotListener { (snapshot, error) in
-            guard let snapshot = snapshot else {
-                return
-            }
-            
             if let err = error {
                 failure(err)
                 print("Error getting documents: \(err)")
             } else {
+                guard let snapshot = snapshot else {
+                    return
+                }
                 for document in snapshot.documents {
                     listings.append(parseListing(from: document))
                 }
@@ -104,6 +166,14 @@ class Utility {
         }
     }
     
+    /**
+     Get information about a listing.
+     
+     - parameters:
+        - reference: The reference to the listing document being looked up
+         - success: Success closure with an the listing information
+         - failure: The failure closure in case an error occurs
+     */
     static func databaseReadListing(fromReference reference: DocumentReference, success: @escaping SuccessListing, failure: @escaping Failure) {
         reference.getDocument { (snapshot, error) in
             if let error = error {
@@ -116,24 +186,44 @@ class Utility {
         }
     }
     
-    static func databaseViewOwnedListings(_ success: @escaping SuccessListings, _ failure: @escaping Failure) {
+    /**
+     Get all the listings that were made by the current user.
+     
+     - parameters:
+         - success: Success closure with an array of listings available
+         - failure: The failure closure in case an error occurs
+     */
+    static func databaseViewOwnedListings(_ listener: @escaping Listener, success: @escaping SuccessListings, change: @escaping Change, failure: @escaping Failure) {
         let db = initializeFirestoreDatabase()
         let user = getCurrentUser()
         let userRef = db.collection("users").document(user!.id)
         var listings = [Listing]()
-        db.collection("listings").whereField("user", isEqualTo: userRef).order(by: "timestamp", descending: true).getDocuments { (snapshot, error) in
-            if let err = error {
-                failure(err)
-                print("Error getting documents: \(err)")
+        let listen = db.collection("listings").whereField("user", isEqualTo: userRef).order(by: "timestamp", descending: true).addSnapshotListener { (snapshot, error) in
+            if let error = error {
+                print("Error getting documents: \(error)")
+                failure(error)
             } else {
                 for document in snapshot!.documents {
                     listings.append(parseListing(from: document))
                 }
                 success(listings)
             }
+            
+            snapshot?.documentChanges.forEach({ (newChange) in
+                change(newChange)
+            })
         }
+        listener(listen)
     }
     
+    /**
+     Update existing listing on Firestore database.
+     
+     - parameters:
+         - listing: Updated listing
+         - failure: The failure closure in case an error occurs
+         - success: The success closure in case you need to know if it completed correctly
+     */
     static func databaseUpdateListing(_ listing: Listing, success: @escaping Success, failure: @escaping Failure) {
         listing.reference?.updateData([
             "title": listing.title,
@@ -149,6 +239,14 @@ class Utility {
         })
     }
     
+    /**
+     Remove a listing that exists.
+     
+     - parameters:
+         - listing: The listing to remove
+         - failure: The failure closure in case an error occurs
+         - success: The success closure in case you need to know if it completed correctly
+     */
     static func databaseRemoveListing(_ listing: Listing, success: @escaping Success, failure: @escaping Failure) {
         listing.reference?.delete(completion: { (error) in
             if let error = error {
@@ -160,6 +258,14 @@ class Utility {
         })
     }
     
+    /**
+     Remove a list of listings that exists.
+     
+     - parameters:
+         - listings: The listings to remove
+         - failure: The failure closure in case an error occurs
+         - success: The success closure in case you need to know if it completed correctly
+     */
     static func databaseRemoveListings(_ listings: [Listing], success: @escaping Success, failure: @escaping Failure) {
         for listing in listings {
             Utility.databaseRemoveListing(listing, success: {
@@ -253,9 +359,32 @@ class Utility {
                 var channels = [Channel]()
                 for document in snapshot!.documents {
                     let data = document.data()
-                    channels.append(Channel(id: document.reference, participants: data["participants"] as! [String], listing: data["listing"] as! DocumentReference, title: data["title"] as! String, date: (data["latestDate"] as! Timestamp).dateValue()))
+                    channels.append(Channel(id: document.reference,
+                                            participants: data["participants"] as! [String],
+                                            listing: data["listing"] as! DocumentReference,
+                                            title: data["title"] as! String,
+                                            date: (data["latestDate"] as? Timestamp)?.dateValue() ?? Date.init()))
                 }
-                success(channels)
+                let group = DispatchGroup()
+                var data = [Channel]()
+                for var channel in channels {
+                    for listingUser in channel.participants {
+                        if listingUser != user!.id {
+                            group.enter()
+                            getUserInformation(userID: listingUser, success: { (user) in
+                                channel.username = user.name
+                                data.append(channel)
+                                group.leave()
+                            }, failure: { (error) in
+                                failure(error)
+                            })
+                        }
+                    }
+                }
+                
+                group.notify(queue: .main, execute: {
+                    success(data)
+                })
             }
         }
     }
@@ -295,7 +424,7 @@ class Utility {
         }
     }
     
-    static func databaseReadAllMessagesFromChannel(channel: Channel, listener: @escaping SuccessListener, success: @escaping SuccessMessages, change: @escaping Change, failure: @escaping Failure) {
+    static func databaseReadAllMessagesFromChannel(channel: Channel, listener: @escaping Listener, success: @escaping SuccessMessages, change: @escaping Change, failure: @escaping Failure) {
         let listen = channel.id?.collection("thread").order(by: "created", descending: true).addSnapshotListener({ (snapshot, error) in
             if let error = error {
                 failure(error)
@@ -317,7 +446,7 @@ class Utility {
         listener(listen!)
     }
     
-    static func databaseSendMessage(message: String, throughChannel channel: Channel, failure: @escaping Failure) {
+    static func databaseSendMessage(message: String, throughChannel channel: Channel, success: @escaping (Date) -> Void, failure: @escaping Failure) {
         guard let user = getCurrentUser() else {
             return
         }
@@ -331,6 +460,9 @@ class Utility {
         channel.id?.collection("thread").addDocument(data: data, completion: { (error) in
             if let error = error {
                 failure(error)
+            } else {
+                channel.id?.updateData(["latestDate": data["created"] as! Timestamp])
+                success((data["created"] as! Timestamp).dateValue())
             }
         })
     }
@@ -408,7 +540,7 @@ extension Utility {
                        participants: data["participants"] as! [String],
                        listing: data["listing"] as! DocumentReference,
                        title: data["title"] as! String,
-                       date: (data["latestDate"] as! Timestamp).dateValue())
+                       date: (data["latestDate"] as? Timestamp)?.dateValue() ?? Date.init())
     }
     
     static func parseMessage(from data: [String: Any], withID id: String) -> Message {

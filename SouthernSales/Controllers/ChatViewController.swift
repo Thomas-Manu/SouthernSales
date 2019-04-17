@@ -21,7 +21,7 @@ class ChatViewController: MessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.barStyle = .black
-        title = channel?.title ?? ""
+        navigationController?.navigationBar.tintColor = .white
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
@@ -29,6 +29,12 @@ class ChatViewController: MessagesViewController {
         
         messageInputBar.delegate = self
         messageInputBar.tintColor = Colors.TintColor
+        
+        if listing != nil {
+            title = "New Message"
+        } else if let channel = channel {
+            title = channel.title
+        }
         
         getAllMessages()
         // Do any additional setup after loading the view.
@@ -99,7 +105,9 @@ extension ChatViewController: MessageInputBarDelegate {
         inputBar.inputTextView.text = ""
         
         if let channel = channel {
-            Utility.databaseSendMessage(message: text, throughChannel: channel) { (error) in
+            Utility.databaseSendMessage(message: text, throughChannel: channel, success: { (date) in
+                self.channel?.latestDate = date
+            }) { (error) in
                 print("[CVC] Error: \(error)")
             }
         } else {
@@ -111,10 +119,12 @@ extension ChatViewController: MessageInputBarDelegate {
                     return
                 }
                 Utility.databaseCreateChannel(fromListing: listing, success: { (channel) in
-                    guard let channel = channel else {
+                    guard var channel = channel else {
                         return
                     }
-                    Utility.databaseSendMessage(message: text, throughChannel: channel, failure: { (error) in
+                    Utility.databaseSendMessage(message: text, throughChannel: channel, success: { (date) in
+                        channel.latestDate = date
+                    }, failure: { (error) in
                         print("[CVC] Error: \(error)")
                     })
                 }) { (error) in
@@ -130,7 +140,10 @@ extension ChatViewController: MessageInputBarDelegate {
 
 extension ChatViewController: MessagesDataSource, MessagesLayoutDelegate, MessagesDisplayDelegate {
     func currentSender() -> Sender {
-        return Sender(id: "WcWtEpANFMbaHpR0hnIkWFLwN793", displayName: "Thomas M")
+        if let user = Utility.getCurrentUser() {
+            return Sender(id: user.id, displayName: user.name)
+        }
+        return Sender(id: "", displayName: "")
     }
     
     func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
@@ -139,5 +152,9 @@ extension ChatViewController: MessagesDataSource, MessagesLayoutDelegate, Messag
     
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {
         return messages.count
+    }
+    
+    func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
+        avatarView.set(avatar: Avatar(image: nil, initials: messages[indexPath.section].sender.displayName.components(separatedBy: " ").reduce("") { ($0 == "" ? "" : "\($0.first!)") + "\($1.first!)" }))
     }
 }

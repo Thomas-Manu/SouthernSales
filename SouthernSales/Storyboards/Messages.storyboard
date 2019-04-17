@@ -102,7 +102,7 @@
         <!--Chat View Controller-->
         <scene sceneID="L8k-2o-Lsi">
             <objects>
-                <viewController id="zjm-X9-HXw" customClass="ChatViewController" customModule="SouthernSales" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zjm-X9-HXw" customClass="ChatViewController" customModule="SouthernSales" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="khV-33-GX1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
