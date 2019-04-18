@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 struct User {
     let id: String
     let name: String
     let email: String
-//    let profilePicture: UIImage
+    let reference: DocumentReference
+//    let photo: UIImage?
 }

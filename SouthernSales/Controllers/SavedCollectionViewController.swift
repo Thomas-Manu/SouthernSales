@@ -21,10 +21,10 @@ class SavedCollectionViewController: UICollectionViewController, NVActivityIndic
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(UINib(nibName: "ListingsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
-        collectionView.backgroundColor = Colors.BackgroundColor
+        collectionView.backgroundColor = .backgroundColor
         collectionView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(updateListings), for: .valueChanged)
-        refreshControl.tintColor = Colors.TintColor
+        refreshControl.tintColor = .tintColor
         navigationController?.navigationBar.barStyle = .black
         updateListings()
     }
@@ -34,8 +34,10 @@ class SavedCollectionViewController: UICollectionViewController, NVActivityIndic
             startAnimating(type: NVActivityIndicatorType.ballScaleRippleMultiple)
         }
         Utility.databaseReadFavorites({ (favs) in
-            self.listingsData = favs
-            self.collectionView.reloadData()
+            if let favs = favs {
+                self.listingsData = favs
+                self.collectionView.reloadData()
+            }
             self.stopAnimating()
             self.refreshControl.endRefreshing()
         }) { (error) in

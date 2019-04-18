@@ -7,13 +7,12 @@
 //
 
 import UIKit
-//import GoogleSignIn
 import FirebaseAuth
 import NVActivityIndicatorView
 import FirebaseStorage
 import FirebaseUI
 
-class ListingsViewController: UIViewController, /*GIDSignInDelegate, GIDSignInUIDelegate,*/ NVActivityIndicatorViewable {
+class ListingsViewController: UIViewController, NVActivityIndicatorViewable {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -25,20 +24,16 @@ class ListingsViewController: UIViewController, /*GIDSignInDelegate, GIDSignInUI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        GIDSignIn.sharedInstance()?.uiDelegate = self
-//        GIDSignIn.sharedInstance()?.delegate = self
-//        GIDSignIn.sharedInstance()?.signIn()
         
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "ListingsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
-        collectionView.backgroundColor = Colors.BackgroundColor
+        collectionView.backgroundColor = .backgroundColor
         collectionView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(updateListings), for: .valueChanged)
-        refreshControl.tintColor = Colors.TintColor
+        refreshControl.tintColor = .tintColor
         
         navigationController?.navigationBar.barStyle = .black
-        
         searchBar.delegate = self
         searchBar.tintColor = .white
         searchBar.returnKeyType = .done
@@ -76,10 +71,16 @@ extension ListingsViewController {
             startAnimating(type: NVActivityIndicatorType.ballScaleRippleMultiple)
         }
         Utility.databaseReadListings({ (listings) in
+            guard let listings = listings else {
+                return
+            }
             Utility.databaseReadFavorites({ (favs) in
+                guard let favs = favs else {
+                    return
+                }
                 var data = [Listing]()
                 for listing in self.listingsData {
-                    let temp = listing
+                    var temp = listing
                     temp.saved = favs.contains(where: { $0.reference?.documentID == listing.reference?.documentID  })
                     data.append(temp)
                 }
@@ -88,6 +89,9 @@ extension ListingsViewController {
                 print("[LVC] Failed to get favorites")
             }
             self.listingsData = listings
+            self.listingsData.sort { (lhs, rhs) -> Bool in
+                return lhs.created > rhs.created
+            }
             self.collectionView.reloadData()
             self.refreshControl.endRefreshing()
             self.stopAnimating()
@@ -96,30 +100,6 @@ extension ListingsViewController {
             self.stopAnimating()
         }
     }
-    
-//    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-//        if error != nil {
-//            stopAnimating()
-//        }
-//        else {
-//            //            Auth.auth().addStateDidChangeListener { (auth, user) in
-//            //                if user != nil {
-//            //                    self.updateListings()
-//            //                } else {
-//            ////                    signIn.signIn()
-//            //                }
-//            //            }
-//            updateListings()
-//        }
-//    }
-    
-//    func sign(_ signIn: GIDSignIn!, present viewController: UIViewController!) {
-//        present(viewController, animated: true, completion: nil)
-//    }
-//
-//    func sign(_ signIn: GIDSignIn!, dismiss viewController: UIViewController!) {
-//        print("Bleh")
-//    }
 }
 
 // MARK: - Collection View
@@ -139,7 +119,7 @@ extension ListingsViewController: UICollectionViewDataSource, UICollectionViewDe
         
         if listing.imageRefs.count > 0 {
             let userImageRef = Storage.storage().reference(withPath: "images/\(listing.user!.documentID)")
-            let previewImageRef = userImageRef.child("/\(listing.imageRefs[0])")
+            let previewImageRef = userImageRef.child("/\(listing.imageRefs.first!)")
             cell.previewImageView.sd_setImage(with: previewImageRef, placeholderImage: UIImage.init(named: "placeholder"))
         } else {
             cell.previewImageView.image = UIImage.init(named: "placeholder")

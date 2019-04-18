@@ -7,15 +7,17 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
-class MessagesTableViewController: UITableViewController {
-
+class MessagesTableViewController: UITableViewController, NVActivityIndicatorViewable {
+    
+    var channels = [Channel]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.barStyle = .black
-        tableView.backgroundColor = Colors.BackgroundColor
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        tableView.backgroundColor = .backgroundColor
+        pullData()
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
@@ -24,24 +26,23 @@ class MessagesTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return channels.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "messagesCell", for: indexPath) as! MessageTableViewCell
+        let channel = channels[indexPath.row]
+        
+        cell.titleLabel.text = channel.title
+        cell.usernameLabel.text = channel.username
+        cell.dateLabel.text = channel.latestDate.formatRelativeString()
 
         return cell
     }
-    */
 
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -58,30 +59,56 @@ class MessagesTableViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "messageSegue", sender: indexPath.row)
     }
-    */
 
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        let vc = segue.destination as! ChatViewController
+        vc.channel = channels[sender as! Int]
     }
-    */
 
+}
+
+extension MessagesTableViewController {
+    func pullData() {
+        Utility.databaseReadChannels({ (channels) in
+            self.channels = channels
+            self.channels.sort { (lhs, rhs) -> Bool in
+                return lhs.latestDate > rhs.latestDate
+            }
+            self.tableView.reloadData()
+        }) { (error) in
+            print("[MTVC] Error: \(error)")
+        }
+    }
+}
+
+// https://stackoverflow.com/a/48652058
+extension Date {
+    func formatRelativeString() -> String {
+        let dateFormatter = DateFormatter()
+        let calendar = Calendar(identifier: .gregorian)
+        dateFormatter.doesRelativeDateFormatting = true
+        
+        if calendar.isDateInToday(self) {
+            dateFormatter.timeStyle = .short
+            dateFormatter.dateStyle = .none
+        } else if calendar.isDateInYesterday(self){
+            dateFormatter.timeStyle = .none
+            dateFormatter.dateStyle = .medium
+        } else if calendar.compare(Date(), to: self, toGranularity: .weekOfYear) == .orderedSame {
+            let weekday = calendar.dateComponents([.weekday], from: self).weekday ?? 0
+            return dateFormatter.weekdaySymbols[weekday-1]
+        } else {
+            dateFormatter.timeStyle = .none
+            dateFormatter.dateStyle = .short
+        }
+        
+        return dateFormatter.string(from: self)
+    }
 }

@@ -15,18 +15,21 @@ class ViewListingViewController: UIViewController {
     @IBOutlet weak var imageSlideshow: ImageSlideshow!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var savedButton: UIBarButtonItem!
+    @IBOutlet weak var messageSellerButton: UIButton!
+    @IBOutlet weak var priceLabel: UILabel!
     var listing: Listing!
     var images = [UIImage]()
     var isPreview = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Colors.BackgroundColor
-        navigationController?.navigationBar.tintColor = UIColor.white
+        view.backgroundColor = .backgroundColor
+        navigationController?.navigationBar.tintColor = .white
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapOnSlideshow))
-        descriptionTextView.backgroundColor = Colors.BackgroundColor
-        imageSlideshow.backgroundColor = Colors.BackgroundColor
+        descriptionTextView.backgroundColor = .backgroundColor
+        imageSlideshow.backgroundColor = .backgroundColor
         imageSlideshow.addGestureRecognizer(gestureRecognizer)
+        priceLabel.text = listing.dollarFormat()
         
         if isPreview {
             savedButton.title = "Post"
@@ -34,10 +37,16 @@ class ViewListingViewController: UIViewController {
             savedButton.action = #selector(postListing(_:))
             imageSlideshow.setImageInputs(Utility.convertUIImageToImageSource(from: images))
             descriptionTextView.text = listing.descriptionString
+            messageSellerButton.isUserInteractionEnabled = false
         } else {
             savedButton.image = listing.saved ? UIImage.init(named: "Heart") : UIImage.init(named: "Saved")
             imageSlideshow.setImageInputs([ImageSource(image: UIImage.init(named: "placeholder")!)])
             descriptionTextView.text = listing.descriptionString.replacingOccurrences(of: "\\n", with: "\n")
+            
+            if listing.user == Utility.getCurrentUser()?.reference {
+                messageSellerButton.isHidden = true
+            }
+            
             getDownloadLinks()
         }
     }
@@ -54,6 +63,7 @@ class ViewListingViewController: UIViewController {
     }
     
     @IBAction func messageSeller(_ sender: Any) {
+        performSegue(withIdentifier: "messageSellerSegue", sender: nil)
     }
 
     @IBAction func saveListing(_ sender: Any) {
@@ -77,9 +87,9 @@ class ViewListingViewController: UIViewController {
     @IBAction func postListing(_ sender: Any) {
         Utility.cloudStorageUploadImages(with: images, success: { (references) in
             self.listing.imageRefs = references
-//            Utility.databaseAddNewListing(with: self.listing) { (error) in }
-            Utility.databaseAddNewListing(with: self.listing, failure: { (error) in
+            Utility.databaseCreateListing(with: self.listing, failure: { (error) in
             }, completion: {
+                NotificationCenter.default.post(name: .didPostNewListing, object: nil)
                 self.navigationController?.popViewController(animated: true)
             })
         }) { (error) in
@@ -106,13 +116,11 @@ class ViewListingViewController: UIViewController {
         imageSlideshow.presentFullScreenController(from: self)
     }
     
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        let vc = segue.destination as! ChatViewController
+        vc.listing = listing
     }
-    */
 }

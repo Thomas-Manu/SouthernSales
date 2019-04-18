@@ -10,9 +10,11 @@ import UIKit
 import Firebase
 import GoogleSignIn
 import IQKeyboardManagerSwift
+import UserNotifications
+//import FirebaseMessaging
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, MessagingDelegate {
 
     var window: UIWindow?
 
@@ -25,6 +27,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance()?.signInSilently()
         
         IQKeyboardManager.shared.enable = true
+        registerForPushNotifications()
+        
+        Messaging.messaging().delegate = self
+        
+        let notificationOption = launchOptions?[.remoteNotification]
+        if let notification = notificationOption as? [String: AnyObject], let aps = notification["aps"] as? [String: AnyObject] {
+            // message
+        }
+        application.applicationIconBadgeNumber = 0
         
         return true
     }
@@ -33,23 +44,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         return GIDSignIn.sharedInstance().handle(url, sourceApplication:options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String, annotation: [:])
     }
     
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        if error != nil {
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        guard let aps = userInfo["aps"] as? [String: AnyObject] else {
+            completionHandler(.failed)
             return
         }
-        guard let authentication = user.authentication else { return }
-        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
-        Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
-            if error != nil {
-                return
-            }
-            
-            print("User with email: \(String(describing: authResult?.additionalUserInfo?.profile?["email"] as! String)) is signed in")
-        }
+        // message
     }
     
-    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
-        return
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
+        let token = tokenParts.joined()
+
+        UserDefaults.standard.set(token, forKey: "DeviceToken")
+        print("Device Token: \(token)")
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Failed to register: \(error)")
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -73,7 +85,72 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        print("[AppDelegate] Firebase registration token: \(fcmToken)")
+        UserDefaults.standard.set(fcmToken, forKey: "RemoteToken")
+        Utility.databasePushRemoteTokenToUser()
+//        InstanceID.instanceID().instanceID { (result, error) in
+//            if let error = error {
+//                print("[AppDelegate] Error fetching remote instance ID: \(error)")
+//            } else if let result = result {
+//                print("[AppDelegate] Remote instance ID token: \(result.token)")
+//            }
+//        }
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if error != nil {
+            return
+        }
+        guard let authentication = user.authentication else { return }
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
+        Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
+            if error != nil {
+                return
+            }
+            
+            print("[AppDelegate] User with email: \(String(describing: authResult?.additionalUserInfo?.profile?["email"] as! String)) is signed in")
+        }
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        return
+    }
 
+    func registerForPushNotifications() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { [weak self] granted, error in
+                print("Permission granted: \(granted)")
+                guard granted else { return }
+                
+                let replyAction = UNNotificationAction(identifier: Constants.replyAction, title: "Reply", options: [.foreground])
+                let messageCategory = UNNotificationCategory(identifier: Constants.messageCategory, actions: [replyAction], intentIdentifiers: [], options: [])
+                UNUserNotificationCenter.current().setNotificationCategories([messageCategory])
+                self?.getNotificationSettings()
+        }
+    }
+    
+    func getNotificationSettings() {
+        UNUserNotificationCenter.current().getNotificationSettings { settings in
+            print("Notification settings: \(settings)")
+            guard settings.authorizationStatus == .authorized else { return }
+            DispatchQueue.main.async {
+                UIApplication.shared.registerForRemoteNotifications()
+            }
+        }
+    }
 
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        let userInfo = response.notification.request.content.userInfo
+        if let aps = userInfo["aps"] as? [String: AnyObject] {
+            if response.actionIdentifier == Constants.replyAction {
+                
+            }
+        }
+        completionHandler()
+    }
 }
 

@@ -13,7 +13,8 @@ class SettingsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.backgroundColor = Colors.BackgroundColor
+        tableView.backgroundColor = .backgroundColor
+        navigationController?.navigationBar.barStyle = .black
     }
 
     // MARK: - Table view data source
@@ -23,8 +24,11 @@ class SettingsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
+        /*if section == 0 {
             return 3
+        } else */
+        if section == 0 {
+            return 1
         } else {
             return 5
         }
@@ -33,17 +37,24 @@ class SettingsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath)
 
-        if indexPath.section == 0 {
+        /*if indexPath.section == 0 {
             if indexPath.row == 0 {
                 cell.textLabel?.text = "Photo"
+                cell.isUserInteractionEnabled = false
             } else if indexPath.row == 1 {
                 cell.textLabel?.text = "About Me"
+                cell.isUserInteractionEnabled = false
             } else {
                 cell.textLabel?.text = "Notifications"
+                cell.isUserInteractionEnabled = false
             }
+        }  else */
+        if indexPath.section == 0 {
+            cell.textLabel?.text = "Manage Listings"
         } else {
             if indexPath.row == 0 {
-                cell.textLabel?.text = "Help"
+                cell.textLabel?.text = "Help - Currently Disabled"
+                cell.isUserInteractionEnabled = false
             } else if indexPath.row == 1 {
                 cell.textLabel?.text = "Terms & Conditions"
             } else if indexPath.row == 2 {
@@ -60,7 +71,7 @@ class SettingsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
-            return "Profile"
+            return "Listings"
         } else {
             return "Support"
         }
@@ -68,8 +79,17 @@ class SettingsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            
+            performSegue(withIdentifier: Constants.SettingsToManageListingsSegue, sender: nil)
         } else {
+            if indexPath.row == 1 {
+                performSegue(withIdentifier: Constants.SettingsToLicensesSegue, sender: 1)
+            }
+            if indexPath.row == 2 {
+                performSegue(withIdentifier: Constants.SettingsToLicensesSegue, sender: 2)
+            }
+            if indexPath.row == 3 {
+                performSegue(withIdentifier: Constants.SettingsToLicensesSegue, sender: 3)
+            }
             if indexPath.row == 4 {
                 let firebaseAuth = Auth.auth()
                 do {
@@ -82,14 +102,22 @@ class SettingsTableViewController: UITableViewController {
         }
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == Constants.SettingsToLicensesSegue {
+            let vc = segue.destination as! MarkdownViewController
+            switch (sender as! Int) {
+            case 1:
+                vc.title = "Terms & Conditions"
+                vc.fileName = "terms-conditions"
+            case 2:
+                vc.title = "Privacy Policy"
+                vc.fileName = "privacy-policy"
+            case 3:
+                vc.title = "Licenses"
+                vc.fileName = "credits"
+            default:
+                return
+            }
+        }
     }
-    */
-
 }
