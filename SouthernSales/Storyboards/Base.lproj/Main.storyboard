@@ -74,7 +74,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nvW-ua-ryi" customClass="ImageSlideshow" customModule="ImageSlideshow">
-                                <rect key="frame" x="0.0" y="64" width="375" height="157"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="136.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YG7-bg-GXa">
@@ -97,18 +97,27 @@
                                     <action selector="messageSeller:" destination="bvl-Zh-fj3" eventType="touchUpInside" id="E9y-u0-kSf"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lzM-H2-3iz">
+                                <rect key="frame" x="20" y="208.5" width="335" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="lzM-H2-3iz" firstAttribute="leading" secondItem="hAv-mt-Wmd" secondAttribute="leading" constant="20" id="5f2-AK-W28"/>
+                            <constraint firstItem="YG7-bg-GXa" firstAttribute="top" secondItem="lzM-H2-3iz" secondAttribute="bottom" id="ON0-tX-fZQ"/>
                             <constraint firstItem="nvW-ua-ryi" firstAttribute="top" secondItem="hAv-mt-Wmd" secondAttribute="top" id="Qgh-a1-Hqc"/>
                             <constraint firstAttribute="trailing" secondItem="nvW-ua-ryi" secondAttribute="trailing" id="WRg-Ap-OQX"/>
+                            <constraint firstItem="hAv-mt-Wmd" firstAttribute="trailing" secondItem="lzM-H2-3iz" secondAttribute="trailing" constant="20" id="a9L-FH-1hb"/>
                             <constraint firstItem="YG7-bg-GXa" firstAttribute="centerX" secondItem="hAv-mt-Wmd" secondAttribute="centerX" id="agX-NK-VPR"/>
                             <constraint firstItem="YG7-bg-GXa" firstAttribute="leading" secondItem="KtM-WB-XNj" secondAttribute="leading" id="fU9-az-G7h"/>
                             <constraint firstItem="KtM-WB-XNj" firstAttribute="top" secondItem="YG7-bg-GXa" secondAttribute="bottom" constant="8" symbolic="YES" id="hCc-X3-UAi"/>
                             <constraint firstItem="nvW-ua-ryi" firstAttribute="leading" secondItem="OKY-yd-CIW" secondAttribute="leading" id="ktL-pW-nIk"/>
+                            <constraint firstItem="lzM-H2-3iz" firstAttribute="top" secondItem="nvW-ua-ryi" secondAttribute="bottom" constant="8" id="o6H-jb-HRa"/>
                             <constraint firstItem="YG7-bg-GXa" firstAttribute="trailing" secondItem="KtM-WB-XNj" secondAttribute="trailing" id="owS-R4-9Fk"/>
                             <constraint firstItem="KtM-WB-XNj" firstAttribute="bottom" secondItem="hAv-mt-Wmd" secondAttribute="bottom" id="pR9-o6-QIi"/>
-                            <constraint firstItem="YG7-bg-GXa" firstAttribute="top" secondItem="nvW-ua-ryi" secondAttribute="bottom" constant="8" symbolic="YES" id="tiv-fm-yRT"/>
                             <constraint firstItem="YG7-bg-GXa" firstAttribute="leading" secondItem="OKY-yd-CIW" secondAttribute="leadingMargin" id="z02-ZS-ygn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hAv-mt-Wmd"/>
@@ -124,6 +133,7 @@
                         <outlet property="descriptionTextView" destination="YG7-bg-GXa" id="MmA-ep-P1M"/>
                         <outlet property="imageSlideshow" destination="nvW-ua-ryi" id="SZr-y5-exd"/>
                         <outlet property="messageSellerButton" destination="KtM-WB-XNj" id="Lbg-6X-LAm"/>
+                        <outlet property="priceLabel" destination="lzM-H2-3iz" id="Fvs-kc-qSJ"/>
                         <outlet property="savedButton" destination="hgg-Jo-Q1u" id="3CJ-ZM-OEq"/>
                         <segue destination="Nb6-FX-Mf8" kind="show" identifier="messageSellerSegue" id="kop-o7-Znb"/>
                     </connections>

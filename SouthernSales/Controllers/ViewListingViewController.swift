@@ -16,18 +16,20 @@ class ViewListingViewController: UIViewController {
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var savedButton: UIBarButtonItem!
     @IBOutlet weak var messageSellerButton: UIButton!
+    @IBOutlet weak var priceLabel: UILabel!
     var listing: Listing!
     var images = [UIImage]()
     var isPreview = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Colors.BackgroundColor
+        view.backgroundColor = .backgroundColor
         navigationController?.navigationBar.tintColor = .white
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapOnSlideshow))
-        descriptionTextView.backgroundColor = Colors.BackgroundColor
-        imageSlideshow.backgroundColor = Colors.BackgroundColor
+        descriptionTextView.backgroundColor = .backgroundColor
+        imageSlideshow.backgroundColor = .backgroundColor
         imageSlideshow.addGestureRecognizer(gestureRecognizer)
+        priceLabel.text = listing.dollarFormat()
         
         if isPreview {
             savedButton.title = "Post"
@@ -35,6 +37,7 @@ class ViewListingViewController: UIViewController {
             savedButton.action = #selector(postListing(_:))
             imageSlideshow.setImageInputs(Utility.convertUIImageToImageSource(from: images))
             descriptionTextView.text = listing.descriptionString
+            messageSellerButton.isUserInteractionEnabled = false
         } else {
             savedButton.image = listing.saved ? UIImage.init(named: "Heart") : UIImage.init(named: "Saved")
             imageSlideshow.setImageInputs([ImageSource(image: UIImage.init(named: "placeholder")!)])
@@ -84,9 +87,9 @@ class ViewListingViewController: UIViewController {
     @IBAction func postListing(_ sender: Any) {
         Utility.cloudStorageUploadImages(with: images, success: { (references) in
             self.listing.imageRefs = references
-//            Utility.databaseAddNewListing(with: self.listing) { (error) in }
             Utility.databaseCreateListing(with: self.listing, failure: { (error) in
             }, completion: {
+                NotificationCenter.default.post(name: .didPostNewListing, object: nil)
                 self.navigationController?.popViewController(animated: true)
             })
         }) { (error) in

@@ -7,15 +7,16 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
-class MessagesTableViewController: UITableViewController {
+class MessagesTableViewController: UITableViewController, NVActivityIndicatorViewable {
     
     var channels = [Channel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.barStyle = .black
-        tableView.backgroundColor = Colors.BackgroundColor
+        tableView.backgroundColor = .backgroundColor
         pullData()
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.

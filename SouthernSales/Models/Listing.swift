@@ -30,6 +30,16 @@ struct Listing {
         self.saved = saved
         self.created = created
     }
+    
+    func dollarFormat() -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        if let finalAmount = formatter.string(from: price as NSNumber) {
+            return finalAmount
+        } else {
+            return "$\(price)"
+        }
+    }
 }
 
 extension Listing: Equatable {

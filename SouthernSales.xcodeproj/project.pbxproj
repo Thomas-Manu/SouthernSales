@@ -101,16 +101,16 @@
 		EA19193D21A1AF2B0053C68E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EA19194221A1E3130053C68E /* ListingsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingsCollectionViewCell.swift; sourceTree = "<group>"; };
 		EA19194321A1E3130053C68E /* ListingsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListingsCollectionViewCell.xib; sourceTree = "<group>"; };
-		EA19194A21A1FD8A0053C68E /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		EA19194A21A1FD8A0053C68E /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostViewController.swift; path = ../PostViewController.swift; sourceTree = "<group>"; };
 		EA19194C21A200B40053C68E /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Utility.swift; path = "../Supporting Files/Utility.swift"; sourceTree = "<group>"; };
 		EA19195121A268360053C68E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EA1B6C46224D213700C79AD3 /* SouthernSales.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SouthernSales.entitlements; sourceTree = "<group>"; };
 		EA1B6C47224D228E00C79AD3 /* credits.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = credits.md; sourceTree = SOURCE_ROOT; };
-		EA2017F2223F408300C841C0 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		EA2017F2223F408300C841C0 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignInViewController.swift; path = ../SignInViewController.swift; sourceTree = "<group>"; };
 		EA22A65B221AF6F40072259B /* SouthernSalesModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SouthernSalesModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA22A665221B3C930072259B /* Listing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
-		EA306B3021C7235E00E3A1E4 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
-		EA3DAF0F22235C15009CBFB1 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		EA306B3021C7235E00E3A1E4 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SplashViewController.swift; path = ../SplashViewController.swift; sourceTree = "<group>"; };
+		EA3DAF0F22235C15009CBFB1 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnboardingViewController.swift; path = ../OnboardingViewController.swift; sourceTree = "<group>"; };
 		EA539B6322529BA80092301B /* terms-conditions.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "terms-conditions.md"; sourceTree = "<group>"; };
 		EA539B6422529BA80092301B /* privacy-policy.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = "privacy-policy.md"; sourceTree = "<group>"; };
 		EA53F68D22657A2800F627C0 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Settings.storyboard; path = "/Users/thomasm/Documents/Southern Sales App/SouthernSales.nosync/SouthernSales/Storyboards/Settings.storyboard"; sourceTree = "<absolute>"; };
@@ -121,10 +121,10 @@
 		EA5D77BB225A7489004EE329 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		EA5D77BD225A7623004EE329 /* DatabaseRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseRepresentation.swift; sourceTree = "<group>"; };
 		EA5D77BF225A7889004EE329 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
-		EA7A68582199EAF70026C7DE /* SavedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedCollectionViewController.swift; sourceTree = "<group>"; };
+		EA7A68582199EAF70026C7DE /* SavedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SavedCollectionViewController.swift; path = ../SavedCollectionViewController.swift; sourceTree = "<group>"; };
 		EA7A685A2199EB050026C7DE /* MessagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MessagesTableViewController.swift; path = ../MessagesTableViewController.swift; sourceTree = "<group>"; };
 		EA7A685C2199EB130026C7DE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		EA7A685F219A0AFF0026C7DE /* ListingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingsViewController.swift; sourceTree = "<group>"; };
+		EA7A685F219A0AFF0026C7DE /* ListingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListingsViewController.swift; path = ../ListingsViewController.swift; sourceTree = "<group>"; };
 		EAC05CAE21F6C1DB00F91634 /* Messages.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Messages.storyboard; sourceTree = "<group>"; };
 		EAC05CB021F6C23000F91634 /* ViewListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewListingViewController.swift; path = SouthernSales/Controllers/ViewListingViewController.swift; sourceTree = SOURCE_ROOT; };
 		EAC05CB221F6C38B00F91634 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = "../Supporting Files/Constants.swift"; sourceTree = "<group>"; };
@@ -280,16 +280,11 @@
 		EA0D648221992B810015BEAA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EA3C8F3C2267F53A0093353D /* New Group1 */,
+				EA3C8F3B2267F5140093353D /* New Group */,
 				EA5D77C2225A9117004EE329 /* Messages */,
 				EAAC35262252900A0097D3B7 /* Settings */,
-				EA7A685F219A0AFF0026C7DE /* ListingsViewController.swift */,
-				EA3DAF0F22235C15009CBFB1 /* OnboardingViewController.swift */,
-				EA19194A21A1FD8A0053C68E /* PostViewController.swift */,
 				EA7A685C2199EB130026C7DE /* ProfileViewController.swift */,
-				EA7A68582199EAF70026C7DE /* SavedCollectionViewController.swift */,
-				EA2017F2223F408300C841C0 /* SignInViewController.swift */,
-				EA306B3021C7235E00E3A1E4 /* SplashViewController.swift */,
-				EAC05CB021F6C23000F91634 /* ViewListingViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -315,6 +310,27 @@
 				EA5D77BB225A7489004EE329 /* MessageTableViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		EA3C8F3B2267F5140093353D /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				EA3DAF0F22235C15009CBFB1 /* OnboardingViewController.swift */,
+				EA2017F2223F408300C841C0 /* SignInViewController.swift */,
+				EA306B3021C7235E00E3A1E4 /* SplashViewController.swift */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		EA3C8F3C2267F53A0093353D /* New Group1 */ = {
+			isa = PBXGroup;
+			children = (
+				EA7A685F219A0AFF0026C7DE /* ListingsViewController.swift */,
+				EA19194A21A1FD8A0053C68E /* PostViewController.swift */,
+				EA7A68582199EAF70026C7DE /* SavedCollectionViewController.swift */,
+				EAC05CB021F6C23000F91634 /* ViewListingViewController.swift */,
+			);
+			path = "New Group1";
 			sourceTree = "<group>";
 		};
 		EA5D77C1225A90F2004EE329 /* Helpers */ = {

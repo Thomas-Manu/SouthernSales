@@ -35,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, Messag
         if let notification = notificationOption as? [String: AnyObject], let aps = notification["aps"] as? [String: AnyObject] {
             // message
         }
+        application.applicationIconBadgeNumber = 0
         
         return true
     }
@@ -88,6 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, Messag
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
         print("[AppDelegate] Firebase registration token: \(fcmToken)")
         UserDefaults.standard.set(fcmToken, forKey: "RemoteToken")
+        Utility.databasePushRemoteTokenToUser()
 //        InstanceID.instanceID().instanceID { (result, error) in
 //            if let error = error {
 //                print("[AppDelegate] Error fetching remote instance ID: \(error)")

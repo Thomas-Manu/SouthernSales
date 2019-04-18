@@ -27,12 +27,6 @@ class ManageListingsTableViewController: UITableViewController, NVActivityIndica
         startAnimating(type: NVActivityIndicatorType.ballScaleRippleMultiple)
         Utility.databaseViewOwnedListings({ (listener) in
             self.listener = listener
-        }, success: { (listings) in
-            if let listings = listings {
-                self.listingsData = listings
-                self.tableView.reloadData()
-            }
-            self.stopAnimating()
         }, change: { (change) in
             self.handleChanges(change: change)
         }) { (error) in
@@ -42,13 +36,24 @@ class ManageListingsTableViewController: UITableViewController, NVActivityIndica
     }
     
     func handleChanges(change: DocumentChange) {
+        let listing = Utility.parseListing(from: change.document)
         switch change.type {
+        case .added:
+            listingsData.append(listing)
+            listingsData.sort { (lhs, rhs) -> Bool in
+                return lhs.created > rhs.created
+            }
+            self.stopAnimating()
         case .modified:
-            var listing = listingsData.first(where: {$0.reference?.documentID == change.document.reference.documentID})
-//            listing = change.
+            print("2")
+            if let index = listingsData.firstIndex(where: {$0.reference?.documentID == change.document.reference.documentID}) {
+                print("index: \(index)")
+                listingsData[index] = listing
+            }
         default:
             break
         }
+        self.tableView.reloadData()
     }
 
     // MARK: - Table view data source

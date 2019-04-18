@@ -16,6 +16,7 @@ struct Channel {
     let title: String
     var latestDate: Date
     var username: String?
+    var previewImage: String?
     
     init(id: DocumentReference? = nil, participants: [String], listing: DocumentReference, title: String, date: Date) {
         self.id = id

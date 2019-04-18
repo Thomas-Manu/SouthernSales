@@ -25,6 +25,7 @@ class Utility {
     typealias SuccessMessages = ([Message]) -> Void
     typealias Listener = (ListenerRegistration) -> Void
     typealias Change = (DocumentChange) -> Void
+    typealias SuccessChange = (Listing, DocumentChangeType) -> Void
     typealias Failure = (Error) -> Void
     typealias Completion = () -> Void
     
@@ -95,6 +96,11 @@ class Utility {
             }
         }
     }
+    
+    static func databasePushRemoteTokenToUser() {
+        let user = getCurrentUser()
+        user?.reference.setData(["notificationToken": UserDefaults.standard.string(forKey: "RemoteToken")!], merge: true)
+    }
 
     // MARK: Listing
     /**
@@ -150,7 +156,7 @@ class Utility {
         let db = initializeFirestoreDatabase()
         var listings = [Listing]()
         
-        db.collection("listings").order(by: "timestamp", descending: true).addSnapshotListener { (snapshot, error) in
+        db.collection("listings").order(by: "timestamp", descending: true).getDocuments { (snapshot, error) in
             if let err = error {
                 failure(err)
                 print("Error getting documents: \(err)")
@@ -193,25 +199,19 @@ class Utility {
          - success: Success closure with an array of listings available
          - failure: The failure closure in case an error occurs
      */
-    static func databaseViewOwnedListings(_ listener: @escaping Listener, success: @escaping SuccessListings, change: @escaping Change, failure: @escaping Failure) {
+    static func databaseViewOwnedListings(_ listener: @escaping Listener, change: @escaping Change, failure: @escaping Failure) {
         let db = initializeFirestoreDatabase()
         let user = getCurrentUser()
         let userRef = db.collection("users").document(user!.id)
-        var listings = [Listing]()
         let listen = db.collection("listings").whereField("user", isEqualTo: userRef).order(by: "timestamp", descending: true).addSnapshotListener { (snapshot, error) in
             if let error = error {
                 print("Error getting documents: \(error)")
                 failure(error)
             } else {
-                for document in snapshot!.documents {
-                    listings.append(parseListing(from: document))
-                }
-                success(listings)
+                snapshot?.documentChanges.forEach({ (newChange) in
+                    change(newChange)
+                })
             }
-            
-            snapshot?.documentChanges.forEach({ (newChange) in
-                change(newChange)
-            })
         }
         listener(listen)
     }
@@ -313,8 +313,12 @@ class Utility {
                         })
                     }
                     asyncGroup.notify(queue: .main, execute: {
-                        success(listings)
+                        if listings.count != 0 {
+                            success(listings)
+                        }
                     })
+                } else {
+                    success(nil)
                 }
             }
         })
@@ -352,7 +356,7 @@ class Utility {
     static func databaseReadChannels(_ success: @escaping SuccessChannels, failure: @escaping Failure) {
         let db = initializeFirestoreDatabase()
         let user = getCurrentUser()
-        db.collection("channels").whereField("participants", arrayContains: user!.id).getDocuments { (snapshot, error) in
+        db.collection("channels").whereField("participants", arrayContains: user!.id).addSnapshotListener { (snapshot, error) in
             if let error = error {
                 failure(error)
             } else {
@@ -387,6 +391,41 @@ class Utility {
                 })
             }
         }
+//        db.collection("channels").whereField("participants", arrayContains: user!.id).getDocuments { (snapshot, error) in
+//            if let error = error {
+//                failure(error)
+//            } else {
+//                var channels = [Channel]()
+//                for document in snapshot!.documents {
+//                    let data = document.data()
+//                    channels.append(Channel(id: document.reference,
+//                                            participants: data["participants"] as! [String],
+//                                            listing: data["listing"] as! DocumentReference,
+//                                            title: data["title"] as! String,
+//                                            date: (data["latestDate"] as? Timestamp)?.dateValue() ?? Date.init()))
+//                }
+//                let group = DispatchGroup()
+//                var data = [Channel]()
+//                for var channel in channels {
+//                    for listingUser in channel.participants {
+//                        if listingUser != user!.id {
+//                            group.enter()
+//                            getUserInformation(userID: listingUser, success: { (user) in
+//                                channel.username = user.name
+//                                data.append(channel)
+//                                group.leave()
+//                            }, failure: { (error) in
+//                                failure(error)
+//                            })
+//                        }
+//                    }
+//                }
+//
+//                group.notify(queue: .main, execute: {
+//                    success(data)
+//                })
+//            }
+//        }
     }
     
     static func databaseReadChannel(fromReference reference: DocumentReference, success: @escaping SuccessChannel, failure: @escaping Failure) {
@@ -408,7 +447,8 @@ class Utility {
         let newChannel = db.collection("channels").addDocument(data: [
             "listing": listing.reference!,
             "participants": [user?.id, listing.user?.documentID],
-            "title": listing.title
+            "title": listing.title,
+            "previewImage": listing.imageRefs.first as Any
         ]) { (error) in
             if let error = error {
                 failure(error)
@@ -496,13 +536,15 @@ class Utility {
         let userStorage = Storage.storage().reference(withPath: "images/\(user!.id)")
         let asyncGroup = DispatchGroup()
         var imageNameList = [String]()
+        var index = 0
         
         for image in images {
             asyncGroup.enter()
-            let imageName = randomString(length: 30) + ".jpg"
+            let imageName = String(index) + randomString(length: 30) + ".jpg"
             let imageReference = userStorage.child(imageName)
             let metadata = StorageMetadata()
             metadata.contentType = "image/jpeg"
+            index += 1
             imageReference.putData(image.jpegData(compressionQuality: 0.5)!, metadata: metadata) { (metadata, error) in
                 if error != nil {
                     failure(error!)
@@ -536,11 +578,15 @@ extension Utility {
     }
     
     static func parseChannel(from data: [String: Any], reference: DocumentReference) -> Channel {
-        return Channel(id: reference,
-                       participants: data["participants"] as! [String],
-                       listing: data["listing"] as! DocumentReference,
-                       title: data["title"] as! String,
-                       date: (data["latestDate"] as? Timestamp)?.dateValue() ?? Date.init())
+        var channel = Channel(id: reference,
+                              participants: data["participants"] as! [String],
+                              listing: data["listing"] as! DocumentReference,
+                              title: data["title"] as! String,
+                              date: (data["latestDate"] as? Timestamp)?.dateValue() ?? Date.init())
+        if data["previewImage"] != nil {
+            channel.previewImage = data["previewImage"] as? String
+        }
+        return channel
     }
     
     static func parseMessage(from data: [String: Any], withID id: String) -> Message {

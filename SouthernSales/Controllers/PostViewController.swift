@@ -25,12 +25,12 @@ class PostViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Colors.BackgroundColor
+        view.backgroundColor = .backgroundColor
         navigationController?.navigationBar.barStyle = .black
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapOnSlideshow))
         imageSlideshow.addGestureRecognizer(gestureRecognizer)
         imageSlideshow.setImageInputs([ImageSource(image: UIImage.init(named: "placeholder")!)])
-        imageSlideshow.backgroundColor = Colors.BackgroundColor
+        imageSlideshow.backgroundColor = .backgroundColor
         
         if isUpdating, let listing = listing {
             title = "Update Listing"
@@ -45,7 +45,11 @@ class PostViewController: UIViewController {
     
     @IBAction func resetPost(_ sender: Any) {
         if isUpdating {
-            dismiss(animated: true, completion: nil)
+            if let nvc = self.navigationController {
+                nvc.popViewController(animated: true)
+            } else {
+                self.dismiss(animated: true, completion: nil)
+            }
         } else {
             titleText.text = ""
             priceText.text = ""
@@ -124,9 +128,9 @@ class PostViewController: UIViewController {
     func openPicker() {
         var config = YPImagePickerConfiguration()
         config.startOnScreen = .library
-        config.colors.tintColor = Colors.TintColor
-        config.colors.coverSelectorBorderColor = Colors.TintColor
-        config.bottomMenuItemSelectedColour = Colors.TintColor
+        config.colors.tintColor = .tintColor
+        config.colors.coverSelectorBorderColor = .tintColor
+        config.bottomMenuItemSelectedColour = .tintColor
         config.library.maxNumberOfItems = 10
         config.library.mediaType = .photo
         let picker = YPImagePicker(configuration: config)

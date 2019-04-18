@@ -25,10 +25,10 @@ class ChatViewController: MessagesViewController {
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
-        messagesCollectionView.backgroundColor = Colors.BackgroundColor
+        messagesCollectionView.backgroundColor = .backgroundColor
         
         messageInputBar.delegate = self
-        messageInputBar.tintColor = Colors.TintColor
+        messageInputBar.tintColor = .tintColor
         
         if listing != nil {
             title = "New Message"

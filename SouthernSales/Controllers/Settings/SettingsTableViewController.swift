@@ -13,20 +13,21 @@ class SettingsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.backgroundColor = Colors.BackgroundColor
+        tableView.backgroundColor = .backgroundColor
         navigationController?.navigationBar.barStyle = .black
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
+        /*if section == 0 {
             return 3
-        } else if section == 1 {
+        } else */
+        if section == 0 {
             return 1
         } else {
             return 5
@@ -36,7 +37,7 @@ class SettingsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "settingsCell", for: indexPath)
 
-        if indexPath.section == 0 {
+        /*if indexPath.section == 0 {
             if indexPath.row == 0 {
                 cell.textLabel?.text = "Photo"
                 cell.isUserInteractionEnabled = false
@@ -47,11 +48,12 @@ class SettingsTableViewController: UITableViewController {
                 cell.textLabel?.text = "Notifications"
                 cell.isUserInteractionEnabled = false
             }
-        }  else if indexPath.section == 1 {
+        }  else */
+        if indexPath.section == 0 {
             cell.textLabel?.text = "Manage Listings"
         } else {
             if indexPath.row == 0 {
-                cell.textLabel?.text = "Help"
+                cell.textLabel?.text = "Help - Currently Disabled"
                 cell.isUserInteractionEnabled = false
             } else if indexPath.row == 1 {
                 cell.textLabel?.text = "Terms & Conditions"
@@ -69,7 +71,7 @@ class SettingsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
-            return "Profile"
+            return "Listings"
         } else {
             return "Support"
         }
@@ -77,8 +79,6 @@ class SettingsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            
-        } else if indexPath.section == 1 {
             performSegue(withIdentifier: Constants.SettingsToManageListingsSegue, sender: nil)
         } else {
             if indexPath.row == 1 {

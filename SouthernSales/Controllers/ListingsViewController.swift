@@ -7,7 +7,6 @@
 //
 
 import UIKit
-//import GoogleSignIn
 import FirebaseAuth
 import NVActivityIndicatorView
 import FirebaseStorage
@@ -29,13 +28,12 @@ class ListingsViewController: UIViewController, NVActivityIndicatorViewable {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "ListingsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
-        collectionView.backgroundColor = Colors.BackgroundColor
+        collectionView.backgroundColor = .backgroundColor
         collectionView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(updateListings), for: .valueChanged)
-        refreshControl.tintColor = Colors.TintColor
+        refreshControl.tintColor = .tintColor
         
         navigationController?.navigationBar.barStyle = .black
-        
         searchBar.delegate = self
         searchBar.tintColor = .white
         searchBar.returnKeyType = .done
@@ -121,7 +119,7 @@ extension ListingsViewController: UICollectionViewDataSource, UICollectionViewDe
         
         if listing.imageRefs.count > 0 {
             let userImageRef = Storage.storage().reference(withPath: "images/\(listing.user!.documentID)")
-            let previewImageRef = userImageRef.child("/\(listing.imageRefs[0])")
+            let previewImageRef = userImageRef.child("/\(listing.imageRefs.first!)")
             cell.previewImageView.sd_setImage(with: previewImageRef, placeholderImage: UIImage.init(named: "placeholder"))
         } else {
             cell.previewImageView.image = UIImage.init(named: "placeholder")

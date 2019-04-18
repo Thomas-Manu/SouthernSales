@@ -64,9 +64,9 @@ struct Message: MessageType {
 //        self.init(kind: .location(locationItem), sender: sender, messageId: messageId, date: date)
 //    }
     
-//    init(emoji: String, sender: Sender, messageId: String, date: Date) {
-//        self.init(kind: .emoji(emoji), sender: sender, messageId: messageId, date: date)
-//    }
+    init(emoji: String, sender: Sender, messageId: String, date: Date) {
+        self.init(kind: .emoji(emoji), sender: sender, messageId: messageId, date: date)
+    }
 }
 
 extension Message: Equatable {
