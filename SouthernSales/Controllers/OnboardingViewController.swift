@@ -50,7 +50,7 @@ class OnboardingViewController: UIViewController, PaperOnboardingDataSource, Pap
                                titleFont: UIFont.systemFont(ofSize: 30),
                                descriptionFont: UIFont.systemFont(ofSize: 14)),
             
-            OnboardingItemInfo(informationImage: UIImage.init(named: "placeholder")!,
+            OnboardingItemInfo(informationImage: UIImage.init(named: "onboard1")!,
                                title: "Post and View Advertisments",
                                description: "You can post your own ads for everyone to see. You can also just browse through all the ads that have been posted by fellow students.",
                                pageIcon: UIImage.init(named: "logo_noWords")!,
@@ -60,7 +60,7 @@ class OnboardingViewController: UIViewController, PaperOnboardingDataSource, Pap
                                titleFont: UIFont.systemFont(ofSize: 22),
                                descriptionFont: UIFont.systemFont(ofSize: 14)),
             
-            OnboardingItemInfo(informationImage: UIImage.init(named: "placeholder")!,
+            OnboardingItemInfo(informationImage: UIImage.init(named: "onboard2")!,
                                title: "Message Sellers",
                                description: "No need to go searching for phone numbers or emails! All you have to do when you find an ad you like is to just send a message to the seller in the same app.",
                                pageIcon: UIImage.init(named: "logo_noWords")!,
@@ -70,7 +70,7 @@ class OnboardingViewController: UIViewController, PaperOnboardingDataSource, Pap
                                titleFont: UIFont.systemFont(ofSize: 22),
                                descriptionFont: UIFont.systemFont(ofSize: 14)),
             
-            OnboardingItemInfo(informationImage: UIImage.init(named: "placeholder")!,
+            OnboardingItemInfo(informationImage: UIImage.init(named: "onboard3")!,
                                title: "Enjoy",
                                description: "We hope you use this app and share it with everyone else in this school! Swipe to move into the app.",
                                pageIcon: UIImage.init(named: "logo_noWords")!,

@@ -280,8 +280,8 @@
 		EA0D648221992B810015BEAA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				EA3C8F3C2267F53A0093353D /* New Group1 */,
-				EA3C8F3B2267F5140093353D /* New Group */,
+				EA3C8F3C2267F53A0093353D /* Listings */,
+				EA3C8F3B2267F5140093353D /* Initial */,
 				EA5D77C2225A9117004EE329 /* Messages */,
 				EAAC35262252900A0097D3B7 /* Settings */,
 				EA7A685C2199EB130026C7DE /* ProfileViewController.swift */,
@@ -312,17 +312,17 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		EA3C8F3B2267F5140093353D /* New Group */ = {
+		EA3C8F3B2267F5140093353D /* Initial */ = {
 			isa = PBXGroup;
 			children = (
 				EA3DAF0F22235C15009CBFB1 /* OnboardingViewController.swift */,
 				EA2017F2223F408300C841C0 /* SignInViewController.swift */,
 				EA306B3021C7235E00E3A1E4 /* SplashViewController.swift */,
 			);
-			path = "New Group";
+			path = Initial;
 			sourceTree = "<group>";
 		};
-		EA3C8F3C2267F53A0093353D /* New Group1 */ = {
+		EA3C8F3C2267F53A0093353D /* Listings */ = {
 			isa = PBXGroup;
 			children = (
 				EA7A685F219A0AFF0026C7DE /* ListingsViewController.swift */,
@@ -330,7 +330,7 @@
 				EA7A68582199EAF70026C7DE /* SavedCollectionViewController.swift */,
 				EAC05CB021F6C23000F91634 /* ViewListingViewController.swift */,
 			);
-			path = "New Group1";
+			path = Listings;
 			sourceTree = "<group>";
 		};
 		EA5D77C1225A90F2004EE329 /* Helpers */ = {

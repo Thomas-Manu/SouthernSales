@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 import GoogleSignIn
 
 class SignInViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
@@ -32,9 +33,18 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDele
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if error != nil {
             print(error)
-        } else {
+            return
+        }
+        guard let authentication = user.authentication else { return }
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
+        Auth.auth().signInAndRetrieveData(with: credential) { (authResult, error) in
+            if let error = error {
+                print(error)
+//                return
+            }
             let initialController = self.storyboard?.instantiateViewController(withIdentifier: "initialView")
             self.present(initialController!, animated: true, completion: nil)
+            print("[SVC] User with email: \(String(describing: authResult?.additionalUserInfo?.profile?["email"] as! String)) is signed in")
         }
     }
 

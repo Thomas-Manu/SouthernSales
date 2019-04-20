@@ -76,14 +76,17 @@ class MessagesTableViewController: UITableViewController, NVActivityIndicatorVie
 
 extension MessagesTableViewController {
     func pullData() {
+        startAnimating(type: NVActivityIndicatorType.ballScaleRippleMultiple)
         Utility.databaseReadChannels({ (channels) in
             self.channels = channels
             self.channels.sort { (lhs, rhs) -> Bool in
                 return lhs.latestDate > rhs.latestDate
             }
             self.tableView.reloadData()
+            self.stopAnimating()
         }) { (error) in
             print("[MTVC] Error: \(error)")
+            self.stopAnimating()
         }
     }
 }
