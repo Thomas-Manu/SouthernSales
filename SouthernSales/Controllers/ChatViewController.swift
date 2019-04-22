@@ -70,6 +70,7 @@ extension ChatViewController {
                 return lhs.sentDate < rhs.sentDate
             }
             self.messagesCollectionView.reloadData()
+            self.messagesCollectionView.scrollToBottom(animated: true)
         }, change: { (change) in
             self.handleNewMessages(change)
         }) { (error) in

@@ -209,6 +209,7 @@ PODS:
 
 DEPENDENCIES:
   - Crashlytics
+  - Fabric
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database

@@ -25,6 +25,7 @@ use_frameworks!
     pod 'Firebase/Messaging'
     pod 'Firebase/Auth'
     pod 'Firebase/Firestore'
+    pod 'Fabric'
     pod 'Crashlytics'
     pod 'FirebaseUI/Auth'
     pod 'FirebaseUI/Google'

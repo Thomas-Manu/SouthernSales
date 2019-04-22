@@ -87,6 +87,7 @@ class Utility {
                 failure(error)
             } else {
                 guard let snapshot = snapshot, let data = snapshot.data() else {
+                    failure(NSError(domain: "", code: 418, userInfo: [NSLocalizedDescriptionKey: "No data available."]))
                     return
                 }
                 success(User(id: userID,
@@ -162,6 +163,7 @@ class Utility {
                 print("Error getting documents: \(err)")
             } else {
                 guard let snapshot = snapshot else {
+                    failure(NSError(domain: "", code: 418, userInfo: [NSLocalizedDescriptionKey: "No data available."]))
                     return
                 }
                 for document in snapshot.documents {
@@ -291,7 +293,7 @@ class Utility {
                 print("Error getting document: \(err)")
             } else {
                 guard let data = snapshot?.data() else {
-                    success(nil)
+                    failure(NSError(domain: "", code: 418, userInfo: [NSLocalizedDescriptionKey: "No data available."]))
                     return
                 }
                 if let documentRefs = data["favorites"] as? [DocumentReference] {
@@ -434,6 +436,7 @@ class Utility {
                 failure(error)
             } else {
                 guard let snapshot = snapshot else {
+                    failure(NSError(domain: "", code: 418, userInfo: [NSLocalizedDescriptionKey: "No data available."]))
                     return
                 }
                 success(parseChannel(from: snapshot.data()!, reference: reference))
@@ -471,6 +474,7 @@ class Utility {
             } else {
                 var messages = [Message]()
                 guard let documents = snapshot?.documents else {
+                    failure(NSError(domain: "", code: 418, userInfo: [NSLocalizedDescriptionKey: "No data available."]))
                     return
                 }
                 for document in documents {
@@ -488,6 +492,7 @@ class Utility {
     
     static func databaseSendMessage(message: String, throughChannel channel: Channel, success: @escaping (Date) -> Void, failure: @escaping Failure) {
         guard let user = getCurrentUser() else {
+            failure(NSError(domain: "", code: 418, userInfo: [NSLocalizedDescriptionKey: "No data available."]))
             return
         }
         let data: [String: Any] = [

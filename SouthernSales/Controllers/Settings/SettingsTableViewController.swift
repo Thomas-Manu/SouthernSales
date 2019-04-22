@@ -77,6 +77,13 @@ class SettingsTableViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        if section == 1, let version = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String {
+            return "Version " + version
+        }
+        return ""
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             performSegue(withIdentifier: Constants.SettingsToManageListingsSegue, sender: nil)

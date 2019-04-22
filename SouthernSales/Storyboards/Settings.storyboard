@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -42,21 +43,13 @@
                             <outlet property="delegate" destination="iq0-P8-Fzc" id="YuN-Dt-4Z2"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Settings" id="FJT-VG-zRm">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="u3T-Xl-cCO">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <segue destination="OCa-t2-KwX" kind="unwind" unwindAction="backToProfileWithSegue:" id="bu6-D7-xhZ"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Settings" id="FJT-VG-zRm"/>
                     <connections>
                         <segue destination="Nqe-Uw-Ob9" kind="show" identifier="settingsToLicensesSegue" id="EP8-4R-Cp1"/>
                         <segue destination="Xv2-VU-ZFS" kind="show" identifier="settingsToManageListingsSegue" id="mwv-NQ-Uc0"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RaI-ye-kUB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="OCa-t2-KwX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="6047.826086956522" y="2275.4464285714284"/>
         </scene>

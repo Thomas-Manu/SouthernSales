@@ -11,7 +11,6 @@ import Firebase
 import GoogleSignIn
 import IQKeyboardManagerSwift
 import UserNotifications
-//import FirebaseMessaging
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, MessagingDelegate {
@@ -90,13 +89,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate, Messag
         print("[AppDelegate] Firebase registration token: \(fcmToken)")
         UserDefaults.standard.set(fcmToken, forKey: "RemoteToken")
         Utility.databasePushRemoteTokenToUser()
-//        InstanceID.instanceID().instanceID { (result, error) in
-//            if let error = error {
-//                print("[AppDelegate] Error fetching remote instance ID: \(error)")
-//            } else if let result = result {
-//                print("[AppDelegate] Remote instance ID token: \(result.token)")
-//            }
-//        }
     }
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
