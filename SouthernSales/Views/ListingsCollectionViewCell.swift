@@ -35,10 +35,10 @@ class ListingsCollectionViewCell: UICollectionViewCell {
 
     }
     
-    func configure(title: String, price: Double) {
+    func configure(title: String, price: String) {
 //        previewImageView?.image = previewImage
         titleLabel?.text = title
-        priceLabel?.text = String.init(format: "$%.2f", price)
+        priceLabel?.text = price
     }
 
 }

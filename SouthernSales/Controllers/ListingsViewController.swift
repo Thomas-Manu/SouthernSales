@@ -32,6 +32,7 @@ class ListingsViewController: UIViewController, NVActivityIndicatorViewable {
         collectionView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(updateListings), for: .valueChanged)
         refreshControl.tintColor = .tintColor
+        NotificationCenter.default.addObserver(self, selector: #selector(updateListings), name: .didPostNewListing, object: nil)
         
         navigationController?.navigationBar.barStyle = .black
         searchBar.delegate = self
@@ -115,7 +116,7 @@ extension ListingsViewController: UICollectionViewDataSource, UICollectionViewDe
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ListingsCollectionViewCell
         let listing = isSearching ? searchData[indexPath.row] : listingsData[indexPath.row]
-        cell.configure(title: listing.title, price: listing.price)
+        cell.configure(title: listing.title, price: listing.dollarFormat())
         
         if listing.imageRefs.count > 0 {
             let userImageRef = Storage.storage().reference(withPath: "images/\(listing.user!.documentID)")

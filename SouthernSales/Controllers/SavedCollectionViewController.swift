@@ -75,7 +75,7 @@ class SavedCollectionViewController: UICollectionViewController, NVActivityIndic
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ListingsCollectionViewCell
         let listing = listingsData[indexPath.row]
-        cell.configure(title: listing.title, price: listing.price)
+        cell.configure(title: listing.title, price: listing.dollarFormat())
         
         let userImageRef = Storage.storage().reference(withPath: "images/\(listing.user!.documentID)")
         let previewImageRef = userImageRef.child("/\(listing.imageRefs[0])")

@@ -187,9 +187,13 @@ class Utility {
             if let error = error {
                 failure(error)
             } else {
-                var listing = parseListing(from: snapshot!.data()!)
-                listing.reference = snapshot?.reference
-                success(listing)
+                if let snapshot = snapshot, let data = snapshot.data() {
+                    var listing = parseListing(from: data)
+                    listing.reference = snapshot.reference
+                    success(listing)
+                } else {
+                    failure(NSError(domain: "", code: 418, userInfo: [NSLocalizedDescriptionKey: "No data available."]))
+                }
             }
         }
     }
@@ -306,10 +310,12 @@ class Utility {
                                 failure(err)
                                 print("Error getting document: \(err)")
                             } else {
-                                var listing = parseListing(from: (snapshot?.data())!)
-                                listing.reference = refs
-                                listing.saved = true
-                                listings.append(listing)
+                                if let data = snapshot?.data() {
+                                    var listing = parseListing(from: data)
+                                    listing.reference = refs
+                                    listing.saved = true
+                                    listings.append(listing)
+                                }
                             }
                             asyncGroup.leave()
                         })
@@ -317,10 +323,12 @@ class Utility {
                     asyncGroup.notify(queue: .main, execute: {
                         if listings.count != 0 {
                             success(listings)
+                        } else {
+                            failure(NSError(domain: "", code: 418, userInfo: [NSLocalizedDescriptionKey: "No data available."]))
                         }
                     })
                 } else {
-                    success(nil)
+                    failure(NSError(domain: "", code: 418, userInfo: [NSLocalizedDescriptionKey: "No data available."]))
                 }
             }
         })
@@ -362,8 +370,12 @@ class Utility {
             if let error = error {
                 failure(error)
             } else {
+                guard let documents = snapshot?.documents else {
+                    failure(NSError(domain: "", code: 418, userInfo: [NSLocalizedDescriptionKey: "No data available."]))
+                    return
+                }
                 var channels = [Channel]()
-                for document in snapshot!.documents {
+                for document in documents {
                     let data = document.data()
                     channels.append(Channel(id: document.reference,
                                             participants: data["participants"] as! [String],
@@ -393,41 +405,6 @@ class Utility {
                 })
             }
         }
-//        db.collection("channels").whereField("participants", arrayContains: user!.id).getDocuments { (snapshot, error) in
-//            if let error = error {
-//                failure(error)
-//            } else {
-//                var channels = [Channel]()
-//                for document in snapshot!.documents {
-//                    let data = document.data()
-//                    channels.append(Channel(id: document.reference,
-//                                            participants: data["participants"] as! [String],
-//                                            listing: data["listing"] as! DocumentReference,
-//                                            title: data["title"] as! String,
-//                                            date: (data["latestDate"] as? Timestamp)?.dateValue() ?? Date.init()))
-//                }
-//                let group = DispatchGroup()
-//                var data = [Channel]()
-//                for var channel in channels {
-//                    for listingUser in channel.participants {
-//                        if listingUser != user!.id {
-//                            group.enter()
-//                            getUserInformation(userID: listingUser, success: { (user) in
-//                                channel.username = user.name
-//                                data.append(channel)
-//                                group.leave()
-//                            }, failure: { (error) in
-//                                failure(error)
-//                            })
-//                        }
-//                    }
-//                }
-//
-//                group.notify(queue: .main, execute: {
-//                    success(data)
-//                })
-//            }
-//        }
     }
     
     static func databaseReadChannel(fromReference reference: DocumentReference, success: @escaping SuccessChannel, failure: @escaping Failure) {

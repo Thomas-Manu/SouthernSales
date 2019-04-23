@@ -28,6 +28,7 @@ class PostViewController: UIViewController {
         view.backgroundColor = .backgroundColor
         navigationController?.navigationBar.barStyle = .black
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapOnSlideshow))
+        NotificationCenter.default.addObserver(self, selector: #selector(resetPost(_:)), name: .didPostNewListing, object: nil)
         imageSlideshow.addGestureRecognizer(gestureRecognizer)
         imageSlideshow.setImageInputs([ImageSource(image: UIImage.init(named: "placeholder")!)])
         imageSlideshow.backgroundColor = .backgroundColor

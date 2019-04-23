@@ -9,8 +9,9 @@
 import UIKit
 import ImageSlideshow
 import SnapKit
+import NVActivityIndicatorView
 
-class ViewListingViewController: UIViewController {
+class ViewListingViewController: UIViewController, NVActivityIndicatorViewable {
 
     @IBOutlet weak var imageSlideshow: ImageSlideshow!
     @IBOutlet weak var descriptionTextView: UITextView!
@@ -85,14 +86,17 @@ class ViewListingViewController: UIViewController {
     }
     
     @IBAction func postListing(_ sender: Any) {
+        startAnimating(type: NVActivityIndicatorType.ballScaleRippleMultiple)
         Utility.cloudStorageUploadImages(with: images, success: { (references) in
             self.listing.imageRefs = references
             Utility.databaseCreateListing(with: self.listing, failure: { (error) in
             }, completion: {
+                self.stopAnimating()
                 NotificationCenter.default.post(name: .didPostNewListing, object: nil)
                 self.navigationController?.popViewController(animated: true)
             })
         }) { (error) in
+            self.stopAnimating()
             print("[VLVC] \(error)")
         }
     }
