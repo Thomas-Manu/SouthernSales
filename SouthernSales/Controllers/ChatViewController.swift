@@ -123,6 +123,7 @@ extension ChatViewController: MessageInputBarDelegate {
                     guard var channel = channel else {
                         return
                     }
+                    self.channel = channel
                     Utility.databaseSendMessage(message: text, throughChannel: channel, success: { (date) in
                         channel.latestDate = date
                     }, failure: { (error) in

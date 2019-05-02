@@ -78,8 +78,8 @@ class SettingsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        if section == 1, let version = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String {
-            return "Version " + version
+        if section == 1, let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String, let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String {
+            return "Version " + version + " " + build
         }
         return ""
     }
@@ -101,7 +101,7 @@ class SettingsTableViewController: UITableViewController {
                 let firebaseAuth = Auth.auth()
                 do {
                     try firebaseAuth.signOut()
-                    present((storyboard?.instantiateViewController(withIdentifier: "signInVC"))!, animated: true, completion: nil)
+                    present((UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "signInVC")), animated: true, completion: nil)
                 } catch let signOutError as NSError {
                     print("Error signing out: \(signOutError)")
                 }
